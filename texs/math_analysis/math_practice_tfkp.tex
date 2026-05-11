@@ -1,0 +1,575 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+
+
+
+\begin{document}
+
+  \begin{center}
+    \subsection*{\S12. Степенные ряды }
+  \end{center}
+
+	\quad \underline{\textbf{Опр:}} $\displaystyle \sum\limits_{n=0}^{+\infty} a_n (z-z_0)^n$, $a_n \in \mathbb{C}$, $\forall n \in \mathbb{N}$ - степенной ряд (по степеням $z_0$). Будем рассматривать $z_0 = 0$ (иначе делаем замену $z - z_0 = \zeta$). 
+	
+	\quad \underline{\textbf{Теорема:}} (первая теорема Абеля) если $\displaystyle\sum\limits_{n=0}^{+\infty}a_n z^n$ сх. в точке $z = z_{*} \neq 0 $, то ряд сх. абсолютно $\forall z$: $|z| < |z_{*}| $. 
+	
+	\quad \underline{\textbf{Д-во:}} Дословно, как для вещественного случая, но надо помнить, что здаесь модуль есть моудль комплексного числа. $\blacksquare$
+
+  \subsubsection*{\centering Радиус и круг сходимости степенного ряда}
+
+  \quad \underline{\textbf{Упр:}} Вспомнить, как доказывали существование радиуса сходимости для вещественного степенного ряда. Можно ли в комплексном случае использовать то же рассуждение?
+
+  \quad Рассмотрим ряд $\displaystyle\sum\limits_{n=0}^{+\infty} a_n z^n $ (комплексный): если ряд сходится в любой точке $z$, будем говорить, что его радиус сходимости $R = +\infty$ (ряд сходиться в круге $|z| < +\infty$). 
+
+  \quad Иначе, пусть ряд сходиться в точке $z_1$ (такая точка существует всегда, например $z=0$) и расходиться в точке $z_2$; $|z_2| > 0$ (такая точка существует, т.к. $R \neq +\infty$); обозначим $|z_2| = R_1$; $|z_1| = r_1$. 
+
+  \quad Рассмотрим $z_3$: $|z_3| = \dfrac{1}{2}\left( |z_1| + |z_2| \right)$ :
+  
+  1) Если ряд сходиться в точке $z_3$, то обозначим $|z_3| = \dfrac{1}{2} \left(|z_1| + |z_2|\right) = r_2$; тогда ряд (по первой теореме Абеля) сходиться $\forall z:$ $|z| < r_2$.
+
+  2) Если ряд расходиться в точке $z_3$, обозначим $R_2 = |z_3|$; тогда ряд расходиться $\forall z:$ $|z| > R_2$
+
+  \quad В случае (1) считаем $R_2 = R_1$ (уточнили область сходимости, не уточнили области расходимости), в случае (2) счиатаем $r_2 = r_1$. 
+
+  \quad Теперь, пусть, в случае (1): $z_3 = z_1 '$; $z_2 = z_2 '$; в случае (2): $z_1 = z_1 '$, $z_3 = z_2 '$; берём любую точку $z_3 '$ такую, что $|z_3 '| = \dfrac{1}{2} \left( |z_1 '| + |z_2 '| \right)$ и повторям для неё то же рассуждение (если в точке $z_3 '$ ряд сходиться, то берём $r_3 = |z_3 '|, R_3 = R_2$; если в точке $z_3'$ ряд расходиться, то берём $r_3 = r_2$, $R_3 = |z_3 '|$). 
+  
+  \quad Так построим две последовательности:
+
+  1) $|z_1| = r_1 \leq r_3 \leq r_2 \leq ... \leq r_n \leq ...$; $\left\{ |z| < r_n \right\}$
+
+  $\left\{ r_n \right\}$ - радиусы областей сходимости; эта последовательность ограничена сверху, так как $\forall n \in \mathbb{N}$ $r_n \leq R_1$;
+
+  2) $|z_2| = R_1 \geq R_2 \geq ... \geq R_n \geq ... $;
+
+  $\left\{ R_n \right\}$ - радиусы областей расходимости. $\left\{|z| > R_n \right\}$; Последовательность $\left\{ R_n \right\}$ ограничена снизу, так как $\forall n \in \mathbb{N}$ $R_n \geq r_1$. 
+
+  $\implies \exists \displaystyle\lim_{n \to \infty} r_n$, $\displaystyle\lim_{n \to \infty} R_n$ - конечные.
+  
+  \quad Если $r_1 = R_1$, построение не нужно. Берём $R = r_1 = R_1 \implies $ в круге $\left\{ |z| < R \right\}$ наш ряд абсолютно сходится; во внешности круга $\left\{ |z| > R \right\}$ ряд расходится. 
+
+  \quad Если $r_1 \neq R_1$ $(r_1 < R_1)$, замечаем, что $R_n > r_n$ $\forall n \in \mathbb{N} \implies 0 < R_n - r_n = \dfrac{R_1 - r_1}{2^{n-1}} \to 0 \Leftrightarrow \lim\limits_{n \to \infty} \dfrac{R_1 - r_1}{2^{n-1}} = 0 \implies \lim\limits_{n \to \infty} R_n = \lim\limits_{n \to \infty} r_n $
+
+  \quad Обозначим $R = R_{\text{сх}}$. Поскольку $R = sup \left\{ r_n \right\} = inf \left\{ R_n \right\}$; очевидно, наш степенной ряд обладает в круге $\left\{ z < R \right\}$ вышеописанными свойствами. Таким образом, мы доказываем следующую теорему:
+
+  \quad \textbf{\underline{Теорема:}} $\displaystyle\forall$ $\sum\limits_{n=0}^{\infty} a_n z^n$ $\exists R \in \mathbb{R}$, $R \geq 0 :$ 1) в круге $\left\{ |z| < R \right\}$ ряд сходится абсолютно; 2) во внешности круга $\left\{ |z| > R \right\} $ ряд расходится. 
+  
+  \quad \textbf{\underline{Опр:}} $R$ - радиус сходимости; $\left\{ |z| < R \right\}$ - круг сходимости степенного ряда.
+
+  \quad \textbf{\underline{Замечание:}} $R = 0$ - ряд сходися только при $z = 0$; $R = \infty$ - круг сходимости вся комплексная плоскость. 
+
+  \quad \textbf{\underline{Теорема:}} Ряд $\sum\limits_{n=0}^{\infty} a_n z^n$ сходится равномерно $\forall z \in \left\{ |z| \leq r \right\}$, где $r \in (0; R_{\text{сх}})$. 
+
+  \quad \textbf{\underline{Д-во:}} Воспользуемся признаком Вейерштрасса равномерной сходимости. 
+
+  \quad Пусть $r \in (0; R) \implies $ при $z = r$ ряд сходится абсолютно по определению радиуса сходимости, т.е. $\displaystyle\sum\limits_{n=0}^{\infty} |a_n| \cdot r^n$ сходится. Если $|z| < r \implies |a_n z^n| \leq |a_n| \cdot r^n$, т.е. есть такая числовая последовательность, которая мажинирует нашу функциональную, а значит работает признак Вейерштрасса $\blacksquare$. 
+
+  \quad \textbf{\underline{Пример.}} Ряд $\displaystyle\sum\limits_{n=0}^{\infty} z^n$ - очевидно равномерно сходится в любом круге $\left\{ |z| < r \right\}$, где $r \in (0; 1)$, и расходится $\forall z: |z| \geq 1$, $R_{\text{сх}} = 1$. 
+
+  \quad Геометрическая прогрессия не является равномерно сходящимся рядом в круге $\left\{ |z| < 1 \right\}$. Действительно, иначе было бы верно:
+
+  $ z^n \rightrightarrows 0 $ $\forall z \in \left\{ |z| < 1 \right\} \Leftrightarrow |z|^n \rightrightarrows 0$ $\forall z \in \left\{|z| <  1\right\} $ т.е. $t^n \rightrightarrows 0$ $\forall t \in \left[ 0; 1 \right)$, однако это не так (Почему? \textbf{Упражнение}). 
+
+  \quad \textbf{\underline{Следствие:}} Степенной ряд можно почленно дифференцировать и интегрировать в круге сходимости, причём радиусы сходимости получившихся при этом рядов совпадают с радиусом сходимости исходного ряда. 
+
+  \quad \textbf{\underline{Д-во:}} Теорема "о поведении степенного ряда степенного ряда внутри круга сходимости" говорит, что степенной ряд в своём круге сходимости $D = \left\{ |z| < R \right\}$ удовлетворяет условиям теоремы Вейерштрасса, следовательно можно почленно дифференцировать (даже бесконечно много раз) и интегрировать (см. замечание после теоремы Вейештрасса). Докажем лишь утверждение о радиусах сходимости. 
+  \quad Рассмотрим ряды: 
+
+  \begin{center}
+    $\displaystyle\sum\limits_{n=0}^{\infty} a_n \displaystyle\int\limits_{0}^{z}\zeta^n d\zeta = \displaystyle\sum\limits_{n=0}^{\infty} \dfrac{a_n}{n+1} z^{n+1}$, $R_1$ - радиус сходимости. 
+  
+    $\displaystyle\sum\limits_{n=0}^{\infty} a_n \dfrac{d(z^n)}{dz} = \displaystyle\sum\limits_{n=1}^{\infty} na_n z^{n-1}$, $R_2$ - радиус сходимости. 
+  \end{center}
+
+  \quad Поскольку оба ряда сходятся в области $D$, имеем $R_1 \geq R, R_2 \geq R$. 
+
+  \quad Дифференцируя первый из этих рядов почленно в его круге сходимости, получаем исходный ряд $\implies R \geq R_1$; интегрируя второй, получаем исходный ряд $\implies R \geq R_2$ $\blacksquare$.
+
+  \quad \textbf{\underline{Важное замечание:}} Надо напомнить, что для степенного ряда $ \displaystyle\sum\limits_{n=0}^{\infty} a_n (z-z_0)^n $ круг сходимости будет $D = \left\{ |z-z_0| < R_{\text{сх}} \right\}$ с центром в точке в $z_0 \neq 0$. 
+
+  \quad \textbf{\underline{Теорема (вторая теорема Абеля):}} Если степенной ряд сходится в некоторой точке окружности круга сходимости, то он равномерно сходится на всём радиусе сходимости, проведённом в эту точку. (принимаем без доказательства). 
+
+  \quad \textbf{\underline{Примеры:}}
+
+  1) Рассмотрим ряды $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{z^n}{n}$ и $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{z^n}{n^2}$. Найдём их радиусы сходимости:
+
+  \quad Для первого ряда: рассмотрим $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{|z|^n}{n}$; на абсолютную сходимость можно исследовать с помощью признака Д'Аламбера:
+
+  \begin{center}
+    $\lim\limits_{n \to \infty} \dfrac{|z|^{n+1}}{n+1} \cdot \dfrac{n}{|z|^n} = \lim\limits_{n \to \infty} \dfrac{n}{n+1} \cdot |z|  = |z| \implies \forall z \in \left\{ |z| < 1 \right\}$ ряд сходится абсолютно, $\forall z \in \left\{ |z| > 1 \right\}$ ряд расходится $\implies R_{\text{сх}} = 1$. 
+  \end{center}
+
+  \quad Аналогично и для второго ряда $R_{\text{сх}}$ (в этом можно убедиться самостоятельно). Очевидно, второй ряд во всём замкнутом круге $\left\{ |z| \leq 1 \right\}$ сходится равномерно, т. к. при $|z| \leq 1$ выполняется неравенство $\dfrac{|z^n|}{n^2} \leq \dfrac{1}{n^2}$; $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{1}{n^2}$ - сходится. 
+
+  \quad Первый ряд расходится при $z=1$, сходится при $z = -1$ условно. Рассмотрим также первый ряд при $z = i : \displaystyle\sum\limits_{n=1}^{\infty} \dfrac{i^4}{n}$. 
+
+  \begin{center}
+    $i^n = e^{i\frac{\pi n}{2}} = \left[ 
+    \begin{array}{c}
+      (-1)^k, \text{ } n =2k \\
+      (-1)^{k-1} \cdot i, \text{ } n =2k -1
+    \end{array} \right. \implies $
+  \end{center}
+  
+  \quad $\implies$ Поскольку ряды $\displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^k}{2k}$ и $\displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^{k-1}}{2k-1}$ сходятся по признаку Лейбница, следовательно и ряд $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{z^n}{n}$ в точке $z = i$ также сходится (условно):
+
+  \begin{center}
+    $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{i^4}{n} = \displaystyle\sum\limits_{k=1}^{\infty}\dfrac{(-1)^k}{2k} + i\displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^{k-1}}{2k-1}$
+
+    $\displaystyle\sum\limits_{n=1}^{\infty} \dfrac{|i^n|}{n} = \displaystyle\sum\limits_{n=1}^{\infty} \dfrac{1}{n}$.
+  \end{center}
+  
+  \quad Таким образом, на окружности круга сходимости степенной ряд может вести себя по-разному, вообще говоря, может быть и по-разному в разных точках окружности.
+
+  2) Вычислим $S(z) = z - \dfrac{z^2}{2} + \dfrac{z^3}{3} - ... + (-1)^{n-1} \dfrac{z^n}{n} + ...$ .
+
+  \quad Знаем, что $\dfrac{1}{1+z} = 1 - z + z^2 - ... + (-1)^n z^n + ...$ (это можно проверить прямо по определению $S(z) = \lim\limits_{n \to \infty} S_n(z)$, $\forall z \in \left\{ |z| < 1 \right\}$; $\forall z \in \left\{ |z| \geq 1\right\}$ общий член не стремится к нулю).
+
+  \quad Интегрируем $\forall z \in \left\{ |z| < 1 \right\}$:
+
+  \begin{center}
+    $\displaystyle\int\limits_{0}^{z} \dfrac{d\zeta}{1 + \zeta} = z - \dfrac{z^2}{2} + \dfrac{z^3}{3} - ... + \dfrac{(-1)^n}{n+1}\cdot z^{n+1} + ... \implies$
+  \end{center}
+
+  $\implies \forall z \in \left\{ |z| < 1\right\}$ будет $S(z) = Ln(1+z) - Ln1$ где под логарифмом понимается любая (одна) ветвь многозначной функции ($\forall z \in \left\{ |z| < 1 \right\}$ обход вокруг $z=-1$ невозможен). Будем считать что мы рассматриваем главную ветвь $\implies ln1 = 0$. Таким образом получим:
+
+  \begin{center}
+    $\ln(1+z) = z - \dfrac{z^2}{2} + \dfrac{z^3}{3} - ... + (-1)^{n-1}\cdot \dfrac{z^n}{n} + ...$
+  \end{center}
+
+  \quad На окружности $\left\{ |z| = 1 \right\}$:
+
+  \quad В точке $z = 1$ получим:
+
+  \begin{center}
+    $ln 2 = 1 - \dfrac{1}{2} + \dfrac{1}{2} - ... + (-1)^{n-1} \cdot \dfrac{1}{n} + ...$
+  \end{center}
+
+  \quad В точке $z \neq -1 $, очевидно, равенство не имеет смысла (функция не определена; ряд расходится);
+
+  \quad В точках $z \pm i $ ряд сходится справа и $ln(1\pm i)$ будет суммой ряда в соответственных точках ($ln(1 \pm i) = ln\sqrt{2} + i\frac{\pi}{4}$); 
+
+  \begin{center}
+    \subsection*{\S13. Разложение ФКП в ряд Тейлора. }
+  \end{center}
+
+  \quad \textbf{\underline{Теорема:}} $f(z): \left\{ |z - a| < R \right\} \rightarrow \mathbb{C}$, $f(z)$ - регулряна $\forall z \in \left\{ |z - a| < R\right\}$, $R \in \mathbb{R}$, $0 < R \leq \infty$ $\implies$ $f(z)$ разлагается в этом круге в стпенной ряд $\displaystyle\sum\limits_{n=0}^{\infty} a_n (z-a)^n$ по степеням $(z - a)$, причём единственным образом.
+
+  \quad \textbf{\underline{Д-во:}} Возьмём $\forall z \in \left\{ |z-a| < R \right\}$; заключим эту точку в круг меньшего радиуса $r : 0 < r < R$, с центром в точке $a$. 
+
+  \quad Пусть $l = \left\{ |\zeta - a| = r \right\}$ - окружность, где $l^+ $ - положительное направление обхода. Так как $f(z)$ регулярна в замкнутом круге $\left\{ |\zeta - a| \leq r \right\}$, то по интегрльной формуле Коши, имеем:\newline
+
+  \begin{center}
+    $f(z) = \dfrac{1}{2\pi i} \displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{\zeta - z} = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{(\zeta - a) - (z- a)} = \dfrac{1}{2\pi i} \displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{\zeta - a} \cdot \dfrac{1}{1 - \frac{z-a}{\zeta - a}}$
+  \end{center}
+
+  \quad Заметим, что при $\zeta \in l$ будет верно, что:
+
+  \begin{center}
+    $\left| \dfrac{z-a}{\zeta - q} \right| = \dfrac{|z - a|}{r} = q < 1 \implies $
+
+    $ \implies \dfrac{1}{1 - \frac{z -a }{\zeta - a}} = 1 + \dfrac{z - a}{\zeta - a} + \left( \dfrac{z - a }{\zeta -a}\right)^2 + ... + \left( \dfrac{z - a}{\zeta -a} \right)^n = \displaystyle\sum\limits_{n=0}^{\infty} \left( \dfrac{z-a}{\zeta -a} \right)^n $
+  \end{center}
+
+  \quad Модуль общего члена $\left| \dfrac{z-a}{\zeta-a} \right|^n = q^n$, $q \in (0, 1) \implies$ геометрическая прогрессия сходится к своей сумме равномерно на окружности $l$ (по признаку Вейерштрасса). Так как $f(z)$ непрерывна, то $|f(z)| \leq M$, $\forall z \in l \implies$
+
+  \quad $\implies \left| \dfrac{f(z)}{2\pi i (\zeta - a)} \right| \leq \dfrac{M}{2 \pi r}$, $\forall z \in l$; умножение ряда на ограниченную функцию не влияет на равномерную сходимости, и полученный ряд можно интегрировать по $l$ почденно. Поэтому имеем:
+
+  \begin{center}
+    $f(z) = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l+} \dfrac{f(\zeta) \zeta}{\zeta - a} + \dfrac{(z-a)}{2 \pi i}\displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{(\zeta - a)^2} + ... + \dfrac{(z-a)^n}{2 \pi i} \displaystyle\int\limits_{l+} \dfrac{f(\zeta) d\zeta}{(\zeta - a)^{n+1}} + ...$
+  \end{center}
+  
+  \quad В полученном разложении $f(z) = \displaystyle\sum\limits_{n=0}^{\infty} a_n (z-a)^n$, причём:
+
+  \begin{center}
+    $a_n = \dfrac{1}{2\pi i}\displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{(\zeta -a)^{n+1}} = \dfrac{f^{(n)}(a)}{n!}$ $\implies$
+  \end{center}
+
+  \quad $\implies f(z) = \displaystyle\sum\limits_{n=0}^{\infty} \dfrac{f^{(n)} (a)}{n!} (z-a)^n$, $\forall z \in \left\{ |z-a| < R \right\}$ - это ряд Тейлора функции $f(z)$ в точке $z = a$.
+
+  \quad Теперь докажем единственность такого разложения:
+
+  \quad Пусть $f(z) = \displaystyle\sum\limits_{n=0}^{\infty} b_n (z-a)^n$, $\forall z \in \left\{ |z-a| < R \right\}$ - сходящийся степенной ряд можно в круге  сходимости дифференцировать почленно бесконечно много раз $\implies$
+
+  \begin{center}
+    $\implies \dfrac{df}{dz} = b_1 + 2b_2(z-a) + 3 b_3(z-a)^2 + ...$
+
+    $\dfrac{d^2 f}{dz^2} = 2b_2 + 3 \cdot 2 b_3 (z-a) + 4\cdot3\cdot2 b_4(z-a)^2 + ...$
+
+    $...$
+  \end{center}
+
+  \quad Подставляя в каждое из равенств $z = a$, видим: $\dfrac{df}{dz} \bigg|_{z=a} = b_1$; $\dfrac{d^2f}{dz^2} \bigg|_{z=a} = 2b_2$, ... $\dfrac{d^n f}{dz^n} \bigg|_{z = a} =  n! \cdot b_n$; $f(a) = b_0$ $\blacksquare$.
+  
+  \quad \textbf{\underline{Опр:}} Если $f(z)$ регулярна в точке $z_0$, то точка $z_0$ - руглярная (или обыкновенная) точка функции $f(z)$. 
+
+  \quad \textbf{\underline{Опр:}} Если $f(z)$ имеет регулярные точки в $ U_{\delta}(z_0)$, $\forall \delta \in \mathbb{R}$, $\delta > 0$ однако в самой точке $z_0$ не является регулярной, то $z_0$ - особая точка $f(z)$.
+
+  \quad Если $\exists U_{\delta}(z_0)$ особой точки $z_0$ функции $f(z)$ такая, что в $\mathring{U}_\delta(z_0)$ нет особых точек $f(z)$, то $z_0$ - изолированная особая точка функции $f(z)$.
+
+  \quad Таким образом наибольший радиус $R_{max}$ круга $\left\{ |z - a| < R\right\}$, в котором $f(z)$ разлагается по степеням $z-a$ - это расстояние от точки $z=a$ до близжайшей особой точки функции $f(z)$. Этот $R_{max}$ есть радиус сходимости $(R_{\text{сх}})$ соответствующего степенного ряда, $R_{max} \leq R_{\text{сх}}$.
+
+  \quad \textbf{\underline{Замечание:}} функцию, регулярную в точке $z = a$, часто называют аналитической в точке $a$.
+
+  \quad \textbf{\underline{Примеры:}} 
+
+  1) $ \underbrace{ln(1 + z)}_{\text{главная ветвь}} = z - \dfrac{z^2}{2} + ... + (-1)^{n-1} \dfrac{z^n}{n} + ...$, $\forall z \in \left\{ |z| < 1 \right\}$.
+
+  \quad $z = -1$ - единственная особая точка на окружности $|z| = 1$
+
+  2) Для $f(z) = e^z \sin z \cos z$ разложение выглядит также, как и в вещественном случае (почему?); соответствующие ряды сходятся $\forall z \in \left\{ |z| < \infty \right\}$. Функция $(z+1)^{m}$ разлагается в биномиальный ряда $\forall z \in \left\{ |z| < 1 \right\}$, $z = -1$ - особая точка; если $m \notin \mathbb{Z}$, значит $z = -1$ - точка ветвления.  
+
+  \begin{center}
+    \subsection*{\S14. Обощённые степенные ряды, разложение в ряд Лорана. }
+  \end{center}
+
+  \quad \textbf{\underline{Опр:}} Ряд вида $\displaystyle\sum\limits_{n=-\infty}^{\infty} a_n (z-a)^n$ (!) - называется обощённым степенным рядом.
+
+  \quad \textbf{\underline{Опр:}} Ряд (!) сходится в некоторой точке $z_{*}$, если в этой точке сходтся оба ряда:
+
+  \begin{center}
+    $\displaystyle\sum\limits_{n=0}^{\infty} a_n (z-a)^n $ (1)
+
+    $\displaystyle\sum\limits_{m=1}^{\infty} \dfrac{a_{-m}}{(z-a)^m}$ (2)
+  \end{center}
+  
+  \quad Ряд (1) - степенной, его область сходимости $\left\{ |z-a| < R_1 \right\}$, где $R_1$ - радиус сходимости рада $R_1$. 
+
+  \quad Ряд (2) - обощённый степенной; он является степенным рядом по степеням перенной $\zeta = \dfrac{1}{z -a} \implies$ его область сходимости $\left\{ |\zeta| < \dfrac{1}{R_2} \right\}$, где $\dfrac{1}{R_2}$ - радиус сходимости степенного ряда $\displaystyle\sum\limits_{m=1}^{\infty} a_{-m} \zeta^2$, т.е. $\left\{ |z-a| > R_2 \right\}$. 
+
+  \quad $\implies$ Если $R_2 < R_1$, то область сходимости исходного ряда (!) - кольцо $\left\{ R_2 < |z-a| < R_1 \right\}$ (не говоря о сходимости на окружностях);
+
+  \quad Если $R_2 \geq R_1 \implies $ область сходимости ряда (!)  либо $\varnothing$, либо окружность $\left\{ |z -a| = R_{1,2} \right\}$ (либо вся, либо часть окружности).
+
+  \quad Из свойств степенных рядов следуют следующие свойства обощённых степеных рядов (пусть ряд (!) сходится в кольце $K = \left\{ R_2 < |z-a| < R_1 \right\} $):
+
+  1) сходится в этом кольце абсолютно.
+
+  2) сходится равномерно $\forall \overline{D} \subset K$.
+
+  3) сумма ряда (!) - регулярная в кольце $K$ ФКП.
+
+  \quad \textbf{\underline{Теорема(о разложении регулярной ФКП в ряд Лорана):}} Пусть $f(z)$ - регулярна в кольце $K = \left\{ r < |z - a| <R \right\} \implies f(z)$ разлагается в кольце $K$ в ряд $\displaystyle\sum\limits_{n=-\infty}^{\infty} a_n (z-a)^n$ вида (!) по степеням $z -a$, и причём единственным образом.
+
+  \quad \textbf{\underline{Д-во:}} возьмём фиксированную $z \in K$, выберем $r_1$, $R_1$: $r < r_1 < R_1 < R$ и $r_1 < |z-a| < R_1 $ (т.е. окружим точку z кольцом, более узким чем K, такое с центром в точке $a$):
+
+  \begin{center}
+    $l_1 = \left\{ |\zeta - a| = r_1 \right\}$; $l_2 = \left\{ |\zeta - a| = R_1 \right\}$
+  \end{center}
+
+  \quad Применяя интегральную формулу Коши для многосвязной области $\overline{D_1}$, получим:
+
+  \begin{center}
+    $f(z) = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_2^+} \dfrac{f(\zeta) d\zeta}{\zeta - z} - \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta) d\zeta}{\zeta - z}$
+
+    $J_1 = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta) d\zeta}{\zeta - z}$; $J_2 = \dfrac{1}{2 \pi i}\displaystyle\int\limits_{l_2^+} \dfrac{f(\zeta) d\zeta}{\zeta -z}$
+  \end{center}
+
+  \quad Точно так же, как в доказательстве теоремы о разложении в ряд Тейлора, доказывается, что:
+
+  \begin{center}
+    $J_2 = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_2^+} \dfrac{f(\zeta) d\zeta}{\zeta - z} = \displaystyle\sum\limits_{n=0}^{\infty} a_n (z-a)^n$
+
+    Где $a_n = \dfrac{1}{2 \pi i}\displaystyle\int\limits_{l_2^+} \dfrac{f(\zeta) d\zeta}{(\zeta - a)^{n+1}}$, $n \in \mathbb{N} \cup \left\{ 0 \right\}$
+    
+  \end{center}
+
+  \quad Важно: теперь, в отличие от условий теоремы о разложении в ряд Тейлора, мы не предполагаем, что $f(\zeta)$ регулярна в круге $\left\{ |\zeta - a| < R_1 \right\}$ (ограниченном окружностью $l_2$), поэтому нельзя сказать, что $a_n = \dfrac{f^{(n) (a)}}{n!}$, \newline $\forall n \in \mathbb{N} \cup \left\{ 0 \right\}$.
+
+  \quad Выше по формуле Коши полученном $f(z) = J_2 - J_1$; рассмотрим второе слагаемое:
+
+  \begin{center}
+
+    $-J_1 = -\dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta) d\zeta}{\zeta - z} = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta) d\zeta}{(z-a) - (\zeta -a)} = \dfrac{1}{2 \pi i} \cdot \dfrac{1}{z-a} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta)d\zeta}{1 - \frac{\zeta - a}{z - a}}$ 
+
+  \end{center}
+
+  \quad Это верно $\forall \zeta \in l_1$. Обозначим $\left| \dfrac{\zeta - a}{z - a} \right| = \dfrac{r_1}{|z-a|} = q \implies $
+
+  \begin{center}
+    $\dfrac{1}{1 - \frac{\zeta - a}{z - a}} = 1 + \dfrac{\zeta - a}{z - a} + \left( \dfrac{\zeta - a}{z - a} \right)^2 + .. + \left( \dfrac{\zeta - a}{z - a} \right)^n + ...$
+  \end{center}
+
+  \quad $|f(\zeta)| \leq M$ $\forall z \in l_1$ в силу непрерывности ФКП; таким образом, рассуждая, как раньше (умножение ряда почленно на ограниченную функцию не изменит равномерной сходимости $\implies$ можно полученный ряд интегрировать почленно), получаем:
+
+  \begin{center}
+    $-J_1 = \displaystyle\sum\limits_{n=1}^{\infty} \dfrac{a_{-n}}{(z-a)^n}$, где $a_n = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l_1^+} \dfrac{f(\zeta) d\zeta}{(\zeta - a)^{n-1}}$, $\forall n \in \mathbb{N} \cup \left\{0 \right\} $  
+  \end{center}
+  
+  \quad Таким образом, применяя полученные разложения $-J_1$, $J_2$, из равенства $f(z) = J_2 - J_1$ имеем $f(z) = \displaystyle\sum\limits_{n=-\infty}^{\infty} a_n (z-a)^n$, где коэфиценты $a_n$ определены $\forall n \in \mathbb{Z}$ и вычисляются по вышеуказаном формулам.
+
+  \quad Заметим, что в формулах подынтегральные функции регулярны в $K = \left\{ r < |z - a| < R \right\}$; поэтому интегрирование по контурам $l_1^+$, $l_2^+$ можно заменить интегрированием по любому простому контуру $l^+$, лежащему внутри кольца $K$ и окружающему точку $a$ (применить интегральную теорему Коши для многосвязных областей):
+
+  \quad Для любой ФКП $g(\zeta)$, регулярной в $K$, все интегралы $\displaystyle\int\limits_{\gamma^+} g(\zeta) d\zeta$, где $\gamma$ - окружность с центром в точке $a$, - одинаковы. 
+
+  \quad Для любого контура $l^+$ ($ l \subset K$, $l$ - простой; окружает точку $a$) можно построить окружность $\gamma \subset K$; $\gamma \cap l = \varnothing \implies$
+
+  \begin{center}
+    $\implies \displaystyle\int\limits_{l^+} g(\zeta) d\zeta = \displaystyle\int\limits_{\gamma^+} g(\zeta) d\zeta$
+  \end{center}
+
+  \quad Поэтому, объединяя формулы, получаем:
+
+  \begin{center}
+    $\forall z \in K : f(z) = \displaystyle\sum\limits_{n=-\infty}^{\infty} a_n (z-a)^n$, где $a_n = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l^+} \dfrac{f(\zeta) d\zeta}{(\zeta - a)^{n+1}}$, $n \in \mathbb {Z}$
+  \end{center}
+
+  \quad $l$ - любой простой кусочно-гладкий контур, лежащий в кольце $K$ и окружающий точку $a$.
+
+  \quad Теперь докажем единственность разложения $f(z)$ в обощённый степенной ряд в условиях теоремы.Пусть в кольце $K$ имеет место разложение $f(z) = \displaystyle\sum\limits_{n=-\infty}^{\infty} b_n (z-a)^n$.
+
+  \quad Возьмём любой простой контур $l$ такой, как выше в формуле для $a_n$. 
+
+  \quad Ряд с $b_n$ для ФКП $f(z)$ сходится равномерно $\forall z \in l$, $r < |z - a| < R \implies 
+  \forall k \in \mathbb{Z}$ функция $\dfrac{1}{(z-a)^{k+1}}$ ограничена на $l$ $\implies$ можно после умножения на такую функцию почленно интегрировать по $l^+$ разложение с $b_n$:
+
+  \begin{center}
+    $\forall k \in \mathbb{Z} : \displaystyle\int\limits_{l^+} \dfrac{f(z) dz}{(z-a)^{k+1}} = \displaystyle\sum\limits_{n=-\infty}^{+\infty} b_n \displaystyle\int\limits_{l^+} (z-a)^{n-k-1} dz$
+  \end{center}
+
+  \quad Покажем, что в правой части этого равенства все интегралы $\displaystyle\int\limits_{l^+} (z-a)^{n-k-1} dz = 0$, кроме одного:
+
+  \begin{center}
+    $n=k : \displaystyle\int\limits_{l^+} \dfrac{dz}{z-a} = 2\pi i$
+  \end{center}
+
+  \quad Действительно, пусть $s = n - k - 1$, $s \in \mathbb{N} \cup \left\{ 0 \right\}$. Если $s \geq 0$, функция $(z-a)^s$ регулярна замкнутой области, ограниченной контуром $l$, и по интегральной теореме Коши $\displaystyle\int\limits_{l^+} (z-a)^s dz = 0$. 
+
+  \quad Если $s \in \mathbb{Z}$, $s < 0$; используем тот факт, что интеграл по $l^+$:
+
+  \begin{center}
+    $\displaystyle\int\limits_{l^+} (z-a)^s dz = \displaystyle\int\limits_{\gamma^+} (z-a)^s dz$, где $\gamma \subset K$; $\gamma = \left\{ |z-a| = r_{*} \right\}$ - окружность
+  \end{center}
+
+  \quad Параметризация окружности $\gamma^+$:
+
+  \begin{center}
+    $z = a + r_{*} e^{i\varphi}$, $\varphi \in [0; 2\pi] \implies$ 
+    $\implies \displaystyle\int\limits_{l^+} \dfrac{dz}{(z-a)^{-s}} = i \displaystyle\int\limits_{0}^{2\pi} (r_{*})^{s+1} e^{i\varphi (1+s)} d\varphi = \left[
+    \begin{array}{c}
+      0, \text{ если } s \neq -1 \\
+      2 \pi i, \text{ если} s = -1
+    \end{array}
+  \right.$
+
+    $\forall k \in \mathbb{Z} : b_k = \dfrac{1}{2 \pi i} \displaystyle\int\limits_{l^+} \dfrac{f(z) dz}{(z-a)^{k+1}}$ $\blacksquare$.
+  \end{center}
+  
+  \quad \textbf{\underline{Опр:}} Полученный в теореме ряд - это ряд Лорана функции $f(z)$ в кольце $K = \left\{ r < |z - a| < R \right\}$, где:
+
+  \begin{center}
+    $\displaystyle\sum\limits_{n=0}^{+\infty} a_n (z-a)^n $ - регулярная часть ряда Лорана;
+
+    $\displaystyle\sum\limits_{n=-\infty}^{-1} a_n (z-a)^n = \displaystyle\int\limits_{n=1}^{+\infty}\dfrac{a_{-n}}{(z-a)^n}$ - главная часть ряда Лорана. 
+  \end{center}
+
+  \quad \textbf{\underline{Замечания:}}
+
+  1) Рассуждая так же, как в случае разложения в ряд Тейлора в круге получим:
+
+  \quad если кольцо $K = \left\{ r < |z - a| < R \right\}$ - кольцо максимальной ширины, внутри которого имеет метсо данное разложение функции $f(z)$ в ряд Лорана $\implies$ на каждой из двух окружностей, ограничивающих кольцо $K$, есть хотя бы одна одна особая точка $f(z)$.
+
+  2) Пусть $K = \left\{ r_{min} < |z - a| < R_{max}  \right\}$ - для функции $f(z)$ кольцо из замечания 1 $\implies$ для соответствующего ряда Лорана оно является кольцом сходимости.
+  
+  \quad Действительно, очевидно, кольцо сходимости $K \subseteq K_{\text{сх}}$, но сходиться в более широкой области он не может, так как сумма ряда регулярна, а $f(z)$ имеет особые точки на границк кольца $K$. 
+
+  3) Колец вида $K = \left\{ r < |z - a| < R \right\}$, в каждом из которых данная ФКП регулярна, может быть несколько (может и бесконечно много). В каждом кольце соответсвующий ему ряд Лорана.
+
+  \quad \textbf{\underline{Примеры:}} 
+  
+  1) Рассмотрим $f(z) = \dfrac{1}{z } + \dfrac{1}{1-z}$. У данной ФКП есть две особые точки $z = 0$, $z = 1$. Кольца с центром в точке $a = 0$:
+
+  \begin{center}
+    $K_1 = \left\{ 0 < |z| < 1\right\}$, $K_2 = \left\{ 1 < |z| < +\infty \right\}$
+  \end{center}
+
+  \quad Кольца с центром в точке $a = 1$:
+
+  \begin{center}
+    $K_1 ' = \left\{ 0 < |z - 1| < 1 \right\}$, $K_2 ' = \left\{ 1 < |z -1| < \infty \right\}$
+  \end{center}
+
+  \quad Разложим $f(z)$ в ряд Лорана в $K_1 '$ (по степеням $z - 1$):
+
+  \begin{center}
+    $f(z) = \dfrac{1}{z} + \dfrac{1}{1-z} = \dfrac{1}{1- z} + \dfrac{1}{1 + z - 1} = \underbrace{\dfrac{1}{1-z}}_{\text{Главная часть}} + \underbrace{\displaystyle\sum\limits_{n=0}^{+\infty} (-1)^n (z-1)^n}_{\text{Регулярная часть}} $
+  \end{center}
+
+  2) Рассмотрим $f(z) = \dfrac{1}{z(z-i)(z-1)} $. У данной ФКП особые точки это $z =0$, $z = i$, $z = 1$. Кольца с центром в точке $a = i$, в которых $f(z)$ разлагается в ряды Лорана по степеням $z - i$
+
+  \begin{center}
+    $K_1 = \left\{ 0 < |z - i| < 1 \right\}$, $K_2 = \left\{ 1 < |z-i| < \sqrt{2} \right\}$, $K_3 = \left\{ \sqrt{2} < |z - i| < +\infty \right\}$.
+  \end{center}
+
+  \quad \textbf{\underline{Упражнение:}} 
+
+  1) Разложите f(z) в ряд Лорана по степеням $z-i$ в кольце $K_2$;
+
+  2) Изобразите и запишите с помощью неравенств кольца, в которых $f(z)$ разлагется в ряды Лорана по степеням $z$; по степеням $z - 1$. Запишите некоторые из соответсвующих разложений.
+
+  \quad \textbf{\underline{Замечание:}} Пусть $f(z)$ регулярна в $K = \left\{ 0 < |z - a| < R \right\} = \mathring{U}_{\delta} (a)$; $R$ - расстояние до близжайшей особой точки (в самой точке $a$ $f(z)$ может быть регулярной или нет) $\implies$ в $K$ можно разложить $f(z)$ в ряд Лорана по степеням $z - a$.  Это и есть ряд Лорана в окрестности точки $a$, именно он характеризует поведение ФКП в этой окрестноти.
+
+  \begin{center}
+    \subsection*{\S15. Аналитическое продолжение регулярной ФКП }
+  \end{center}
+
+  \quad \textbf{\underline{Опр:}} Пусть ФКП $f(z)$ регулярна $\forall z \in D$; область $D \subset D_1$; $F(z)$ регулярна $\forall z \in D_1$; $\forall z \in D : F(z) \equiv f(z) \implies$ $F(z)$ называется аналитическим продолжением функции $f(z)$ из области $D$ в область $D_1$.
+
+  \quad \textbf{\underline{Лемма:}} Пусть $f(z)$ регулярна $ \forall z \in D$; множество точек $E \subset D : E$ - содержит бесконечно много особых точек; $\exists a \in D$; $a$ - предельная точка точка $E$; $f(z) \equiv 0$ $\forall z \in E \implies f(z) \equiv 0 $ $\forall z \in D$. 
+
+  \quad \textbf{\underline{Д-во:}} точка $a$ - предельная для множества $E$, т.е. существует псоледовательность $\{ a_k \}_{k=1}^{\infty}$; $a_k \in E$
+ $\forall k \in \mathbb{N}$; $\lim\limits_{k \to \infty} a_k = a$. Так как $f(z)$ , по условию, регулярна $\forall z \in D \implies f \in C(D)$; в частноти, $f(z) \in C(a) \implies \newline \implies f(a) = \lim\limits_{k \to \infty} f(a_k) = 0$.
+ 
+ \quad Покажем, что $f \equiv 0$ в некоторой окрестноти точки $a$ (от противного): Пусть $\forall \delta \in \mathbb{R}, \delta > 0:$ $\exists z \in U_{\delta} (a) : f(z) \neq 0$. Разложим в этой окрестноти $f(z)$ в ряд Тейлора:
+ 
+\begin{center}
+	$f(z) = c_m (z-a)^m+ c_{m+1} (z-a)^{m+1} + ...$, $c_m = \dfrac{f^m(a)}{m!} \neq 0$, $m > 0$ т.к. $c_0 = 0$
+\end{center}
+
+\quad Ряд имеет коэфицент не равный нулю, по предположению $\implies$ 
+
+\begin{center}
+	$\implies f(z) = (z-a)^{m} (c_m + c_{m+1}(z-a) + ... ) = (z-a)^{m} \varphi (z)$
+\end{center}
+
+\quad $f(z)$ обращается в нуль только в точке $z = a$; $\varphi (z) \neq 0$ $\forall z \in U_{\delta_1} (a)$, $0<\delta_1 \leq \delta \implies$ $\exists ! z \in U_{\delta_1} (a) : f(z) = 0$ и эта точка $z = a$, чего не может быть, т.к. $a = \lim\limits_{k \to \infty} a_k$; $\forall k \in \mathbb{N}$ $f(a_k) = 0$.
+
+\quad Теперь покажем, что $\forall b \in D$ $f(b) = 0$. Область $D$ - связное множество; соеденим точке $a$ и точку $b$ ломаной $L$ целиком лежащей в области $D$. Верно одно из двух :
+
+1) либо на $\forall z \in L$ $f(z) = 0 \implies $ $f(b) = 0$ по непрерывности;
+
+2) либо $\exists c \in L$ такая, что от $a$ до $c$ во всех  точках ломаной $L$ верно $f(z) = 0$; от $c$ до $b$ не во всех точках ломаной $f(z) = 0$, но, очевидно, что точка $c$ является предельной для нулей функции $f \implies $ рассуждая как при доказательстве $f(a) = 0$ получим, что $\exists U_{\delta} (c)$ $\forall z \in U_{\delta} (c)$ $f(z) = 0 \implies \nexists c \in L \implies $ $\blacksquare$.
+
+\quad \textbf{\underline{Теорема (о единственности регулярной функции):}} $f_1(z) ,$ $f_2(z)$ регулярны $\forall z \in D$; $\exists a \in D :$ $a$ - предельная $E \subset D$; множество $E \subset D$ содержит бесконечно много особых точек; $f_1(z) = f_2(z)$ $\forall z \in E \implies f_1(z) = f_2(z) $  $ \forall z \in D$.
+
+\quad \textbf{\underline{Д-во:}} очевидно, следует из \textbf{Леммы} $\blacksquare$.
+
+\quad \textbf{\underline{Следствия:}}
+
+1) Пусть $f_1(z) \equiv f_2(z) $ $\forall z \in \underline{l} \subset D$; $f_1$, $f_2$ - регулярны $\forall z \in D \implies \newline \implies f_1(z) \equiv f_2(z)$ в области $D$.
+
+2) Область $D_1 \subset D$; $f_1$, $f_2$ регулярны $\forall z \in D$; $f_1(z) \equiv f_2(z)$ $\forall z \in D_1 \implies f_1(z) = f_2(z)$ $\forall z \in D$.
+ 
+ \quad Отсюда получается единственность аналитического продолжения. 
+ 
+ \quad Пусть $f(z)$ регулярна $\forall z \in D$, $B \cap D \neq \varnothing $; $B \setminus D \neq \varnothing $. Пусть существует аналитическое продолжение $F(z)$ функции $f(z)$ в области $B \implies $ аналитическое продолжение $f$ единственно. 
+ 
+ \quad Можно построить аналитическое продолжение:
+ 
+ 1) Вдоль цепочки областей;
+ 
+ 2) Вдоль некоторой кривой:
+ 
+ \quad Пусть $f(z)$ регулярна $\forall z \in U_{\delta}(a) \subset D$, $\delta \in \mathbb{R}$, $\delta > 0$; рассмотрим кривую $l$ с началом в точке $a$; $a_1 \in l$. Если можно аналитически продолжить $f(z)$ в некоторую окрестность точки $a_1$, совпадающую с исходной $D = U(a)$ лишь частично, то говорят что продолжение аналитически $f(z)$ из $D$ вдоль кривой $l$. Возмжно, этот процесс можно продолжать. 
+ 
+ \quad \textbf{\underline{Замечания:}}
+
+1) практически, удобно сторить аналитические продолжения с помощью рядов Тейлора. 
+
+\begin{center}
+	$f(z) = \displaystyle\sum\limits_{n=0}^{\infty} c_n (z-a)^n$, $\forall z \in \left\{ |z - a| < R \right\} = D$
+\end{center} 
+
+\quad На границе круга, т.е. $\forall z \in \left\{ |z - a| = R\right\}$ $\exists z_0$ - особая точка (хотя бы одна, т.к. $R = R_{max}$). Пусть на каком-либо радиусе  $z = a + Re^{i\varphi_0}$ особой точки нет; возьмём $z = a_1 = a + \rho_0 e^{i\varphi_0}$; $0 < \rho_0 < R$; в точке $a_1$ функция $f(z) \implies $.
+
+\begin{center}
+	$f(z) = \displaystyle\sum\limits_{n=0}^{\infty} \tilde{c_n} (z-a_1)^n$, $\forall z \in \left\{ |z - a_1| < R_1 \right\} = D_1$
+\end{center} 
+
+\quad Если $D_1 \nsubseteq D$, то сумма ряда будет аналитическим продолжением продолжением исходной $f(z)$ в область $D_1 \setminus D$.
+
+\quad Если $f$ задана в исходном круге $D$ только совим рядом Тейлора, то коэфиценты ряда можно найти зная коэфиценты исходнодного ряда. Либо дифференцируя почленно, находим:
+
+\begin{center} 
+ 	$f^{(m)}(a_1) = \displaystyle\sum\limits_{n=m}^{\infty} c_n n(n-1)\cdot ... \cdot (n-m+1)(a_1 - a)^{n-m} \implies \tilde{c_n} = \dfrac{f^{(m)} (a_1) }{m!}$
+ \end{center} 	
+ 
+ \quad Либо прямо в разложении пишем:
+ 
+ \begin{center}
+ 	$f(z) = \displaystyle\sum\limits_{n=0}^{\infty} c_n \underbrace{((z-a_1) + (a_1 - a))^n}_{\text{бином Ньютона}}$
+ \end{center}
+ 
+ \quad И тем самым находим коэфиценты $\tilde{c_m}$ при $(z - a_1)^m$, $\forall z \in \mathbb{N} \cup \left\{ 0 \right\} $. 
+ 
+ 2) Может оказаться, что при аналитическом продожении регулярной $f(z)$ в область $B$ из области $D$ через область $B_1$ пересечение $B \cap D$ состоит из нескольких областей: $B \cap D = B_1 \cup B_2$
+ 
+ \quad Продолжаем $f(z)$ в $B$ из $D$ через $B_1$; получаем регулярную функцию $F_1(z)$ $\forall z \in B$, притом $f(z) \equiv F_1(z)$, $\forall z \in B_1$. Это означает , что в области $B_2$ возникает многозначная функция. Принято считать, что $B_2$ состоит из "двух листов, лежащих друг на друге", для каждого из них - своя ветвь полученной двузначной функции. Полученную таким образом функцию считают аналитической $\forall z \in D \cup B$.
+ 
+ \quad Возможно, что существуют аналитическое поддолжение $F_2(z)$ функции $f(z)$ в область $B$ через $B_2$; $F_1(z)$ и $F_2(z)$ не обязаны совпадать.Такие многозначные  аналитические функции могут возникать не только при непосредственном аналитическом продолжениии, но и при продолжении вдоль цепочки областей.
+ 
+ 3) Вернёмся к построению из замечания 1. Предположим, что мы аналитически продолжим $f(z)$ из исходного круга по всем направлениям, которые допускают такое продолжени,  иак далеко, сколь это возможно. Тогда придём к области $D$, из которой уже невозможно аналитическое продолжение функции. Множество всех значений всевозможных аналитических продолжения $f(z)$ $\forall z \in D $ назовём $F(z)$. Эту ФКП назовём полной аналитической функцией; $D $ - её область определения.
+ 
+ \quad \underline{Важно:} особые точки элементраных ФКП не могут сплошь заполнять кривые, хотя этих особых  точек может быть сколь угодно много и/или они могут быть не изолированными.
+ 
+ \quad \textbf{\underline{Пример:}}
+
+ \quad Пусть $f(z) = \displaystyle\int\limits_{n=0}^{\infty} z^n$, $D : \left\{ |z| < 1 \right\}$; $a = 0$
+ 
+ \quad Возьмём $a_1 = \dfrac{1}{2}$;
+
+ \begin{center}
+   $F(z) = \displaystyle\sum\limits_{n=0}^{\infty} \tilde{c_n} (z-\dfrac{1}{2})^n$, $D_1 = \left\{ \left|z - \dfrac{1}{2}\right| < R_1 \right\}$
+ \end{center}
+
+ \quad Здесь мы знаем $f(z) = \dfrac{1}{1-z} \implies $
+
+ \begin{center}
+   $\implies \tilde{c_n} = \dfrac{1}{n!} \cdot \dfrac{n!}{(1 - a_1)^{n+1}} = 2^{n+1} \implies$
+
+   $\implies F(z) = \displaystyle\sum\limits_{n=0}^{\infty} 2^{n+1} \left( z - \dfrac{1}{2} \right)^n$
+ \end{center}
+
+ \quad Отсюда нетрудно заметить, что $R_1 = \dfrac{1}{2} \implies D_1 \subset D$ - аналитического продолжения не вышло, но если взять $a_1 \notin [0; 1]$, то: пусть $a_1 = -\dfrac{1}{2} \implies \tilde{c_n} \left( \dfrac{2}{3} \right)^{n+1}$; $R = \dfrac{3}{2}$, $D_1 = \left\{ \left|z+\dfrac{1}{2}\right| < \dfrac{3}{2} \right\}$. 
+ 
+ \begin{center}
+    \subsection*{\S16. Нули и особые точки ФКП.}
+ \end{center}
+
+ \quad Пусть $f(z)$ - регулярна в точке $z = a$; ряд Тейлора $\forall z \in U_{R} (a)$ имеет вид $f(z) = \displaystyle\sum\limits_{n=0}^{\infty} a_n (z-a)^n$.
+
+ \quad \textbf{\underline{Опр:}} Точка $z = a$ называется нулём функции $f(z)$ кратности \newline $m \in \mathbb{N}$, если в разложении ФКП в ряд Тейлора $a_0 = a_1 = ... = a_{m-1} = 0$, $a_m \neq 0$, то есть:
+
+ \begin{center}
+   $f(z) = \displaystyle\sum\limits_{n=m}^{\infty} a_m (z-a)^n$; $m \geq 1$, $a_m \neq 0$
+ \end{center}
+
+ \quad \textbf{\underline{Теорема:}} Пусть $f(z)$ регулярна в точке $a$, $f(a) = 0 \implies $ либо $f(z) \equiv 0$, $\forall z \in U_R (a)$, либо точка $a$ является изолированным нулём $f(z) \Leftrightarrow \exists \delta \in \mathbb{R}$, $\delta > 0 : U_{\delta} (a)$ - не содержит других нулей $f(a)$.
+
+ \quad \textbf{\underline{Д-во:}} $f(a) = 0 \implies $ либо $z = a$ - нуль ФКП $f(z)$ конечной кратности $m \in \mathbb{N}$, либо это не так. 
+
+ \quad Если имеет мето второй случай, тогда в силу регулярности $f(z)$:
+
+ \begin{center}
+   $\left. 
+   \begin{array}{c}
+     f(z) = \displaystyle\sum\limits_{n=0}^{\infty} \dfrac{f^{(n)} (a) (z-a)^n}{n!}, \text{ } \forall z \in U_R (a) \\
+     f^{(n)} (a) = 0, \text{ } \forall n \in \mathbb{N} \cup \left\{ 0 \right\}
+   \end{array}
+   \right| \implies f(z) \equiv 0, \text{ } \forall z \in U_R (a)$
+ \end{center}
+
+ \quad Если имеет место первый случай, тогда точка $z = a$ - нуль $f(z)$ кратности $m \geq 1$, $m \in \mathbb{N} \implies$ 
+ \begin{center}
+   $\implies f(z) = a_m (z-a)^m + a_{m+1} (z-a)^{m+1} + ... $, $\forall z \in U_R (a)$ 
+
+   $f(z) = (z-a)^{m} \underbrace{(a_m + a_{m+1} (z-a) + ... )}_{\varphi (z)}$
+ \end{center}
+
+ \quad $\varphi (z)$ регулярная $\forall z \in U_R (a)$ функция; $\varphi (a) = a_m \neq 0$. Рассмотрим $|\varphi (z)|$ - непрерывная вещественная функция $\implies \exists U_{\delta} (a)$; $0 < \delta < R : |\varphi(z)| \neq 0$, $\forall z \in U_{\delta} (a) \implies \varphi(z) \neq 0$, $\forall z \in U_{\delta} (a) \implies$ точка $z = a$ - единственный нуль функции $f(z)$, $\forall z \in U_{\delta} (a)$ $\blacksquare$.
+
+ \quad \textbf{\underline{Опр:}} Пусть $z = a$ - особая точка $f(z)$; если $\exists U_{\delta} (a) : \forall z \in \mathring{U}_{\delta} (a)$ $f(z)$ регулярна, то $z = a$ называется изолированной особой точкой $f(z)$.
+
+
+ \end{document}
+

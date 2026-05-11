@@ -1,0 +1,482 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[hyperfootnotes=false]{hyperref}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{array}
+\geometry{
+	a4paper,
+	top=24mm,
+	bottom=30mm,
+	left=20mm,
+	right=20mm
+}
+
+\newcommand{\blfootnote}[1]{%
+	\begingroup
+	\renewcommand{\thefootnote}{}%
+	\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+% Отступ первой строки абзаца 1 см
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+\linespread{1}                 % одинарный интервал
+
+% Отключение нумерации страниц
+\pagenumbering{gobble}
+
+% Настройка подписей рисунков и таблиц
+% Используем \caption* для отключения точки, но оставляем обычный \caption
+\usepackage[labelsep=space, justification=centering]{caption}
+\captionsetup[figure]{font=small}   % small = 11pt при 12pt основного шрифта
+\captionsetup[table]{font=small}
+\renewcommand{\figurename}{Рис.}
+\renewcommand{\tablename}{Табл.}
+
+% Убираем точку в конце подписи (переопределяем \caption)
+\usepackage{etoolbox}
+\makeatletter
+\renewcommand{\fnum@figure}{\figurename~\thefigure}
+\renewcommand{\fnum@table}{\tablename~\thetable}
+\apptocmd{\@caption}{\def\@captionheadfont{\normalfont}\def\@captionfont{\normalfont}}{}{}
+\makeatother
+
+% Настройка списка литературы
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}   % нумерация "1.", "2."
+\makeatother
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Задачи по электрдинамике}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы ФФИ: Куликовских Илья}
+		\subsubsection*{Группа: 5030302/30801}
+		\subsubsection*{Преподаватель: Платонов Константин Юрьевич}
+	\end{center}
+	
+	\quad \textbf{Задача 126.} Найти силу $F$ и вращательный момент $N$, приложенные к электрическому диполю с моментом $р$ в поле точечного заряда $q$.
+	
+	\quad \textbf{Решение.} Распишем силу действующую на диполь со стороны поля точечного заряда $q$: 
+	
+	\begin{equation}
+		\vec{F} = \left(\vec{p} \cdot \vec{\nabla}\right)\vec{E}, \quad \vec{E} = -\vec{\nabla}\varphi, \quad \varphi = \dfrac{q}{r} \implies 
+	\end{equation}
+	
+	\begin{equation}
+		\implies\vec{F} = -\left(\vec{p}\cdot\vec{\nabla}\right)\vec{\nabla}\left(\dfrac{q}{\sqrt{x^2 + y^2 + z^2 }}\right)
+	\end{equation}
+	
+	\quad Посчитаем градиент потенциала поля точечного заряда:
+	
+	$ \vec{\nabla} \left(\dfrac{q}{\sqrt{x^2 + y^2 + z^2}}\right) = \left(\dfrac{\partial }{\partial x} \vec{i} + \dfrac{\partial}{\partial y}\vec{j} + \dfrac{\partial}{\partial z} \vec{k}\right) \left(\dfrac{q}{\sqrt{x^2 + y^2 + z^2}}\right) = -\dfrac{xq}{2\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\vec{i} -\newline- \dfrac{yq}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\vec{j} - \dfrac{zq}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\vec{k} = -\dfrac{q\vec{r}}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}} = -\dfrac{q\vec{r}}{r^3}$ 
+	
+	$-\left(\vec{p}\cdot\vec{\nabla}\right) \vec{\nabla} \left(\dfrac{q}{\sqrt{x^2 + y^2 +z^2}}\right) = \left(\vec{p} \cdot \vec{\nabla} \right) \dfrac{q\vec{r}}{r^3} = \left(p_x \dfrac{\partial}{\partial x} + p_y \dfrac{\partial }{\partial y} + p_z \dfrac{\partial}{\partial z}\right) \dfrac{q\vec{r}}{r^3} = q\bigg(p_x \dfrac{\partial }{\partial x} +\newline + p_y \dfrac{\partial}{\partial y} + p_z \dfrac{\partial}{\partial z}\bigg) \left(\dfrac{x\vec{i}}{\left( x^2 + y^2 + z^2 \right)^\frac{3}{2}} + \dfrac{y\vec{j}}{\left( x^2 + y^2 + z^2 \right)^\frac{3}{2}} + \dfrac{z\vec{k}}{\left( x^2 + y^2 + z^2 \right)^\frac{3}{2}}\right) = qp_x\bigg(-\dfrac{3}{2}  2x \dfrac{x\vec{i} + y\vec{j} + z\vec{k}}{\left(x^2 + y^2 + z^2 \right)^\frac{5}{2}} + \newline + \dfrac{\vec{i}}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\bigg) + qp_y\bigg(-\dfrac{3}{2} 2y \dfrac{x\vec{i} + y\vec{j} + z\vec{k}}{\left(x^2 + y^2 + z^2 \right)^\frac{5}{2}} + \dfrac{\vec{j}}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\bigg) + qp_z\bigg(-\dfrac{3}{2}2z \dfrac{x\vec{i} + y\vec{j} + z\vec{k}}{\left(x^2 + y^2 + z^2 \right)^\frac{5}{2}} + \newline + \dfrac{\vec{k}}{\left(x^2 + y^2 + z^2\right)^{\frac{3}{2}}}\bigg) = \dfrac{q\vec{p}}{r^3 } - \dfrac{3\vec{r}\left(\vec{p}\cdot\vec{r}\right)}{r^5}$
+	
+	\begin{equation}
+		\vec{F} = \dfrac{q\vec{p}}{r^3} - \dfrac{3\vec{r}\left(\vec{p}\cdot\vec{r}\right)}{r^5}
+	\end{equation} 
+	
+	\quad Теперь подобным образом выразим вращательный момент: 
+	
+	\begin{equation}
+		\vec{N} = - \vec{p} \times \left(\vec{\nabla} \varphi\right), \quad \varphi = \dfrac{q}{r} \implies \vec{N} = \dfrac{q}{r^3} \left[p\times r\right] 
+	\end{equation} 
+	
+	
+	\quad \textbf{Ответ:} $\vec{N} = \dfrac{q}{r^3} \left[p\times r\right]$, $\vec{F} = \dfrac{q\vec{p}}{r^3} - \dfrac{3\vec{r}\left(\vec{p}\cdot\vec{r}\right)}{r^5}$
+	
+	\quad \textbf{Задача 176.} В пустоте находится плоскопараллельная пластинка из анизотропного однородного диэлектрика с тензором проницаемости $\varepsilon_{ik}$. Вне пластинки однородное электрическое поле $E_0$ . Используя граничные условия для вектора поля, определить поле $E$ внутри пластинки.
+	
+	\quad \textbf{Решение. } Снаружи пластинки воздух с $\varepsilon = 1$:
+	
+	\begin{equation}
+		D_i = \varepsilon_{ik} E_k, \quad \varepsilon_{ik} = 1 \quad  \forall i,k \implies D \equiv E_0
+	\end{equation} 
+	
+	\quad Внутри пластинки: 
+	
+	\begin{equation}
+		D_i = \varepsilon_{ik} E_k
+	\end{equation}
+	
+	\quad Теперь запишем условие на границе раздела двух сред, связав между собой соотношения (5) и (6): (ось $z$ выбрана перпендикулярной пластинке)
+	
+	\begin{equation}
+		E_x = E_{0x}, \quad E_y = E_{0y}, \quad E_{0z} = \varepsilon_{zx} E_x + \varepsilon_{zy} E_y + \varepsilon_{zz} E_z
+	\end{equation}
+	
+	
+	\quad Запишем соотношение (7) в виде системы линейных уравнений: 
+	
+	\begin{equation}
+		\left(\begin{array}{ccc}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			\varepsilon_{zx} & \varepsilon_{zy} & \varepsilon_{zz} \\
+		\end{array}\right) = \left(\begin{array}{c}
+			E_{0x} \\
+			E_{0y} \\
+			E_{0z} \\
+		\end{array}\right)
+	\end{equation}
+	
+	\begin{center}
+		$\Delta = \varepsilon_{zz}$
+		
+		$\Delta_x = E_{0x}\varepsilon_{zz}$, $\Delta_y = E_{0y}\varepsilon_{zz }$, $\Delta_z = (E_{0z} - E_{0y}\varepsilon_{zy}) - E_{0x} \varepsilon_{zx} \implies $
+	\end{center}
+	
+	\quad Таким образом поле внутри пластинки имеет вид:
+	
+	\begin{equation}
+		\implies \vec{E} = \left(E_{0x}, E_{0y}, \dfrac{E_{0z}-E_{0y}\varepsilon_{zy}}{\varepsilon_{zz}} - E_{0x} \dfrac{\varepsilon_{zx}}{\varepsilon_{zz}}\right)
+	\end{equation}
+	
+	\quad \textbf{Ответ:} $\vec{E} = \left(E_{0x}, E_{0y}, \dfrac{E_{0z}-E_{0y}\varepsilon_{zy}}{\varepsilon_{zz}} - E_{0x} \dfrac{\varepsilon_{zx}}{\varepsilon_{zz}}\right)$
+	
+	
+	\quad \textbf{Задача 217.} Поверхность проводника образована двумя сферами с радиусами $R_1$ и $R_2$, пересекающимися по окружности радиуса $a$. Найти ёмкость $C$ этого проводника, исходя из результата решения задачи 206 о проводящем клине в поле точечного заряда и применяя метод инверсии. 
+	
+	\quad \textbf{Решение.} Найдём потенциал поля проводника через решение уравнения Лапласа в тороидальных координатах:
+	
+	\begin{equation}
+		x=a\dfrac{\sin \eta \cos\varphi}{\ch\xi - \cos\eta}, \quad y = a\dfrac{\sin\eta\sin\varphi}{\ch\xi - \cos\eta }, \quad  z = a\dfrac{\sh \xi}{\ch\xi - \cos\eta}
+	\end{equation}
+	
+	\quad Учитывая азимутальную симметрию, имеем уравнение:
+	
+	\begin{equation}
+		\Delta \varphi = \dfrac{\partial }{\partial \xi} \left(\dfrac{1}{\ch\xi - \cos\eta} \dfrac{\partial\varphi}{\partial\xi}\right) + \dfrac{1}{\sin\eta}\dfrac{\partial}{\partial\eta} \left(\dfrac{\sin\eta}{\ch\xi - \cos\eta}\dfrac{\partial \varphi}{\partial \eta}\right) = 0
+	\end{equation}
+	
+	\quad Будем решать уравнение, разделяя переменные по методу Фурье. Для этого необходимо разобраться с видом решения. Запишем лапласиан в виде:
+	
+	\begin{equation}
+		D = f(\xi, \eta), \quad \dfrac{\partial}{\partial\xi} \left(\dfrac{1}{D}\dfrac{\partial \varphi}{\partial \xi}\right) + \dfrac{1}{\sin\eta}\dfrac{\partial}{\partial\eta} \left(\dfrac{\sin\eta}{D} \dfrac{\partial\varphi}{\partial \eta}\right) = 0
+	\end{equation}
+	
+	\begin{center}
+		$\dfrac{1}{D}\dfrac{\partial D}{\partial \xi } = \dfrac{\sh\xi}{\ch\xi - \cos\eta} = \dfrac{\sh\xi}{D}, \quad \dfrac{1}{D}\dfrac{\partial D}{\partial \eta} = \dfrac{\sin\eta}{\ch\xi - \cos\eta} = \dfrac{\sin\eta}{D}$
+	\end{center}
+	
+	\begin{equation}
+		-\dfrac{1}{D^2}\dfrac{\partial D}{\partial \xi} \dfrac{\partial\varphi}{\partial\xi} + \dfrac{1}{D}\dfrac{\partial^2 \varphi}{\partial\xi^2} + \dfrac{\cos\eta}{D\sin\eta} \dfrac{\partial \varphi}{\partial \eta} - \dfrac{1}{D^2} \dfrac{\partial D}{\partial \eta} \dfrac{\partial\varphi}{\partial \eta} + \dfrac{1}{D}\dfrac{\partial^2 \varphi}{\partial\eta^2} = 0
+	\end{equation}
+	
+	\quad Попробуем разделить переменные в виде: $\varphi = \sqrt{D} X(\xi) T(\eta)$:
+	
+	\begin{center}
+		$\dfrac{\partial \varphi}{\partial \xi} = \dfrac{1}{2\sqrt{D}} \dfrac{\partial D}{\partial \xi} X(\xi) T(\eta) + \sqrt{D} \dfrac{d X}{d \xi} T(\eta), \quad \dfrac{\partial \varphi}{\partial \eta} = \dfrac{1}{2\sqrt{D}}\dfrac{\partial D}{\partial \eta} X(\xi)T(\eta) + \sqrt{D} \dfrac{dT}{d\eta}X(\xi)$
+		
+		$\dfrac{\partial^2 \varphi}{\partial \xi^2} = -\dfrac{3}{4D^{\frac{3}{2}}} \left(\dfrac{\partial D}{\partial \xi}\right)^2 X(\xi) T(\eta)  + \dfrac{1}{2\sqrt{D}} \dfrac{\partial^2 D}{\partial \xi^2} X(\xi) T(\eta) + \dfrac{1}{\sqrt{D}} \dfrac{\partial D}{\partial \xi} \dfrac{d X}{d \xi} T(\eta) + \sqrt{D}\dfrac{d^2 X}{d\xi^2} T(\eta)$
+		
+		$\dfrac{\partial^2 \varphi}{\partial \eta^2} = -\dfrac{3}{4D^{\frac{3}{2}}}\left(\dfrac{\partial D}{\partial \eta}\right)^2 X(\xi)T(\eta) + \dfrac{1}{2\sqrt{D}} \dfrac{\partial^2 D}{\partial \eta^2} X(\xi) T(\eta) + \dfrac{1}{\sqrt{D}} \dfrac{\partial X}{\partial \eta} \dfrac{dT}{d\eta} X(\xi) + \sqrt{D}\dfrac{d^2 T}{d\eta^2} X(\xi)$
+	\end{center}
+	
+	\quad После подстановки в уравнение (13), получаем:
+	
+	\begin{equation}
+		\left(\dfrac{\ch \xi}{2\sqrt{D}} - \dfrac{3\sh^2 \xi}{4D^{\frac{3}{2}}} + \dfrac{\cos \eta}{\sqrt{D}} - \dfrac{3\sin^2 \eta}{4D^{\frac{3}{2}}}\right)X(\xi)T(\eta) + \sqrt{D}\dfrac{d^2 X}{d\xi^2} T(\eta) + \ctg\eta \sqrt{D}X(\xi)\dfrac{\partial T}{\partial \eta} + \sqrt{D}X\dfrac{\partial^2 T}{\partial \eta^2} = 0
+	\end{equation}
+	
+	\begin{center}
+		$\left(\dfrac{\ch \xi}{2\sqrt{D}} - \dfrac{3\sh^2 \xi}{4D^{\frac{3}{2}}} + \dfrac{\cos \eta}{\sqrt{D}} - \dfrac{3\sin^2 \eta}{4D^{\frac{3}{2}}}\right) = \dfrac{2D\ch\xi - 3\sh^2\xi + 4D\cos\eta - 3\sin^2 \eta}{4D^{\frac{3}{2}}} = -\dfrac{\sqrt{D}}{4}$
+	\end{center}
+	
+	\begin{center}
+		$-\dfrac{\sqrt{D}}{4}X(\xi)T(\eta) + \sqrt{D}\dfrac{d^2 X}{d\xi^2} T(\eta) + \ctg\eta \sqrt{D}X(\xi)\dfrac{\partial T}{\partial \eta} + \sqrt{D}X\dfrac{\partial^2 T}{\partial \eta^2} = 0 \quad \bigg| \cdot \dfrac{1}{\sqrt{D}X(\xi)T(\eta)}$
+	\end{center}
+	
+	\begin{equation}
+		\dfrac{1}{T(\eta)\sin\eta} \dfrac{d}{d\eta} \left(\sin\eta \dfrac{dT}{d\eta}\right) + \dfrac{1}{X(\xi)} \dfrac{dX}{d\xi} - \dfrac{1}{4} = 0
+	\end{equation}
+	
+	\begin{equation}
+		\dfrac{1}{T(\eta)\sin\eta} \dfrac{d}{d\eta} \left(\sin\eta\dfrac{dT}{d\eta}\right) - \dfrac{1}{4} = -\dfrac{1}{X} \dfrac{d^2 X}{d\xi^2} = \lambda \implies \begin{cases} 
+			\dfrac{d^2 X}{d\xi^2} + \lambda X = 0 \\
+			\dfrac{1}{\sin\eta} \dfrac{d}{d\eta}\left(\sin \eta \dfrac{dT}{d\eta} \right) - \left(\lambda + \dfrac{1}{4} \right) T = 0
+		\end{cases}
+	\end{equation}
+	
+	\quad В системе (16) второе уравнение имеет вид уравнения лежандра. Учитывая это, можно найти собственные числа:
+	
+	\begin{center}
+		$-\left(\lambda + \dfrac{1}{4}\right) = n(n+1) \implies \lambda_n = -\left(n+\dfrac{1}{2}\right)^2 \quad \forall n \in \mathbb{N}\cup\{0\}$
+	\end{center}
+	
+	\quad В таком случае общее решеение имеет вид:
+	
+	\begin{equation}
+		\varphi = \sqrt{\ch\xi - \cos\eta} \displaystyle\sum\limits_{n=0}^{\infty} \left(C_1 e^{-\left(n+\frac{1}{2}\right)\xi} + C_2 e^{\left(n+\frac{1}{2}\right)\xi}\right)P_n(\cos\eta)
+	\end{equation}
+	
+	\quad Уравнение поверхности в тороидальных координатах имеет вид:
+	
+	\begin{equation}
+		\xi = \xi_1 = Const, \quad \xi = \xi_2 = Const 
+	\end{equation}
+	
+	\quad Физически -- поверхность проводника эквипотенциальна, а значит 
+	\begin{equation}
+		\varphi(\xi, \eta)\bigg|_{\xi=\xi_1} = \varphi(\xi, \eta)\bigg|_{\xi = \xi_2} = \varphi_0
+	\end{equation}
+	
+	\quad Рассмотрим $\xi = \xi_1$:
+	
+	\begin{center}
+		$\displaystyle\sum\limits_{n=0}^{\infty} \left(C_1 e^{-\left(n+\frac{1}{2}\right)\xi_1} + C_2 e^{\left(n+\frac{1}{2}\right)\xi_1} \right)P_n(\cos\eta) = \dfrac{\varphi_0}{\sqrt{\ch\xi_1 - \cos\eta}}, \quad f(\eta) = \dfrac{\varphi_0}{\sqrt{\ch\xi_1 - \cos\eta}}$
+		
+		$f(\eta) = \displaystyle\sum\limits_{n=0}^{\infty} f_n P_n(\cos\eta) \implies f_n = \dfrac{\left<f(\eta) | P_n(\cos\eta)\right>}{\left\| P_n(\cos\eta)\right\|^2} $
+		
+		$\displaystyle\int\limits_{0}^{\pi} P_n (\cos\eta) P_k(\cos\eta) \sin\eta d\eta = \dfrac{2}{2n+1}\delta_{nk}, \quad \left\|P_n (\cos\eta)\right\|^2 = \dfrac{2}{2n + 1}$
+		
+		$\dfrac{1}{\sqrt{\ch\xi_1 - \cos\eta}} = \sqrt{2}\displaystyle\sum\limits_{n=0}^{\infty} P_n(\cos\eta)e^{-\xi_1(n+\frac{1}{2})}$
+		
+		$\displaystyle\int\limits_{0}^{\pi} \dfrac{\varphi_0 P_n(\cos\eta)\sin\eta d\eta}{\sqrt{\ch\xi_1 - \cos\eta}} = \sqrt{2}\varphi_0\displaystyle\sum\limits_{k=0}^{\infty}e^{-\xi_1\left(k+\frac{1}{2}\right)}\displaystyle\int\limits_{0}^{\pi} P_n (\cos\eta)P_k (\cos\eta) \sin\eta d\eta = 2^{\frac{3}{2}}\varphi_0  \dfrac{e^{-\xi_1(n+\frac{1}{2})}}{2n+1}$
+	\end{center}
+	
+	\begin{equation}
+		f_n = \dfrac{2n + 1}{2} \displaystyle\int\limits_{0}^{\pi} \dfrac{\varphi_0 P_n (\cos\eta) \sin \eta d\eta}{\sqrt{\ch \xi_1 - \cos\eta}} = \sqrt{2}\varphi_0 e^{-\xi_1 (n+\frac{1}{2})} 
+	\end{equation}
+	
+	\quad Аналогично для $\xi = \xi_2$. Теперь распишем систему уравнений на коэфиценты $C_1$, $C_2$: 
+	
+	\begin{center}
+		$\begin{cases} 
+			C_1 e^{-(n+\frac{1}{2})\xi_1} + C_2 e^{(n+\frac{1}{2})\xi_1} = \sqrt{2}\varphi_0 e^{-\xi_1 (n+\frac{1}{2})} \\
+			C_1 e^{-(n+\frac{1}{2})\xi_2} + C_2 e^{(n+\frac{1}{2})\xi_2} = \sqrt{2}\varphi_0 e^{-\xi_2 (n+\frac{1}{2})}
+		\end{cases} \quad \begin{cases}
+			C_1 = \sqrt{2}\varphi_0 e^{(n+\frac{1}{2})\xi_2} \dfrac{\sh ((n+\frac{1}{2})\xi_1)}{\sh(n+\frac{1}{2})(\xi_1 - \xi_2)} \\
+			C_2 = -\sqrt{2}\varphi_0 e^{-(n+\frac{1}{2})\xi_1} \dfrac{\sh ((n+\frac{1}{2})\xi_2)}{\sh(n+\frac{1}{2})(\xi_1 - \xi_2)}
+		\end{cases}$
+	\end{center}
+	
+	\quad Окончательный вид решения:
+	
+	\begin{equation}
+		\begin{aligned}
+			\varphi(\xi, \eta) = \sqrt{2}\varphi_0 \sqrt{\ch\xi - \cos\eta} \displaystyle\sum\limits_{n=0}^{\infty} \dfrac{1}{\sh\left((n+\frac{1}{2})(\xi_1 - \xi_2)\right)} &\Bigg[ e^{(n+\frac{1}{2})\xi_2} \sh\left((n+\frac{1}{2})\xi_1\right) e^{-(n+\frac{1}{2})\xi} \; - \\
+			&- \; e^{-(n+\frac{1}{2})\xi_1} \sh\left((n+\frac{1}{2})\xi_2\right) e^{(n+\frac{1}{2})\xi} \Bigg] P_n(\cos\eta)
+		\end{aligned}
+	\end{equation}
+	
+	\quad С таким потенциалом поля ёмкость проводника выражается через интеграл: 
+	
+	\begin{equation}
+		C = -\frac{a}{2\varphi_0} \left\{ \int\limits_{0}^{\pi} \left[ \frac{\partial\varphi}{\partial\xi} \right]_{\xi=\xi_1} \frac{\sin\eta}{\ch\xi_1 - \cos\eta} \, d\eta + \int\limits_{0}^{\pi} \left[ \frac{\partial\varphi}{\partial\xi} \right]_{\xi=\xi_2} \frac{\sin\eta}{\ch\xi_2 - \cos\eta} \, d\eta \right\}
+	\end{equation}
+	
+	\quad \textbf{Ответ: $C = -\frac{a}{2\varphi_0} \left\{ \int\limits_{0}^{\pi} \left[ \frac{\partial\varphi}{\partial\xi} \right]_{\xi=\xi_1} \frac{\sin\eta}{\ch\xi_1 - \cos\eta} \, d\eta + \int\limits_{0}^{\pi} \left[ \frac{\partial\varphi}{\partial\xi} \right]_{\xi=\xi_2} \frac{\sin\eta}{\ch\xi_2 - \cos\eta} \, d\eta \right\}$}
+	
+	\quad \textbf{Задача 325.} С помощью дисперсионных соотношений Крамерса--Кронига (см. задачу 324) определить вещественную часть диэлектрической проницаемости $\varepsilon'(\omega)$ по известной мнимой части $\varepsilon''(\omega)$:
+	
+	\begin{equation}
+		\varepsilon''(\omega) = \frac{(\varepsilon_0 - 1) \, \omega \tau}{1 + \omega^2 \tau^2}
+	\end{equation}
+	
+	где $\varepsilon_0$ и $\tau$ -- постоянные.
+	
+	\quad \textbf{Решение.} Согласно дисперсионным соотношениям Крамерса--Кронинга:
+	
+	\begin{equation}
+		\varepsilon(\omega) = \varepsilon'(\omega) + i\varepsilon''(\omega), \quad \varepsilon'(\omega) - 1 = \dfrac{2}{\pi} v.p.\displaystyle\int\limits_{0}^{\infty} \dfrac{\zeta\varepsilon''(\zeta)}{\zeta^2 - \omega^2}d\zeta
+	\end{equation}
+	
+	\quad Рассмотрим интеграл в смысле главного значения отдельно:
+	
+	\begin{center}
+		$v.p.\displaystyle\int\limits_{0}^{\infty} \dfrac{\zeta^2\tau(\varepsilon_0-1)d\zeta}{(1+\zeta^2 \tau^2)(\zeta^2 - \omega^2)} = \lim\limits_{\varepsilon \to 0}\left( \displaystyle\int\limits_{0}^{\omega-\varepsilon} \dfrac{\zeta^2\tau(\varepsilon_0 - 1)}{(1+\zeta^2 \tau^2)(\zeta^2 - \omega^2)}d\zeta + \displaystyle\int\limits_{\omega+\varepsilon}^{+\infty} \dfrac{\zeta^2 \tau (\varepsilon_0 - 1)}{(1+\zeta^2 \tau^2)(\zeta^2 - \omega^2)}d\zeta \right)$
+		
+		$\dfrac{\zeta^2 }{(1+\zeta^2\tau^2)(\zeta^2-\omega^2)} =  \dfrac{A}{(1+\zeta^2\tau^2)} + \dfrac{B}{(\zeta^2 - \omega^2)}$
+		
+		$\dfrac{\zeta^2}{(1+\zeta^2\tau^2)(\zeta^2 - \omega^2)} = \dfrac{\zeta^2(A + B\tau^2) + B - A\omega^2}{(1+\zeta^2 \tau^2)(\zeta^2 - \omega^2)} \implies $
+		
+		$\implies \begin{cases}
+			A + B\tau^2 = 1 \\
+			B - A\omega^2 = 0 \\
+		\end{cases} \Leftrightarrow \begin{cases}
+			B = A\omega^2 \\
+			A + A\omega^2\tau^2 = 1 \\
+		\end{cases} \Leftrightarrow \begin{cases}
+			A = \dfrac{1}{1 + \omega^2\tau^2} \\
+			B = \dfrac{\omega^2}{1+\omega^2\tau^2}\\
+		\end{cases} \implies $
+		
+	\end{center}
+	
+	\begin{equation}
+		\implies \displaystyle\int \dfrac{\zeta^2\tau(\varepsilon_0 - 1)d\zeta}{(1+\zeta^2\tau^2)(\zeta^2 - \omega^2)} = \displaystyle\int \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2 \tau^2)(1+\zeta^2\tau^2)} + \displaystyle\int \dfrac{\omega^2\tau(\varepsilon_0 - 1)d\zeta}{(\zeta^2 - \omega^2)(1+\omega^2 \tau^2)}
+	\end{equation}
+	
+	\begin{center}
+		$\displaystyle\int\dfrac{(\varepsilon_0 - 1)d(\zeta\tau)}{(1+\omega^2 \tau^2)(1+\zeta^2\tau^2)} = \dfrac{\varepsilon_0 - 1}{1+\omega^2\tau^2} \displaystyle\int \dfrac{d(\zeta\tau)}{1 + \zeta^2\tau^2} = \dfrac{\varepsilon_0 - 1}{1+\omega^2 \tau^2} \arctg\left(\zeta\tau\right) + C$
+		
+		$\displaystyle\int \dfrac{\omega^2\tau(\varepsilon_0 - 1)d\zeta}{(\zeta^2 - \omega^2)(1+\omega^2\tau^2)} = \dfrac{\omega^2\tau (\varepsilon_0 - 1)}{(1+\omega^2\tau^2)} \displaystyle\int\dfrac{d\zeta}{\zeta^2 - \omega^2} = \dfrac{\omega^2 \tau(\varepsilon_0 - 1)}{(1+\omega^2 \tau^2)} \ln \left|\dfrac{\omega+\zeta}{\omega - \zeta}\right| + C$ 
+	\end{center}
+	
+	\begin{equation}
+		\implies v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\zeta^2 \tau(\varepsilon_0 - 1)d\zeta}{(1+\zeta^2\tau^2)(\zeta^2 - \omega^2)} = v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\tau (\varepsilon_0 - 1)d\zeta}{(1+\omega^2 \tau^2)(1+\zeta^2\tau^2) } + v.p.\displaystyle\int\limits_{0}^{\infty} \dfrac{\omega^2 \tau (\varepsilon_0 - 1)d\zeta}{(\zeta^2 - \omega^2) (1+\omega^2\tau^2)} 
+	\end{equation}
+	
+	\begin{equation}
+		v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} = \lim_{\varepsilon \to 0} \left(\displaystyle\int\limits_{0}^{\omega - \varepsilon} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} + \displaystyle\int\limits_{\omega-\varepsilon}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} \right)
+	\end{equation}
+	
+	\quad У интеграла (27) нет никакой особенности поэтому главное значение можно опустить:
+	
+	\begin{center}
+		$ v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)}= \dfrac{\varepsilon_0 - 1}{1+\omega^2 \tau^2} \arctg\left(\zeta\tau\right)\bigg|_{0}^{\infty} = \dfrac{\pi(\varepsilon_0 - 1)}{2(1+\omega^2 \tau^2)} $
+	\end{center}
+	
+	\quad Теперь найдём главное занчение второго интегарла:
+	
+	\begin{equation}
+		v.p.\displaystyle\int\limits_{0}^{\infty} \dfrac{\omega^2 \tau (\varepsilon_0 - 1)d\zeta}{(\zeta^2 - \omega^2) (1+\omega^2\tau^2)} = \dfrac{\omega^2 \tau(\varepsilon_0 - 1)}{(1+\omega^2 \tau^2)} \lim_{\varepsilon \to 0} \left(\ln \left|\dfrac{\omega+\zeta}{\omega - \zeta}\right| \bigg|_{0}^{\omega-\varepsilon} + \ln \left|\dfrac{\omega+\zeta}{\omega - \zeta}\right|\bigg|_{\omega+\varepsilon}^{\infty}\right)
+	\end{equation}
+	
+	\begin{equation}
+		\lim_{\varepsilon \to 0}\left(\ln\left|\dfrac{2\omega - \varepsilon}{\varepsilon}\right| - \ln1 - \ln\left|\dfrac{2\omega + \varepsilon}{-\varepsilon}\right| + \lim_{R \to \infty} \left|\dfrac{R + \omega}{\omega - R}\right|\right) = \lim_{R \to \infty} \left|\dfrac{R + \omega}{\omega - R}\right| = 0 \implies
+	\end{equation} 
+	
+	\begin{equation}
+		\implies v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\omega^2 \tau (\varepsilon_0 - 1)d\zeta}{(\zeta^2 - \omega^2) (1+\omega^2\tau^2)} \equiv 0
+	\end{equation}
+	
+	\quad Таким образом имеем:
+	
+	\begin{equation}
+		\varepsilon'(\omega) - 1 = \dfrac{2}{\pi} v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\zeta\varepsilon''(\zeta)d\zeta}{\zeta^2 - \omega^2} = \dfrac{\varepsilon_0 - 1}{1+\omega^2\tau^2}
+	\end{equation}
+	
+	\quad \textbf{Ответ:} $\varepsilon'(\omega) = \dfrac{\varepsilon_0 + \omega^2\tau^2}{1+\omega^2\tau^2}$, $\varepsilon(\omega) = \dfrac{\varepsilon_0 + \omega^2\tau^2}{1+\omega^2\tau^2} + i\dfrac{(\varepsilon_0 - 1) \, \omega \tau}{1 + \omega^2 \tau^2}$
+	
+	\quad \textbf{Задача 728.} Записать уравнения, которым удовлетворяют электромагнитные потенциалы $\varphi$ и $\mathbf{A}$, если вместо условия Лоренца 
+	$\operatorname{div} \mathbf{A} + \frac{1}{c} \frac{\partial \varphi}{\partial t} = 0$ наложить на них условие $\operatorname{div} \mathbf{A} = 0$ (так называемая кулонова калибровка).
+	
+	\quad \textbf{Решение.} Распишем 4-мерные уравнения Максвелла:
+	
+	\begin{equation}
+		\partial_\nu \left(\partial^\nu A_\mu\right) - \partial^\mu \left(\partial_\nu A^\nu\right) = -\dfrac{4\pi }{c} j^\mu 
+	\end{equation}
+	
+	\quad 1) $\quad \mu = 0$
+
+	\begin{center}
+		$\partial_\nu \partial^\nu \varphi - \partial^0 \left(\dfrac{\partial \varphi}{\partial t} - \vec{\nabla}\cdot \vec{A}\right) = -\dfrac{4\pi}{c} c\rho$
+		
+		$\dfrac{\partial^2 \varphi}{\partial t^2} - \Delta\varphi - \dfrac{\partial}{\partial t} \left(\dfrac{\partial \varphi}{\partial t} - \vec{\nabla}\cdot \vec{A}\right) = -4\pi\rho, \quad \vec{\nabla} \cdot \vec{A} = 0 \implies$
+	\end{center}	
+	
+	\begin{equation}
+		\implies \Delta \varphi = 4\pi\rho \text{ -- уравнение Пуассона}
+	\end{equation}
+	
+	\quad 2) $\quad \mu = 1,2,3$
+	
+	\begin{center}
+		$\dfrac{1}{c^2}\dfrac{\partial^2 \vec{A}}{\partial t^2} - \Delta \vec{A} - \vec{\nabla}\left(\dfrac{1}{c}\dfrac{\partial \varphi}{\partial t}-\vec{\nabla} \cdot \vec{A}\right) = -\dfrac{4\pi}{c} \vec{j}$
+	
+		$\Delta\vec{A} - \dfrac{1}{c^2} \dfrac{\partial^2 \vec{A}}{\partial t^2} = \dfrac{4\pi }{c}\vec{j} - \vec{\nabla}\left(\dfrac{1}{c} \dfrac{\partial \varphi}{\partial t}\right) $
+	\end{center}
+	
+	\begin{equation}
+		\Delta \vec{A} - \dfrac{1}{c^2} \dfrac{\partial^2 \vec{A}}{\partial t^2} = \dfrac{4\pi}{c} \vec{j}_\perp
+	\end{equation}
+	
+	\quad \textbf{Ответ:} $ \Delta \varphi = 4\pi\rho$, \quad$\Delta \vec{A} - \dfrac{1}{c^2} \dfrac{\partial^2 \vec{A}}{\partial t^2} = \dfrac{4\pi}{c} \vec{j}_\perp$
+	
+	\quad \textbf{Задача 618.} Электромагнитное поле отлично от нуля лишь внутри некоторого конечного пространственного объема $V$, в котором отсутствуют заряды. Доказать, что полные энергия и импульс поля образуют 4-вектор.
+	
+	\quad \textbf{Доказательство.} Зафиксируем момент времени $x^0_{k} = Const$. Множество точек в 4-мерном пространсве-времени Минковского, задаваемые этим соотношением, являются 3-мерной гиперплоскотью в этом пространстве. На этом множестве энергия и импульс имеют вид: 
+	
+	\begin{equation}
+		E = P^0 = \displaystyle\int\limits_{V} T^{00} dV_0 \quad P^{\mu} = \displaystyle\int\limits_{V} T^{\mu 0} dV_0 
+	\end{equation}
+	
+	\quad Если, величина $P$ в переходе с $x^0_{k} \to x^0_i$ преобразуется согласно преобразованиям Лоренца, то значит является 4-вектором в пространстве Минковского. Проверим, что:
+	
+	\begin{equation}
+		P^{\nu} = \Lambda^{\nu}_{\mu} P^{\mu} 
+	\end{equation}
+
+	\quad Имеем:
+	
+	\begin{equation}
+		P^{\nu} =  \displaystyle\int\limits_{V} T^{\nu i} dV_i = \displaystyle\int\limits_{V} \Lambda_{\mu}^{\nu} \Lambda_{k}^{i} T^{\mu k} dV_i = \Lambda_{\mu}^{\nu} \Lambda_{k}^{i} \Lambda_{i}^{k} \displaystyle\int\limits_{V} T^{\mu k}dV_k = \Lambda_{\mu}^{\nu} P^{\mu}\quad \blacksquare 
+	\end{equation}
+	
+	\quad \textbf{Задача 476.} Найти угловое распределение интенсивности света при наклонном падении параллельного пучка на круглое отверстие (дифракция Фраунгофера).
+	
+	\quad \textbf{Решение.} Дифракция Фраунгофера определяется выражением: 
+	
+	\begin{equation}
+		u_P = \dfrac{u_0 e^{ikR_0}}{2\pi i R_0} \displaystyle\int_{S} e^{i\vec{q}_{\parallel} \cdot \vec{r}} dS_n
+	\end{equation}
+	
+	\quad Для радиус-вектора на отверстии задаём полярные координаты:
+	
+	\begin{equation}
+		\vec{q}_{\parallel} \cdot \vec{r} = q_{\parallel} r \cos\varphi, \quad \begin{cases}
+			x = r\cos\varphi \\
+			y = r\sin\varphi 
+		\end{cases} \implies
+	\end{equation}
+	
+	\quad Исходя из этого переходим к интегралу:
+	
+	\begin{equation}
+		\implies u_P = \dfrac{u_0 e^{ikR_0}k\cos\theta_0}{2\pi i R_0}\displaystyle\int\limits_{0}^{2\pi} d\varphi \displaystyle\int\limits_{0}^{R} e^{-iq_{\parallel} r \cos\varphi} r dr 
+	\end{equation}
+	
+	\begin{center}
+		$\displaystyle\int\limits_{0}^{2\pi} d\varphi \displaystyle\int\limits_{0}^{R} e^{-iq_{\parallel} r \cos\varphi} r dr = \displaystyle\int\limits_{0}^{R} rdr \displaystyle\int\limits_{0}^{2\pi} e^{-iq_{\parallel}r\cos\varphi} d\varphi = 2\pi\displaystyle\int\limits_{0}^{R} rJ_0(rq_{\parallel})  dr = \dfrac{2\pi R}{q_{\parallel}}J_1 (rq_{\parallel}) $
+		
+		$u_P = \dfrac{u_0 e^{ikR_0}k\cos\theta_0}{2\pi i R_0}\displaystyle\int\limits_{0}^{2\pi} d\varphi \displaystyle\int\limits_{0}^{R} e^{-iq_{\parallel} r \cos\varphi} r dr  = -\dfrac{iu_0 k Re^{ikR_0}\cos\theta_0}{q_{\parallel}R_0 } J_1(rq_{\parallel})$
+	\end{center}
+	
+	\begin{equation}
+		u_P =  -\dfrac{iu_0 k Re^{ikR_0}\cos\theta_0}{q_{\parallel}R_0 } J_1(rq_{\parallel}), \quad I \sim |u_P|^2
+	\end{equation}
+	
+	\quad Согласно уравнениям из задачника: 
+	
+	\begin{equation}
+		|u_P|^2 = \dfrac{|u_0|^2 k^2 R^2 \cos^2\theta_0}{q_{\parallel}^2 R_0^2} \, J_1^2(q_{\parallel} R), \quad dI = |u_P|^2 R_0^2 d\Omega \implies 
+	\end{equation}
+	
+	\begin{equation}
+		\implies \dfrac{dI}{d\Omega} = |u_P|^2 R_0^2 = \frac{|u_0|^2 k^2 R^2 \cos^2\theta_0}{q_{\parallel}^2} \, J_1^2(q_{\parallel} R)
+	\end{equation}
+	
+	\quad \textbf{Ответ:} $\dfrac{dI}{d\Omega} = |u_P|^2 R_0^2 = \dfrac{|u_0|^2 k^2 R^2 \cos^2\theta_0}{q_{\parallel}^2} \, J_1^2(q_{\parallel} R)$
+	
+	\quad \textbf{Задача 723.} Нейтрон с магнитным моментом $\vec{\mu}_0$ и кинетической энергией $\mathcal{E}_0$ влетает из пустоты в магнитное поле с напряжённостью $\vec{H} = \vec{\text{const}}$, имеющее плоскую границу. При каком условии нейтрон отражается от поля?
+	
+	\quad \textbf{Решение.} Согласно общим соображениям: нейтрон отразится от плоской границы с магнитным полем если эта самая граница представляет собой потенциальный барьер большей высоты чем кинетическая энергия нейтрона в момент столкновения с границей. Исходя из этого:
+	
+	\begin{equation}
+		\mathcal{E}_0 \cos^2 \theta < \vec{\mu_0} \cdot  \vec{H}, \quad \theta \text{ -- угол между скоростью и нормалью} 
+	\end{equation}
+	
+	\quad Соотношением (44) определяется условие отражения нейтрона от границы. Важно -- магнитный момент должен направлен против поля. 
+	
+	\quad \textbf{Ответ:} 1) $\mathcal{E}_0 \cos^2 \theta < \vec{\mu_0} \cdot  \vec{H}$
+	
+	2) Магнитный момент направлен против поля. 
+	
+	\quad \textbf{Задача 424.} Построить одномерный волновой пакет $\Psi$ для момента времени $t = 0$, взяв в качестве амплитудной функции кривую Гаусса $a(k) = a_0 \exp[-\frac{(k - k_0)^2}{(\Delta k)^2}]$, где $a_0$, $k_0$, $\Delta k$ — постоянные. Найти связь между шириной пакета $\Delta x$ и интервалом волновых чисел $\Delta k$, вносящих основной вклад в суперпозицию.
+	
+	\quad \textbf{Задача 568.} Относительно системы $S$ движутся система $S'$ со скоростью $V$ и два тела со скоростями $\mathbf{v}_1$ и $\mathbf{v}_2$. Каков угол $\alpha$ между скоростями этих тел при наблюдении в системе $S$ и в системе $S'$?
+	
+	\quad \textbf{Задача 445.} Ионизованный газ находится в постоянном магнитном поле. Вдоль направления поля распространяется поперечная плоская волна. Найти фазовые скорости распространения. Рассмотреть, в частности, случай малых частот ($\omega \to 0$) и исследовать характер электромагнитных волн с учётом движения положительных ионов.
+	
+\end{document}

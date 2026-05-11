@@ -1,0 +1,110 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание №1 по теоритической механике}
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Преподаватель: Аюпова Галина Константиновна}
+	\end{center}
+	
+	
+	\quad \textbf{Задание 1.} Два неоднородных диска начинают свое движение из состояния покоя под действием силы тяжести. Определить скорость нижнего блока, когда он опустился на расстояние $y$. Конфигурация дисков представлена на рисунках. Радиусы колец первого диска $R_c$, $R_{\text{з}}$, $R_k$ масса целого диска $m_1$; радиусы колец второго $R_{\text{ж}}$и $R_\phi$; масса целого диска $m_2$. Центры всех колец совпадают (то есть диск обладает симметрией относительно поворота вокруг его центра).     
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/teormech_1.png}
+	\end{figure}
+	
+	\quad \textbf{Решение. } Так как диски вообще говоря составные, то первым делом необходимо определить моменты инерции дисков относительно оси $z$:
+	
+	\begin{center}
+		$ \Theta_1 = m_1 \left( \dfrac{R_c ^2}{2} + \dfrac{R_{\text{з}}^{2}}{2} + \dfrac{R_k^2}{2}\right)$ (1)
+		
+		$\Theta_2 = m_2 \left( \dfrac{R_{\text{ж}}^2}{2} + \dfrac{R_\phi^2}{2}\right)$ (2)
+		
+	\end{center}
+	
+	\quad Теперь распишем первый и второй законы динамики Эйлера:
+	
+	\begin{center}
+		$\begin{cases}
+			m_1\ddot{y} = mg - T \\
+			\Theta_1 \ddot\varphi = TR_c \\
+			\ddot y = \ddot \varphi R_c
+		\end{cases} \implies \dfrac{TR_c ^2 }{\Theta_1} = g - \dfrac{T}{m_1}$
+		
+		$T = \dfrac{g\Theta_1 m_1}{R_c^2 m_1 - \Theta_1} $ (3)
+	\end{center}
+	
+	
+	\quad Согласно третьему закону динамики Эйлера изменение кинетической энергии замкнутой системы равно суммарной работе всех внутренних сил в этой системе, тогда:
+	
+	\begin{center}
+		$\dfrac{\Theta_1 \omega_1 ^2}{2}  + \dfrac{\Theta_2 \omega_2 ^2}{2} + \dfrac{m_1 \upsilon_1 ^2}{2} = mgy - \dfrac{g\Theta_1 m_1}{R_c^2 m_1 - \Theta_1} y$ (4)
+	\end{center}
+	
+	\quad Блоки связаны нерстяжимой невесомой нитью, а значит - \newline $\omega_1 = \omega_2 = \dfrac{\upsilon_1}{R_c}$. Отсюда:
+	
+	\begin{center}
+			$\dfrac{\Theta_1 \upsilon_1 ^2}{2R_c^2}  + \dfrac{\Theta_2 \upsilon_1 ^2}{2R_c^2} + \dfrac{m_1 \upsilon_1 ^2}{2} = mgy - \dfrac{g\Theta_1 m_1}{R_c^2 m_1 - \Theta_1} y$
+			
+			$\upsilon_1^2 \left( \dfrac{\Theta_1}{2R_c^2} + \dfrac{\Theta_2}{2 R_c^2} + \dfrac{m_1}{2}\right) = mgy - \dfrac{g\Theta_1 m_1}{R_c^2 m_1 - \Theta_1} y$
+			
+			Таким образом, скорость на перемещении $y$ определяется как:
+			
+			$\implies \upsilon_1 =\sqrt{ \dfrac{mgy - \dfrac{g\Theta_1 m_1}{R_c^2 m_1 - \Theta_1} y}{\dfrac{\Theta_1}{2R_c^2} + \dfrac{\Theta_2}{2 R_c^2} + \dfrac{m_1}{2}}}$
+			
+	\end{center}
+	
+	\quad Таким образом скорость на перемещении $y$ выражена через известные параметры, где $\Theta_1$, $\Theta_2$ представлены соотношениями (1) и (2).
+	
+	
+	\quad \textbf{Задание 2.} Легкоатлет Карл висит на горизонтально подвешенной веревке, зацепившись руками и ногами. Между точками зацепления расстояние 2$l$. В некоторый момент ноги теряют хватку, и Карл начинает падать вниз, все еще держась руками. Оценив траекторию своего движения, легкоатлет принимает решение отпустить руки тогда, когда он впервые будет висеть вертикально. Определите траекторию движения центра масс Карла и его угловую скорость после того, как он отпустил руки. Для простоты расчетов полагаем, что тензор инерции легкоатлета совпадает с тензором инерции балки.
+	
+	\quad \textbf{Решение.} Пусть момент времени $t =0$ это тот момент когда Карл отпускает ноги, тогда в этот момент времени он начинает вращаться относительно своей точки закрепления на верёвке, накапливая энергию. Распишем это движение через второй закон динамики Эйлера:
+	
+	\begin{center}
+		$\Theta \ddot \varphi = \dfrac{1}{2} mg l sin(\frac{\pi}{2} - \varphi)$ (1)
+	\end{center} 
+	
+	\quad  Мы получили дифференциальное уравнение второго порядка относительно функции $\varphi = f(t)$, где $t$ не содержиться в явном виде, а значит мы наблюдаем один из случаев понижения порядка, тогда:
+	
+	\begin{center}
+		Пусть $\omega = \dfrac{d\varphi}{dt} \Leftrightarrow \omega = f(\varphi) \implies \dfrac{d\omega}{dt} = \dfrac{d\omega}{d\varphi} \dfrac{d\varphi}{dt} = \dfrac{d\omega}{d\varphi} \omega = \dfrac{d^2 \varphi}{dt^2}$ (2)
+	\end{center}
+	
+	\quad После подстановки (2) в уравнение (1) получаем: 
+	
+	\begin{center}
+		$\Theta \dfrac{d\omega}{d\varphi} \omega = \dfrac{1}{2} mgl \cos \varphi \implies \Theta \omega d\omega = \dfrac{1}{2} mgl \cos \varphi d \varphi $
+		
+		$\Theta \displaystyle \int \limits_{0}^{\omega} \omega d\omega = \dfrac{1}{2}mgl \displaystyle \int \limits_{0}^{\frac{\pi}{2}} \cos \varphi d \varphi $
+		
+		$\dfrac{\Theta \omega^2}{2} = \dfrac{1}{2}mgl \implies \omega = \sqrt{\dfrac{mgl}{\Theta}} = \sqrt{\dfrac{3g}{l}}$ (3)
+		
+	\end{center}
+	
+	\quad Центр масс стержня находиться ровно на середине его длины, линейная скорость всегда направлена по касательной к траектории, а значит в момент отрыва начальная скорость центра масс горизонтальна. Ускорение же в момент отрыва равно ускорению свободного падения, а значит после отрыва мы имеем дело с балистическим движением. 
+	
+	\begin{center}
+		$\upsilon_0 = \omega_0 \dfrac{l}{2} \implies \upsilon = \dfrac{l}{2}  \sqrt{\dfrac{mgl}{\Theta}} =  \sqrt{\dfrac{mgl^3}{4\Theta}} = \sqrt{\dfrac{3gl}{4}}$
+		
+		Соответсвующий закон движения имеет вид:
+		
+		$\begin{cases}
+			x(t) = \upsilon_0 t =  \sqrt{\dfrac{3gl}{4}} t \\
+			y(t) = \dfrac{gt^2}{2} 
+		\end{cases}$ (4)  
+	\end{center}	
+	
+	\quad \textbf{Ответ:} $\omega = \sqrt{\dfrac{3g}{l}}$, траектория движения - парабола, с параметризацией (4).
+	
+\end{document}

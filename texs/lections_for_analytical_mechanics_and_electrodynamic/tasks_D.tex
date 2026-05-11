@@ -1,0 +1,599 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+\begin{document}
+	
+	\begin{center}
+		\subsubsection*{Расчётные задачи по дополнительным главам аналитической механики и электродинамики.}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы фундаментальных физических исследований: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5030302/30801}
+		\subsubsection*{Преподаватель: Барсуков Дмитрий Петрович}
+	\end{center}
+	
+	\quad \textbf{Задача Д1. } Найти уровни энергии для частицы массой \( m \), движущейся в одномерном потенциале
+	
+	\[
+	U(x) = \sum_{n=1}^{N-1} \alpha \cdot \delta (x - na) \quad \text{при} \quad 0 \leq x \leq Na
+	\]
+	\[
+	U(x) = +\infty \quad \text{при} \quad x < 0 \quad \text{и} \quad x > Na
+	\]
+	
+	Где расположены зоны проводимости и запрещенные зоны?
+	
+	Чему равна эффективная масса частицы \( m_{\text{eff}} \) вблизи границы зоны проводимости?
+	
+	В пределе очень длинной решётки (\( N \to +\infty \)) найти, чему равна плотность числа состояний.
+	
+	\quad \textbf{Решение.} Необходимо найти волновые функции в конечном кристалле, для этого решим вспомогательную задачу на распределение зон в бесконечном кристалле, а потом перейдём к кристаллу конечных размеров. Напишем стационарное уравнение Шрёдингера: 
+	
+	\begin{equation}
+		-\dfrac{\hbar^2}{2m} \dfrac{d^2 \psi}{dx^2} + \alpha\displaystyle\sum\limits_{n=-\infty}^{\infty} \delta(x-na) \psi = E\psi
+	\end{equation}
+	
+	\quad Согласно теореме Блоха волновые функции в бесконечном кристалле имеют вид: 
+	
+	\begin{equation}
+		\psi(x) = e^{ikx} u_k(x) \quad u_k (x) = u_k (x+a)
+	\end{equation}
+	
+	\quad где $k$ - волновое число, $\hbar k$ - квазиимпульс, $a$ - вектор трансляции решётки. 
+	
+	\quad В пространстве между дельта функциями волновая функция равна волновой функции свободной частица. Для учёта решётки введём специальные граничные условия - условия сшивания на дельта-потенциале и условия периодичности из теоремы Блоха. Имеем:
+	
+	\begin{center}
+		$\psi = C_1 e^{iqa} + C_2 e^{-iqa} \quad q = \sqrt{\dfrac{2mE}{\hbar^2}}$ 
+		
+		Г. у. : $\begin{cases}
+			\psi_k (na-0) = e^{ika} \psi((n-1)a+0) \\
+			\\
+			\dfrac{d\psi_k}{dx} \bigg|_{x\to na-0} = e^{ika}\dfrac{d\psi}{dx}\bigg|_{x\to (n-1)a+0} \\
+			\\
+			\dfrac{d\psi_k }{dx} \bigg|_{x\to na+0} - \dfrac{d\psi_k}{dx}\bigg|_{x \to na-0} = \dfrac{2m\alpha}{\hbar^2} \psi_k (na) \\ 
+		\end{cases}$
+		
+	\end{center}
+	
+	\quad Объединяя условия на скачок производной и на периодичность производной из теоремы Блоха получаем два уравнения из которых можно построить систему для определения собственных чисел: 
+	
+	\begin{equation}
+		\begin{cases}
+			\dfrac{d\psi_k}{dx} \bigg|_{x=(n-1)a} - e^{-ika} \dfrac{d\psi_k}{dx}\bigg|_{x=na} = \dfrac{2m\alpha}{\hbar^2} \psi_k((n-1)a) \\
+			\psi_k ((n-1)a) = e^{ika} \psi_k(na)  
+		\end{cases}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{cases}
+			C_1 (e^{iqa} - e^{ika}) + C_2 (e^{-iqa} - e^{ika} ) = 0 \\
+			iq C_1 \left(e^{i(q-k)a} - 1 - \dfrac{2m\alpha}{iq\hbar^2}\right) + iqC_2 \left(1-e^{-i(q+k)a} - \dfrac{2m\alpha}{iq\hbar^2}\right) = 0
+		\end{cases}
+	\end{equation}
+	
+	\begin{center}
+		$(e^{iqa} - e^{ika} ) \left(1 - e^{i(q+k)a} + \dfrac{2m\alpha}{iq\hbar^2}\right) - \left(e^{i(q-k)a} -1 + \dfrac{2m\alpha}{iq\hbar^2} \right) (e^{-iqa} - e^{ika}) = 0$
+		
+		$2(e^{iqa} + e^{-iqa}) - 2(e^{ika} + e^{-ika}) + \dfrac{2m\alpha}{iq\hbar^2} (e^{iqa} - e^{-iqa}) = 0$
+	\end{center}
+	
+	\begin{equation}
+		\cos(qa)  + \dfrac{m\alpha}{q\hbar^2} \sin(qa) = \cos(ka) 
+	\end{equation}
+	
+	\quad Уравнением (5) описываются разрешённые и запрещённые значения $q$, а как следствие и значения $E$ т.e. 
+	
+	\begin{center}
+		$ -1 < \cos(qa)  + \dfrac{m\alpha}{q\hbar^2} \sin(qa) < 1$ 
+	\end{center}
+	
+	\quad Решая это уравнение численно можно найти распределение зон в бесконечном кристалле. Теперь перейдём к кристаллу конечных размеров. Для этого изменим немного граничные условия - добавим однородные условия Дирихле на границе кристалла: 
+	
+	\begin{equation}
+		\text{Г. у.: } \begin{cases}
+			\psi(0) = \psi(Na) = 0 \\ 
+			\psi(na+0) = \psi(na-0) \\
+			\dfrac{d\psi }{dx} \bigg|_{x = na+0} - \dfrac{d\psi }{dx} \bigg|_{x = na-0} = \dfrac{2 m \alpha}{\hbar^2}\psi(na)
+		\end{cases}
+	\end{equation}
+	
+	\begin{center}
+		$\psi = A_n e^{iq(x - (n-1)a)} + B_n e^{-iq(x - (n-1)a)} \quad x \in ((n-1)a; na)$
+	\end{center}
+	
+	\quad Подставляем в эти граничные условия и получаем систему линейных уравнений: 
+	
+	\begin{equation}
+		\begin{cases}
+			A_n e^{iqa} + B_n e^{-iqa} = A_{n+1} + B_{n+1} \\
+			A_{n+1} - B_{n+1} - A_n e^{iqa} \left(1 - \dfrac{2m\alpha}{iq\hbar^2} \right) + B_n e^{-iqa} \left(1 + \dfrac{2m\alpha}{iq\hbar^2} \right) = 0 \\
+			A_1 + B_1 = 0 \\
+			A_N e^{iqa} + B_N e^{-iqa} = 0
+		\end{cases}
+	\end{equation}
+	
+	\quad Если рассмотреть только первые два уравнения этой системы, то можно вывести рекуррентное соотношение между коэффициентами $A_n$, $B_n$: 
+	
+	\begin{equation}
+		\begin{cases}
+			A_n e^{iqa} + B_n e^{-iqa} = A_{n+1} + B_{n+1} \\
+			A_{n+1} - B_{n+1} - A_n e^{iqa} \left(1 - \dfrac{2m\alpha}{iq\hbar^2} \right) + B_n e^{-iqa} \left(1 + \dfrac{2m\alpha}{iq\hbar^2} \right) = 0 
+		\end{cases}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{cases}
+			A_{n+1} = A_n e^{iqa} \left(1 - \dfrac{m\alpha}{iq\hbar^2}\right) + B_n e^{-iqa} \dfrac{m\alpha}{iq\hbar^2} \\
+			B_{n+1} = -A_n e^{iqa} \dfrac{m\alpha}{iq\hbar^2} + B_n e^{-iqa} \left(1+ \dfrac{m\alpha}{iq\hbar^2}\right) 
+		\end{cases} \implies
+	\end{equation}
+	
+	\begin{equation}
+		\implies \text{т.е. } \left(\begin{array}{c}
+			A_{n+1} \\
+			B_{n+1} 
+		\end{array} \right)= \underbrace{\left(\begin{array}{cc}
+				e^{iqa} \left(1 - \frac{m\alpha}{iq\hbar^2}\right) & e^{-iqa} \frac{m\alpha}{iq\hbar^2} \\
+				-e^{iqa} \frac{m\alpha}{iq\hbar^2} & e^{-iqa} \left(1+ \frac{m\alpha}{iq\hbar^2}\right) 
+			\end{array}\right) }_{T} \cdot \left(\begin{array}{c}
+			A_n \\
+			B_n
+		\end{array}\right)
+	\end{equation}
+	
+	\quad где $T$ - матрица трансляции. 
+	
+	\quad В силу того, что матрица трансляции связывает два соседних коэффициента при её возведении в степень $(N-1)$ можно задать явную связь между первыми и последними коэффициентами $A_n$, $B_n$. 
+	
+	\begin{equation}
+		\left(\begin{array}{c}
+			A_N \\
+			B_N 
+		\end{array}\right) = T^{N-1} \left(\begin{array}{c}
+			A_1 \\
+			B_1
+		\end{array}\right)
+	\end{equation}
+	
+	\quad Учитывая уравнения из условия (7) и систему (11) мы можем однозначно определить все коэффициенты, а следовательно и ВФ в кристалле. Для вычисления этих коэффициентов в явном виде диагонализуем матрицу $T$: 
+	
+	\begin{center}
+		$\det (T - \lambda E ) = 0 \implies \left|\begin{array}{cc}
+			e^{iqa} \left(1 - \frac{m\alpha}{iq\hbar^2}\right) - \lambda& e^{-iqa} \frac{m\alpha}{iq\hbar^2} \\
+			-e^{iqa} \frac{m\alpha}{iq\hbar^2} & e^{-iqa} \left(1+ \frac{m\alpha}{iq\hbar^2}\right) -\lambda
+		\end{array}\right| = 0$
+	\end{center} 
+	
+	\begin{equation}
+		\lambda^2 - 2\lambda\left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa) \right) + 1 = 0
+	\end{equation}
+	
+	\quad Анализируя формулу (12) можно понять, что коэффициенты $A_n$, $B_n$ зависят от собственных чисел матрицы $T$. 
+	
+	\quad 1) $D = 4\left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa) \right)^2 - 4 > 0 $
+	
+	\quad Нетрудно заметить, что в этом случае собственные числа $T$ вещественны и $E$ соответствует запрещённой зоне (по следствию из формулы (5)). 
+	
+	2) $D = 4\left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa) \right)^2 - 4 < 0$
+	
+	\quad Тут собственные числа комплексны и энергия соответствует разрешённым зонам, т.е. 
+	
+	\begin{equation}
+		\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)  < \cos(ka)
+	\end{equation}
+	
+	\quad Найдём модуль собственного числа $\lambda$ как модуль комплексного числа: 
+	
+	\begin{center}
+		$\lambda_{1, 2} = \dfrac{2\left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right) \pm 2i \sqrt{1 -\left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right)^2 }}{2}$
+		
+		$\lambda_{1,2} = \left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right) \pm i \sqrt{1 - \left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right)^2}$
+	\end{center}
+	
+	\begin{equation}
+		|\lambda| = \left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right)^2 + 1 - \left(\dfrac{m\alpha}{q\hbar^2} \sin(qa) + \cos(qa)\right)^2 = 1
+	\end{equation}
+	
+	\begin{equation}
+		\implies \lambda = e^{\pm i\varphi} \quad |\lambda| = 1
+	\end{equation}
+	
+	\quad Рассмотрим теперь собственные векторы матрицы трансляции $T$. Положим, что собственный вектор это $\left( A_1  \quad B_1 \right)^{T}$:
+	
+	\begin{center}
+		$T\left(\begin{array}{c}
+			A_1 \\
+			B_1
+		\end{array}\right) = \left(\begin{array}{c}
+			A_2 \\
+			B_2
+		\end{array}\right) = \lambda\left(\begin{array}{c}
+			A_1 \\
+			B_1 
+		\end{array}\right)$
+	\end{center} 
+	
+	\quad Таким образом:
+	
+	\begin{equation}
+		\left(\begin{array}{c}
+			A_n \\
+			B_n
+		\end{array}\right) = \lambda^{n-1}\left(\begin{array}{c}
+			A_1 \\
+			B_1 
+		\end{array}\right)
+	\end{equation}
+	
+	\quad Из теоремы Блоха: $\psi(x+na) = e^{ikna} \psi(x) \Leftrightarrow \psi_{n+1} (x) = e^{ikna} \psi_1 (x) $.
+	Волновые функции в кристалле таким образом: $\lambda_{1,2} = e^{\pm ika} \quad \varphi = ka$
+	
+	\begin{equation}
+		\psi(x) = \begin{cases}
+			A_1 e^{iqx} + B_1 e^{-iqx} \quad \forall x \in (0, a)\\
+			e^{ika} \left(A_1 e^{iqx} + B_1 e^{-iqx} \right) \quad \forall x \in (a, 2a) \\
+			\dots\\
+			e^{ik(N-1)a} \left(A_1 e^{iqx} + B_1 e^{-iqx} \right) \quad \forall x \in ((N-1)a, Na)  
+		\end{cases}
+	\end{equation}
+	
+	\begin{center}
+		$\begin{cases}
+			A_1 + B_1 = 0 \\
+			A_N e^{iqa} + B_N e^{-iqa} = 0
+		\end{cases} \implies e^{ikNa} - e^{-ikNa} = 0$
+	\end{center}
+	
+	\begin{equation}
+		\sin(kNa) = 0 \implies kNa = \pi n \quad k_n = \dfrac{\pi n }{Na} \quad n \in \mathbb{Z}
+	\end{equation}
+	
+	\quad Формула (18) выражает условие квантования квазиимпульса, а формула (13) устанавливает связь между $k$ и $q$, т.е. решая трансцендентное уравнение (13) при заданных $k$ получаем уровни энергии $E$. Применим теперь условие нормировки и получим: 
+	
+	\begin{center}
+		$A_1 + B_1 = 0 \implies \psi_1(x) = 2iA_1 \sin(qa)$ 
+	\end{center}
+	
+	\begin{equation}
+		\displaystyle\int\limits_{0}^{a}  |\psi_1(x)|^2 dx = 4A_1^2 \displaystyle\int\limits_{0}^{a} \sin^2 (qa) dx = 2A_1^2 - A_1^2 \dfrac{2qa - \sin(qa)}{q} 
+	\end{equation}
+	
+	\begin{equation}
+		1 = N\cdot A_1^2 \cdot \dfrac{2qa - \sin(2qa)}{q} \implies A_1 = \dfrac{1}{\sqrt{N}} \cdot \sqrt{\dfrac{q}{2qa - \sin(2qa)}}
+	\end{equation}
+	
+	\quad Таким образом волновые функции кристалла полностью определены через матрицу $T$ и начальный коэффициент $A_1$. 
+	
+	\quad Для нахождения эффективной массы $m_{\text{eff}}$ используем формулу:
+	
+	\begin{equation}
+		m_{\text{eff}} = \hbar^2 \left( \dfrac{d^2E}{dk^2} \right)^{-1}
+	\end{equation}
+	
+	\quad Запишем дисперсионное соотношение (5) в виде:
+	
+	\[
+	\cos(ka) = \cos(qa) + \dfrac{m\alpha}{\hbar^2 q} \sin(qa), \quad q = \sqrt{\dfrac{2mE}{\hbar^2}}
+	\]
+	
+	\quad Дифференцируем обе части по $k$:
+	
+	\[
+	-a\sin(ka) = \left[ -a\sin(qa) + \dfrac{m\alpha}{\hbar^2} \left( \dfrac{\cos(qa)}{q} - \dfrac{\sin(qa)}{q^2} \right) \right] \dfrac{dq}{dk}
+	\]
+	
+	\quad Учитывая, что $\dfrac{dE}{dk} = \dfrac{\hbar^2 q}{m} \dfrac{dq}{dk}$, получаем:
+	
+	\[
+	\dfrac{dE}{dk} = \dfrac{\hbar^2 \sin(ka)}{a} \left[ \sin(qa) - \dfrac{m\alpha}{\hbar^2 q} \left( \dfrac{\cos(qa)}{q} - \dfrac{\sin(qa)}{q^2} \right) \right]^{-1}
+	\]
+	
+	\quad Вторую производную находим как:
+	
+	\[
+	\dfrac{d^2E}{dk^2} = \dfrac{d}{dk} \left( \dfrac{dE}{dk} \right)
+	\]
+	
+	\quad Вблизи границы зоны ($k=0$ или $k=\pi/a$) производные упрощаются. Для $k=0$ (дно зоны) в приближении слабого потенциала:
+	
+	\[
+	m_{\text{eff}} \approx m \left( 1 + \dfrac{2m\alpha a}{\hbar^2} \right)
+	\]
+	
+	\quad Для потолка зоны ($k=\pi/a$) эффективная масса отрицательна:
+	
+	\[
+	m_{\text{eff}} \approx -m \left( 1 - \dfrac{2m\alpha a}{\hbar^2} \right)
+	\]
+	
+	\quad Таким образом, эффективная масса зависит от квазиимпульса и знака потенциала $\alpha$.
+	
+	\quad Число состояний в интервале $dk$:
+	
+	\[
+	dN = \dfrac{Na}{2\pi} dk
+	\]
+	
+	\quad Плотность состояний по энергии:
+	
+	\[
+	\rho(E) = \dfrac{dN}{dE} = \dfrac{Na}{2\pi} \dfrac{dk}{dE}
+	\]
+	
+	\quad Используя связь $\dfrac{dk}{dE} = \left( \dfrac{dE}{dk} \right)^{-1}$ и выражение для $\dfrac{dE}{dk}$ из предыдущего раздела, получаем:
+	
+	\[
+	\rho(E) = \dfrac{Na}{2\pi\hbar} \left| \dfrac{dk}{dE} \right| = \dfrac{Na}{2\pi\hbar} \left| \sin(qa) - \dfrac{m\alpha}{\hbar^2 q} \left( \dfrac{\cos(qa)}{q} - \dfrac{\sin(qa)}{q^2} \right) \right|^{-1}
+	\]
+	
+	\quad Эта формула определяет плотность состояний в бесконечном кристалле.
+	
+	
+	\quad \textbf{Задача Д2.} Найти коэффициент прохождения \( D \) для частицы массой \( m \), движущейся в одномерном потенциале  
+	
+	\[
+	U(x) = \sum_{n=1}^{N} \alpha \cdot \delta (x - na)
+	\]
+	
+	При каких значениях энергии мы будем иметь \( D = 1 \)?
+	
+	\quad \textbf{Решение.} На основе полного решения задачи Д1 можно сразу написать волновые функции кристалла. Слева от потенциалов волновая функция является суперпозицией падающей волны и отражённой волны: 
+	
+	\begin{equation}
+		\psi(x) = e^{iqx} + R e^{-iqx} \quad \forall x < a
+	\end{equation}
+	
+	\begin{center}
+		где $R^2$ - коэффициент отражения 
+	\end{center}
+	
+	\quad Далее волновые функции повторяют ВФ из выражения для предыдущей задачи. 
+	
+	\begin{equation}
+		\psi (x) = A_n e^{iq(x-(n-1)a)} + B_n e^{-iq(x-(n-1)a)} \quad \forall x \in [(n-1)a, na]
+	\end{equation}
+	
+	\quad И напоследок волновые функции справа от кристалла составляют только лишь прошедшие кристалл волны:
+	
+	\begin{equation}
+		\psi (x) = D e^{iqx} \quad \forall x > Na 
+	\end{equation}
+	
+	\begin{center}
+		где $D^2$ - коэффицент прохождения.
+	\end{center}
+	
+	\quad Рассмотрим теперь первый дельта потенциал: 
+	
+	\begin{equation}
+		\begin{cases}
+			\psi_1 (x)\bigg|_{x=a-} = \psi_2 (x) \bigg|_{x=a+} \\
+			\dfrac{d\psi }{dx} \bigg|_{x = na+0} - \dfrac{d\psi }{dx} \bigg|_{x = na-0} = \dfrac{2 m \alpha}{\hbar^2}\psi(na)
+		\end{cases} \implies
+	\end{equation}
+	
+	\begin{equation}
+		\implies \begin{cases}
+			A_2 + B_2 = e^{iqa} + Re^{-iqa} \\
+			\left(1 - \dfrac{2m\alpha}{iq\hbar^2}\right) A_2 - \left(1 + \dfrac{2m\alpha}{iq\hbar^2}\right) B_2 = e^{iqa} - Re^{-iqa}
+		\end{cases}
+	\end{equation}
+	
+	\begin{center}
+		$\left(\begin{array}{cc}
+			1 & 1 \\
+			\left(1 - \frac{2m\alpha}{iq\hbar^2}\right) & -\left(1 + \frac{2m\alpha}{iq\hbar^2}\right) 
+		\end{array}\right) \left(\begin{array}{c}
+			A_2 \\
+			B_2
+		\end{array} \right) = \left(\begin{array}{cc}
+			e^{iqa} & e^{-iqa} \\
+			e^{iqa} & -e^{-iqa} 
+		\end{array}\right) \left(\begin{array}{c}
+			1 \\
+			R
+		\end{array}\right)$
+		
+		
+		$\left(\begin{array}{c}
+			1 \\
+			R
+		\end{array}\right) =  \left(\begin{array}{cc}
+			e^{iqa} & e^{-iqa} \\
+			e^{iqa} & -e^{-iqa} 
+		\end{array}\right)^{-1}\left(\begin{array}{cc}
+			1 & 1 \\
+			\left(1 - \frac{2m\alpha}{iq\hbar^2}\right) & -\left(1 + \frac{2m\alpha}{iq\hbar^2}\right) 
+		\end{array}\right) \left(\begin{array}{c}
+			A_2 \\
+			B_2
+		\end{array} \right) $
+		
+		Пусть $P = \left(\begin{array}{cc}
+			e^{iqa} & e^{-iqa} \\
+			e^{iqa} & -e^{-iqa} 
+		\end{array}\right)$, тогда 
+		
+		$(P|E) = \left(\begin{array}{cc|cc}
+			e^{iqa} & e^{-iqa} & 1 & 0 \\
+			e^{iqa} & -e^{-iqa} & 0 & 1
+		\end{array}\right) = \left(\begin{array}{cc|cc}
+			1 & 0 & \frac{1}{2}e^{-iqa} & \frac{1}{2}e^{-iqa} \\
+			0 & 1 & \frac{1}{2}e^{iqa} & -\frac{1}{2}e^{iqa}
+		\end{array}\right) = (E|P^{-1})$
+		
+		\begin{multline*}
+			\left(\begin{array}{cc}
+				\frac{1}{2}e^{-iqa} & \frac{1}{2}e^{-iqa} \\
+				\frac{1}{2}e^{iqa} & -\frac{1}{2}e^{iqa}
+			\end{array}\right)
+			\left(\begin{array}{cc}
+				1 & 1 \\
+				\left(1 - \frac{2m\alpha}{iq\hbar^2}\right) & -\left(1 + \frac{2m\alpha}{iq\hbar^2}\right) 
+			\end{array}\right) = \\
+			= \left(\begin{array}{cc}
+				e^{-iqa} \left(1 - \frac{m\alpha}{2iq\hbar^2}\right) & -e^{-iqa}\frac{m\alpha}{2iq\hbar^2} \\
+				e^{iqa} \frac{m\alpha}{2iq\hbar^2} & e^{iqa}\left(1+\frac{m\alpha}{2iq\hbar^2} \right)
+			\end{array}\right)
+		\end{multline*}
+	\end{center}
+	
+	\begin{equation}
+		\left(\begin{array}{c}
+			1 \\
+			R
+		\end{array}\right) = \underbrace{\left(\begin{array}{cc}
+		e^{-iqa} \left(1 - \frac{m\alpha}{2iq\hbar^2}\right) & -e^{-iqa}\frac{m\alpha}{2iq\hbar^2} \\
+		e^{iqa} \frac{m\alpha}{2iq\hbar^2} & e^{iqa}\left(1+\frac{m\alpha}{2iq\hbar^2} \right)
+		\end{array}\right) }_{T_L} \left(\begin{array}{c}
+			A_2 \\
+			B_2 
+		\end{array}\right)
+	\end{equation}
+	
+	\quad Тем самым мы получили связь между коэфицентом отражения и коэфицентами в первой зоне кристалла. Теперь проделаем аналогичные действия с самым правым дельта потенциалом: 
+
+	\begin{center}
+		$\psi_N (x) = A_N e^{iq(x-(N-1)a)} + B_N e^{-iq(x - (N-1)a)} \quad \forall x \in [(N-1)a, Na] $
+		
+		$\psi_{N+1} (x) = D e^{iqx} + 0\cdot e^{-iqx} \quad \forall x > Na$
+		
+		$\dfrac{d\psi_{N+1}}{dx} = iqDe^{iq(x - (N-1)a)} - iq\cdot 0 \cdot e^{-iq(x-(N-1)a)}$
+		
+		$\begin{cases}
+			\psi_N (x) \bigg|_{Na+} = \psi_{N+1} (x) \bigg|_{Na-} \\ 
+			\dfrac{d\psi_{N+1}}{dx}\bigg|_{Na+} - \dfrac{d\psi_{N}}{dx}\bigg|_{Na-} = \dfrac{2m\alpha}{\hbar^2} \psi(Na)
+		\end{cases}$
+		
+		$\begin{cases}
+			A_N e^{iqa} + B_N e^{iqa} = De^{iqNa} \\
+			De^{iqNa} - A_N e^{iqa} + B_N e^{-iqa} = \dfrac{2m\alpha}{iq\hbar^2} (A_N e^{iqa} + B_N e^{-iqa}) 
+		\end{cases}$
+		
+		
+		$\begin{cases} 
+			A_N e^{iqa} + B_N e^{-iqa} = D e^{iqNa} + 0\cdot e^{-iqNa} \\
+			A_N e^{iqa} \left(1+ \dfrac{2m\alpha}{iq\hbar^2} \right) - B_N e^{-iqa} \left(1 - \dfrac{2m\alpha}{iq\hbar^2}\right) = De^{iqNa} - 0 \cdot e^{-iqNa} 
+		\end{cases}$
+		
+		\begin{multline*}
+			\left(\begin{array}{c}
+				D \\
+				0
+			\end{array}\right) = \left(\begin{array}{cc}
+				e^{iqNa} & e^{-iqNa} \\
+				e^{iqNa} & -e^{-iqNa} 
+			\end{array}\right)^{-1} \cdot \\
+			\cdot \left(\begin{array}{cc}
+				e^{iqa} & e^{-iqa} \\
+				e^{iqa} \left(1 + \frac{2m\alpha}{iq\hbar^2}\right) & -e^{-iqa}\left(1 - \frac{2m\alpha}{iq\hbar^2}\right) 
+			\end{array}\right) \left(\begin{array}{c}
+				A_N \\
+				B_N
+			\end{array}\right)
+		\end{multline*}
+	\end{center}
+	\begin{equation}
+		\left(\begin{array}{c}
+			D \\
+			0
+		\end{array}\right) =  \underbrace{\left(\begin{array}{cc}
+			e^{-iqNa + iqa} \left(1 + \frac{m\alpha}{iq\hbar^2}\right) & e^{-iqNa - iqa} \cdot \frac{m\alpha}{iq\hbar^2} \\
+			- e^{iqNa + iqa} \cdot \frac{m\alpha}{iq\hbar^2} & e^{iqNa - iqa} \left(1 - \frac{m\alpha}{iq\hbar^2}\right)
+		\end{array}\right)}_{T_R} \left(\begin{array}{c}
+			A_N \\
+			B_N \\
+		\end{array}\right)
+	\end{equation}
+	
+	\begin{center}
+		$\left(\begin{array}{c}
+			A_N \\
+			B_N
+		\end{array}\right) = T^{N-2} \left(\begin{array}{c}
+			A_2 \\
+			B_2 
+		\end{array}\right) $
+	\end{center}
+	
+	\begin{equation}
+		\implies \left(\begin{array}{c}
+			D \\
+			0
+		\end{array}\right) = T_R T^{N-2} \left(\begin{array}{c}
+			A_2 \\
+			B_2 
+		\end{array}\right) = T_R T^{N-2} T_L^\dag \left(\begin{array}{c}
+		1 \\
+		R 
+		\end{array}\right)
+	\end{equation}
+	
+	\quad Система линейных уравнений (29) полностью и однозначно связывает коэфиценты прохождения и отражения, а также позволяет определить их через другие параметры этой системы. Для опредления явного вида $D$ достаточно будет возвести матрицу $T$ в степень $N-2$.  В силу унитарности любых преобразований координат получается: 
+	
+	\begin{equation}
+		T^{N-2} = \dfrac{\sin\left((N-2)ka\right)}{\sin{(ka)}} T - \dfrac{\sin\left((N-3)ka\right)}{\sin{(ka)}} E
+	\end{equation}
+	
+	\quad Пропуская дальнейшее упрощение: 
+	
+	\begin{center}
+		\begin{multline*}
+			\left(\begin{array}{cc}
+				\cos[(N-1)ka] + i\displaystyle\frac{\beta}{2}\frac{\sin[(N-2)ka]}{\sin ka} & i\displaystyle\frac{\beta}{2}e^{-2iqa}\frac{\sin[(N-2) ka]}{\sin ka} \\[10pt]
+				-i\displaystyle\frac{\beta}{2}e^{2iqa}\frac{\sin[(N-2) ka]}{\sin ka} & \cos[(N-1) ka] - i\displaystyle\frac{\beta}{2}\frac{\sin[(N-2) ka]}{\sin ka}
+			\end{array}\right) \cdot \\ \cdot
+			\left(\begin{array}{c}
+				1 \\ R
+			\end{array}\right)
+			=
+			\left(\begin{array}{c}
+				D \\ 0
+			\end{array}\right)
+		\end{multline*}
+	\end{center}
+	
+	\quad Выражает $D$ из системы линейный уравнений выходит: 
+	
+	\begin{equation}
+		D = \frac{1}{\cos[(N-1) ka] - i\displaystyle\frac{\beta}{2}\frac{\sin[(N-2) ka]}{\sin ka}}
+	\end{equation}
+	
+	\quad Коэффицент прохождения $D^2$ равен в таком случае: 
+	
+	\begin{equation}
+		|D|^2 = \frac{1}{1 + \left(\displaystyle\frac{\beta}{2}\right)^2 \displaystyle\frac{\sin^2[(N-2) ka]}{\sin^2 ka}}
+	\end{equation}
+	
+	\quad Если взять $D^2 = 1 \implies  \left(\displaystyle\frac{\beta}{2}\right)^2 \displaystyle\frac{\sin^2[(N-2) ka]}{\sin^2 ka} = 0$
+	
+	\begin{equation}
+		\begin{cases}
+			\sin^2 [(N-2)ka] = 0 \\
+			\sin^2 ka = 0 
+		\end{cases} \Leftrightarrow \begin{cases}
+			(N-2)ka = \pi n \\
+			ka \neq \pi s
+		\end{cases} \quad \forall n, s \in \mathbb{Z}
+	\end{equation}
+	
+	\quad Соотношением (33) описываются всевозможные значения $k$, $q$ при которых коэффицент прохождения мог бы быть равен 1. 
+	
+	
+
+	
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание по определению параметров линейной зависимости на основании метода наименьших квадратов }
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Преподаватель: Ермакова Наталья Юрьевна}
+	\end{center}
+	
+	\quad \textbf{Задание. } Есть двумерный массив, в котором первый столбец - известные точно значения аргумента, второй столбец - соответствующие значения наблюдаемых величин, содержащие случайные ошибки измерений.  В ходе выполнения работы необходимо:
+	\begin{enumerate}
+		\item  Представить на графике данные наблюдений.
+		\item  Вычислить параметры линейной зависимости и ковариационную матрицу. В отчете
+		параметры привести с указанием ошибок.
+		\item  Построить на том же рисунке аппроксимирующую прямую.
+		\item  Построить коридор ошибок на уровне значимости $\alpha = 0,05$.
+		\item  Найти остаточную сумму квадратов и проверить на основании критерия $\chi^2$ соответствие
+		найденной зависимости результатам наблюдений.
+	\end{enumerate}
+	
+	\quad \textbf{Решение. } Первоочерёдно вычислим параметры линейной зависимости c помощью метода наименьших квадратов:
+	
+	\begin{center}
+		$M = \sum \limits_{i=1}^{n}  (y_i - \theta_0 - \theta_1 x_i)^2 \rightarrow min$
+		
+		$\begin{cases}
+			-2 \sum \limits_{i=1}^{n} (y_i - \theta_0 - \theta_1 x_i) = 0 \\
+			-2 \sum \limits_{i=1}^{n} x_i (y_i - \theta_0 - \theta_1 x_i) = 0
+		\end{cases}	\implies \left[ \begin{array}{cc|c}
+			2n & 2\sum \limits_{i=1}^{n} x_i & 2 \sum \limits_{i=1}^{n} y_i \\
+			2 \sum \limits_{i=1}^{n} x_i  & 2 \sum \limits_{i=1}^{n} x_i^2 & 2\sum \limits_{i=1}^{n}  x_i y_i
+		\end{array}
+		\right] \implies$
+		
+		$ \implies \Delta = n\sum \limits_{i=1}^{n} x_i^2 - \left(\sum \limits_{i=1}^{n} x_i \right)^2$
+		
+		$\Delta_{\theta_0} = \sum \limits_{i=1}^{n} y_i \sum \limits_{i=1}^{n} x_i^2 - \sum \limits_{i=1}^{n} x_i y_i \sum \limits_{i=1}^{n} x_i$
+		
+		$\Delta_{\theta_1} = n\sum \limits_{i=1}^{n} x_i y_i - \sum \limits_{i=1}^{n} x_i \sum \limits_{i=1}^{n} y_i $
+		
+		$\theta_0 = \dfrac{\Delta_{\theta_0}}{\Delta} = \dfrac{\sum \limits_{i=1}^{n} y_i \sum \limits_{i=1}^{n}x_i^2 - \sum \limits_{i=1}^{n} x_i y_i \sum \limits_{i=1}^{n} x_i }{n\sum \limits_{i=1}^{n} x_i^2 - \left(\sum \limits_{i=1}^{n} x_i \right)^2}$
+		
+		$\theta_1 = \dfrac{\Delta_{\theta_1}}{\Delta} = \dfrac{n\sum \limits_{i=1}^{n} x_i y_i - \sum \limits_{i=1}^{n} x_i \sum \limits_{i=1}^{n} y_i}{n\sum \limits_{i=1}^{n} x_i^2 - \left(\sum \limits_{i=1}^{n} x_i \right)^2}$
+		
+	\end{center}
+	
+	\quad Таким образом значения параметров распределения равны:
+	
+	\begin{center}	
+		$\theta_0 = -9.1643, \theta_1 = -0.9837 \implies y =- 9.1643 - 0.9837 x$
+	\end{center}
+	
+	\quad График апроксимируюзей прямой представлен на рисунке ниже:
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/approx.png}
+		\caption{ График апроксимирующей прямой.}
+	\end{figure}
+	
+	\quad Теперь вычислим дисперсию и ковриацию параметров линейной зависимости для построения коридора ошибок по следующим формулам:
+	
+	\begin{center}
+		$\sigma_{\theta_0}^2 = \dfrac{R\sum \limits_{i=1}^{n} x_i^2}{(n-2) \left( n \sum \limits_{i=1}^{n} x_i^2 - \left( \sum \limits_{i=1}^{n} x_i \right)^2 \right) }; \text{" "} \sigma_{\theta_1}^2 = \dfrac{Rn}{(n-2) \left( n \sum \limits_{i=1}^{n} x_i^2 - \left( \sum \limits_{i=1}^{n} x_i \right)^2 \right) }$ 
+		
+		$ cov(\theta_0, \theta_1) = \dfrac{-Rn}{(n-2) \left( n \sum \limits_{i=1}^{n} x_i^2 - \left( \sum \limits_{i=1}^{n} x_i \right)^2 \right) } $
+		
+	\end{center}
+	
+	\quad Обозначим за $\tilde{y_i} $ теоритические значения измеряемой величины (тоесть значения полученные из закона $\tilde{y_i} = \theta_0 + \theta_1 x_i$), тогда параметр $R$ определяется как $R = \sum \limits_{i=1}^{n} (y_i - \tilde{y_i})^2 $ . Таким образом вычисленные значения равны соотвественно:
+	
+	\begin{center}
+		$\sigma^2_{\theta_0} = 0.1018$, $\sigma^2_{\theta_1} = 0.00022$, $cov(\theta_0, \theta_1) = -0.0022$
+		
+		$\implies \theta_0 =-9.1643 \pm 0.3191$, $\theta_1 = -0.9837 \pm 0. 0148 $
+	\end{center}
+	
+	\quad Согласно закону распостранения ошибок дисперсия $\tilde{y_i}$ определяется как:
+	
+	\begin{center}
+		$\sigma^2_{\tilde{y_i}} = \sigma_{\theta_0}^2 + x_{i}^2\sigma_{\theta_1}^2 + 2x_i cov(\theta_0, \theta_1) $
+	\end{center}
+	
+	\quad  Верхняя и нижняя границы коридора ошибок определяются соответсвенно:
+	
+	\begin{center}
+		$  y_{\text{нижн}, i}= \theta_0 + \theta_1 x_i - t_{\alpha, N} \sigma_{\tilde{y_i}}$, $y_{\text{верх}, i} = \theta_0 + \theta_1 x_i + t_{\alpha, N} \sigma_{\tilde{y_i}}$
+	\end{center}
+	
+	\quad Где $t_{\alpha, N}$ - коэфицент Стьюдента для $\alpha = 0.05$ и $N = 20$ равный 2.093. Учитывая эти данные имеем таблицу со следующими значениями для построения коридора ошибок:
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$x$ & $y$ & $y_{min}$ & $y_{max}$ \\
+			\hline
+			-23  & 12.79  & 12.2761173864631  & 14.6452622107671 \\
+			-16  & 7.03   & 5.57247670155916 & 7.57717537971759 \\
+			-12.5 & 3.3   & 2.21505119982063 & 4.04873712347939 \\
+			-10.3 & 0.64  & 0.102060811207355 & 1.83347029279302 \\
+			... & ... & ... & ...\\
+			-8.5  & -0.1  & -1.62856600401749 & 0.0227957467727016 \\
+			-7.4  & -2.63 & -2.68709058553945 & -1.08280828135517 \\
+			-1.8  & -7.18 & -8.08951516881879 & -6.69776571083858 \\
+			0.5   & -11.98 & -10.3166230207915 & -8.99565404267915 \\
+			5.5   & -13.62 & -15.1802522663901 & -13.9689730227615 \\
+			7.2   & -14.59 & -16.8419433480876 & -15.6518443377956 \\
+			\hline
+		\end{tabular}
+	\end{center}	
+	
+	\pagebreak
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/error.png}
+		\caption{ Участок графика коридора ошибок.}
+	\end{figure}
+	
+	\quad Рассмотрим оценку $\chi^2 = \dfrac{R}{\sigma^2}:$
+	
+	\begin{center}
+		 Будем считать, что: $\sigma^2 = \dfrac{R}{n-2} \implies \chi^2 = \dfrac{R \cdot (n-2)}{R} = n-2 = 18$
+	\end{center}
+	
+	\quad Теперь на основании критерия Пирсона проверим гипотезу о том, что величины $y_i$ зависят от $x_i$ линейно.  Определим занчение $\chi^2_{\alpha}$ для $p= 18$ и $\alpha = 0.05$: $\chi^2_{\alpha} = 28.8693 > 18 \implies $ Гипотеза о линейной зависимости принимается на данном уровне значимости. 
+	
+	\quad \textbf{Выводы:} в результате проделанной работы вычислены параметры линейной зависимости $\tilde{y_i} = \theta_0 + \theta_1 x_i $, построен график апроксимирующей прямой. Вычислены значения дисперсий $\theta_0, \theta_1$. По этим данным построен график коридора ошибок. Визуально можно заметиь как он  сужается ближе к центра выборки, а к концу снова расширяется. С помошью критерия Пирсона проверна гипотеза о линейной зависимости $y(x)$, которая оказалась верной на данном уровне значимости. 
+	
+	
+\end{document}

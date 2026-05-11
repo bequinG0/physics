@@ -1,0 +1,371 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание по математической физике}
+		\subsubsection*{Глава №3: Уравнения математической физики}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы ФФИ: Куликовских Илья}
+		\subsubsection*{Группа: 5030302/30801}
+		\subsubsection*{Вариант 6}
+		\subsubsection*{Преподаватель: Елатонцев Вадим Александрович}
+	\end{center}
+	
+	\quad \textbf{Задание 3.01.05} Проверить, что решением уравнения: 
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial t^2} - \dfrac{\partial^2 U}{\partial x^2} + \sin U = 0 
+	\end{equation}
+	
+	\quad где $t$, $x$ - безразмерные значения времени и координаты, является функция: 
+	
+	\begin{equation}
+		U(x, t) = 4\arctg\left( e^{\frac{x-Vt}{\sqrt{1 - V^2}}} \right)
+	\end{equation}
+	
+	\quad Приняв $\xi = \dfrac{x - Vt}{\sqrt{1 - V^2}}$ привести уравнение (1) к виду:
+	
+	\begin{equation}
+		\dfrac{d^2 U}{d\xi^2} - \sin U = 0
+	\end{equation}
+	
+	\begin{center} 
+		Г. у.: $\begin{cases}
+			U (\xi)\bigg|_{\xi \rightarrow -\infty} \rightarrow 0 \\
+			
+			U(\xi)\bigg|_{\xi \rightarrow +\infty } \rightarrow 2\pi 
+		\end{cases}$
+	\end{center}
+	
+	\quad \textbf{Решение.} 1) Воспользуемся предложенной в условии заменой \newline $\xi = \dfrac{x-Vt}{\sqrt{1-V^2}}$ и представим решение (2) в следующем виде: 
+	
+	\begin{equation}
+		U(x, t) = 4\arctg\left(e^{\frac{x-Vt}{\sqrt{1-V^2}}}\right) = 4\arctg\left(e^{\xi}\right) = U(\xi) 
+	\end{equation}
+	
+	\begin{center}
+		$\dfrac{\partial U}{\partial x} = \dfrac{d U}{d \xi}\dfrac{\partial \xi}{\partial x} = \dfrac{d U}{d \xi} \dfrac{1}{\sqrt{1 - V^2}}$; $\dfrac{\partial U}{\partial t} = -\dfrac{d U}{d \xi}\dfrac{V}{\sqrt{1 - V^2}}$
+	\end{center}
+	
+	\begin{equation} 
+		\dfrac{\partial^2 U}{\partial x^2} = \dfrac{\partial }{\partial x}\left( \dfrac{\partial U}{\partial \xi} \dfrac{1}{\sqrt{1 - V^2}}\right) = \dfrac{1}{1 - V^2} \dfrac{\partial^2 U}{\partial \xi^2}
+	\end{equation}
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial t^2} = \dfrac{\partial}{\partial t} \left( -\dfrac{\partial U}{\partial \xi} \dfrac{V}{\sqrt{1-V^2}}\right) = \dfrac{V^2}{1-V^2}\dfrac{\partial^2 U}{\partial \xi^2}
+	\end{equation}
+	
+	\quad Подставим полученные выражения для производных в (1): 
+	
+	\begin{equation}
+		\dfrac{V^2}{1-V^2}\dfrac{\partial^2 U}{\partial \xi^2 } - \dfrac{1}{1-V^2}\dfrac{\partial^2 U}{\partial \xi^2} = -\dfrac{\partial^2 U}{\partial \xi^2} = -\sin U
+	\end{equation}
+	
+	\begin{equation}
+		\dfrac{\partial^2 U }{\partial \xi^2} - \sin U = 0 \text{ } \blacksquare
+	\end{equation}
+	
+	\quad 2) Проверим, что решением уравнения (1) является функция (2):
+	
+	\begin{center}
+		$\dfrac{\partial U}{\partial x} = \dfrac{\partial U}{\partial \xi} \dfrac{\partial \xi}{\partial x} = \dfrac{1}{\sqrt{1-V^2}}\dfrac{d}{d\xi} \left( 4\arctg\left(e^{\xi}\right) \right) = \dfrac{4}{\sqrt{1-V^2}}\dfrac{e^\xi}{e^{2\xi}+1}$
+		
+		$\dfrac{\partial U}{\partial t} = \dfrac{\partial U}{\partial \xi} \dfrac{\partial \xi}{\partial t} = -\dfrac{V}{\sqrt{1-V^2}}\dfrac{d}{d\xi} \left(4\arctg\left(e^\xi\right)\right) = -\dfrac{4V}{\sqrt{1-V^2}} \dfrac{e^\xi}{e^{2\xi} + 1}$
+	\end{center}
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial x^2} = \dfrac{4}{1 - V^2} \dfrac{d}{d\xi} \left(\dfrac{e^{\xi}}{e^{2\xi} + 1}\right) = \dfrac{4}{1-V^2}\dfrac{e^{\xi} - e^{3\xi}}{\left(e^{2\xi} + 1\right)^2} 
+	\end{equation}
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial t^2} = \dfrac{4V^2}{1-V^2} \dfrac{d}{d\xi}\left(\dfrac{e^\xi}{e^{2\xi} + 1}\right) = \dfrac{4V^2}{1-V^2} \dfrac{e^\xi - e^{3\xi}}{\left(e^{2\xi}+ 1\right)^2} 
+	\end{equation}
+	
+	\quad Рассмотрим выражение для $\sin U $ через $\xi(x, t)$: пусть $\alpha = 4\arctg{e^{\xi}}$, тогда 
+	
+	\begin{center}
+		$e^{\xi} = \tg\dfrac{\alpha}{4} \implies e^{2\xi } + 1 = \dfrac{1}{\cos^2 \dfrac{\alpha}{4}} \implies \cos\dfrac{\alpha}{4} = \dfrac{1}{\sqrt{e^{2\xi} + 1}}$
+		
+		$e^{\xi} = \dfrac{\sin\dfrac{\alpha}{4}}{\cos\dfrac{\alpha}{4}} \implies \sin\dfrac{\alpha}{4} = \dfrac{e^{\xi}}{\sqrt{e^{2\xi} + 1}}$
+		
+		$e^{4i\frac{\alpha}{4}} = \left(e^{i\frac{\alpha}{4}}\right)^4 \implies \cos\alpha + i\sin\alpha = \left(\cos\dfrac{\alpha}{4} + i\sin\dfrac{\alpha}{4}\right)^4$
+	\end{center}
+	
+	\begin{equation}
+		\sin\alpha = 4\cos^3 \dfrac{\alpha}{4} \sin\dfrac{\alpha}{4} - 4\sin^3\dfrac{\alpha}{4}\cos\dfrac{\alpha}{4} 
+	\end{equation}
+	
+	\begin{equation}
+		\cos\alpha = \cos^4 \dfrac{\alpha}{4} - 6\cos^2\dfrac{\alpha}{4} + \sin^4 \dfrac{\alpha}{4}
+	\end{equation}
+	
+	\begin{center}
+		$\sin U = \sin \alpha = \dfrac{4e^{\xi}}{\left(e^{2\xi}+1\right)^2}(1 - e^{2\xi}) = -\dfrac{4(e^{\xi} - e^{3\xi})}{\left(e^{2\xi} + 1\right)^2}$
+	\end{center}
+	
+	\quad Таким образом, подставляя (9) и (10) в (1): 
+	
+	\begin{equation}
+		\dfrac{4V^2}{1-V^2} \dfrac{e^\xi - e^{3\xi}}{\left(e^{2\xi}+ 1\right)^2} - \dfrac{4}{1-V^2}\dfrac{e^{\xi} - e^{3\xi}}{\left(e^{2\xi} + 1\right)^2} = -\dfrac{4\left(e^{\xi} - e^{3\xi}\right)}{\left(e^{2\xi} + 1\right)^2} = -\sin U \text { } \blacksquare
+	\end{equation}
+	
+	\quad То есть, функция (2) является решением уравнения (1).
+	
+	\quad \textbf{Задание 3.02.06} Струна длиною $l$, закреплённая на концах $x = 0$, $x = l$; в начальный момент времени $t = 0$: 
+	
+	\begin{center}
+		Н. у.: $
+		\begin{cases}
+			U \bigg|_{t = 0} = 2U_0 \sin^2 \left( \dfrac{\pi x}{l}\right) \\ 
+			\\
+			\dfrac{\partial U}{\partial t} \bigg|_{t = 0} = 0 \\
+		\end{cases}$
+		
+		\text{}
+		
+		где $U_0 \in \mathbb{R}$, $U_0 > 0$. 
+	\end{center}
+	
+	\quad Определить закон колебаний струны $U(x, t)$. 
+	
+	\quad \textbf{Решение.} Составим уравнение бегущей волны, описывающее колебания струны: 
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial x^2} - \dfrac{1}{\alpha^2} \dfrac{\partial^2 U}{\partial t^2}  = 0
+	\end{equation}
+	
+	\quad С условиями:
+	
+	\begin{equation}
+		\text{Н. у.:}\begin{cases}
+			U\bigg|_{t=0} = 2U_0\sin^2\left(\dfrac{\pi x}{l}\right) \\
+			\\
+			\dfrac{\partial U}{\partial t}\bigg|_{t=0} = 0 \\
+		\end{cases} \text{; Г. у.: } \begin{cases}
+			U\bigg|_{x=0} = 0 \\
+			\\
+			U\bigg|_{x=l} = 0 \\ 
+		\end{cases}
+	\end{equation}
+	
+	\quad Разделим переменные методом Фурье: 
+	
+	\begin{equation}
+		U(x, t) = X(x) \cdot T(t) \implies \dfrac{1}{X} \dfrac{d^2 X}{dx^2} = \dfrac{1}{\alpha^2 T} \dfrac{d^2 T}{dt^2} = -\lambda 
+	\end{equation}
+	
+	\begin{equation}
+		\begin{cases}
+			\dfrac{d^2 X}{dx^2} + \lambda X = 0 \\
+			\\
+			\dfrac{d^2 T}{dt^2} + \lambda \alpha^2 T = 0 \\ 
+		\end{cases}
+	\end{equation}
+	
+	\quad Рассмотрим решение первого уравнения: 
+	
+	\begin{center}
+		$X(x) = C_1 e^{i\sqrt{\lambda} x} + C_2 e^{-i\sqrt{\lambda}x} $
+		
+		$\begin{cases}
+			X(0) = C_1 + C_2 = 0 \\
+			X(l) = C_1 e^{i\sqrt{\lambda} l} + C_2 e^{-i\sqrt{\lambda} l} = 0
+		\end{cases} \Leftrightarrow \left[ \begin{array}{cc|c}
+			1 & 1 & 0 \\
+			e^{i\sqrt{\lambda} l} & e^{-i\sqrt{\lambda}l} & 0 \\
+		\end{array}\right] \implies$
+		
+		$\implies e^{-i\sqrt{\lambda}l} - e^{i\sqrt{\lambda}l} = 0 \implies \sin{\sqrt{\lambda} l} = 0$
+		
+	\end{center}
+	
+	\begin{equation}
+		\implies \sqrt{\lambda} l = \pi k\text{, }\forall k \in \mathbb{Z} \implies \lambda = \dfrac{\pi^2 k^2}{l^2}\text{, }\forall k \in \mathbb{Z}
+	\end{equation}
+	
+	\quad Выражением (18) определяются собственные числа уравнения (14), а собственные функции будут иметь вид: 
+	
+	\begin{equation}
+		X(x) = C_k \sin\left( \dfrac{\pi k x}{l} \right)\text{, } \forall k \in \mathbb{Z} 
+	\end{equation}
+	
+	\quad Теперь рассмотрим общее решение второго уравнения системы в тригонометрическом виде: 
+	
+	\begin{center}
+		$T_k(t)  = \tilde{A_k} \sin\left(\dfrac{\pi k \alpha t}{l}\right) + \tilde B_k \cos\left(\dfrac{\pi k \alpha t}{l}\right)$
+		
+		$U_k = X_k(x) \cdot T_k (t) = \left(A_k \sin\left(\dfrac{\pi k \alpha t}{l}\right) + B_k \cos\left(\dfrac{\pi k \alpha t}{l}\right)\right)\sin\left(\dfrac{\pi k x}{l}\right) $
+	\end{center}
+	
+	\begin{equation}
+		U(x, t) = \displaystyle\sum\limits_{k=1}^{\infty} \left(A_k \sin\left(\dfrac{\pi k \alpha t}{l}\right) + B_k \cos\left(\dfrac{\pi k \alpha t}{l}\right)\right)\sin\left(\dfrac{\pi k x}{l}\right)
+	\end{equation}
+	
+	\quad Применим начальные условия для общего решения (20):
+	
+	\begin{center}
+		$U(x, t) \bigg|_{t = 0} = \displaystyle\sum\limits_{k=1}^{\infty} B_k \sin\left(\dfrac{\pi k x}{l}\right) = 2U_0 \sin^2 \left(\dfrac{\pi x}{l}\right)$
+	\end{center}
+	
+	\quad т.е. $B_k$ определяются как коэффициенты в разложении Фурье функции $U(x, 0)$ по собственным функциям (18): 
+	
+	\begin{equation}
+		B_k = \dfrac{\left< 2U_0 \sin^2\left(\dfrac{\pi x}{l}\right)| \sin\left(\dfrac{\pi kx}{l}\right)\right>}{\left\| \sin\left(\dfrac{\pi kx}{l}\right) \right\|^2}
+	\end{equation}
+	
+	\quad Определим норму собственных функций: 
+	
+	\begin{equation}
+		\left\| \sin\left(\dfrac{\pi kx}{l}\right) \right\|^2 = \displaystyle\int\limits_{0}^{l} \sin^2 \left(\dfrac{\pi kx}{l}\right) dx = \displaystyle\int\limits_{0}^{l} \dfrac{1}{2} dx - \underbrace{\dfrac{1}{2}\displaystyle\int\limits_{0}^{l} \cos\left(\dfrac{2\pi kx}{l}\right) dx }_{=0} = \dfrac{l}{2}
+	\end{equation}
+	
+	$B_k = \dfrac{2}{l} \displaystyle\int\limits_{0}^{l} 2U_0 \sin^2\left( \dfrac{\pi x}{l}\right) \sin\left(\dfrac{\pi k x}{l}\right) dx = \dfrac{2U_0}{l} \displaystyle\int\limits_{0}^{l} \sin\left(\dfrac{\pi k x}{l}\right) dx - \dfrac{2U_0}{l} \cdot \newline \cdot \displaystyle\int\limits_{0}^{l} \cos\left(\dfrac{2\pi x}{l}\right) \sin\left(\dfrac{\pi k x}{l}\right) dx = \dfrac{2U_0}{\pi k} \cos\left(\dfrac{\pi k x}{l}\right)\bigg|_{l}^{0} - \dfrac{U_0}{l}\displaystyle\int\limits_{0}^{l} \sin\left(\dfrac{\pi x}{l} (k + 2)\right)dx - \newline - \dfrac{U_0}{l}\displaystyle\int\limits_{0}^{l} \sin\left(\dfrac{\pi x}{l} (k - 2)\right)dx = \dfrac{U_0}{\pi (k+2)} \cos\left(\dfrac{\pi x }{l} (k+2)\right)\bigg|_{0}^{l} + \dfrac{U_0}{\pi (k-2)} \cos\left(\dfrac{\pi x }{l} (k-2)\right)\bigg|_{0}^{l} + \newline + \dfrac{2U_0}{\pi k} \cos\left(\dfrac{\pi k x}{l}\right)\bigg|_{l}^{0} = \frac{2U_0}{\pi k} \left[ 1 - (-1)^k \right] + \frac{U_0}{\pi (k+2)} \left[ (-1)^{k+2} - 1 \right] + \frac{U_0}{\pi (k-2)} \left[ (-1)^{k-2} - 1 \right] = \newline =  \frac{U_0}{\pi} \left( (-1)^k - 1 \right)  \left( -\frac{2}{k} + \frac{1}{k+2} + \frac{1}{k-2} \right) $
+	
+	\begin{equation}
+		B_k = \begin{cases}
+			0\text{, } \forall k  \in \mathbb{Z}\text{, } k \text{ } \vdots\text{ } 2\\
+			\\
+			-\dfrac{16U_0}{\pi k (k^2 - 4)}, \forall k  \in \mathbb{Z}\text{, } \overline{k \text{ } \vdots\text{ } 2}\\
+		\end{cases}
+	\end{equation}
+	
+	\quad Коэффициенты $A_k$ определяются аналогично, однако в силу условий (15) $A_k = 0$, $\forall k \in \mathbb{Z}$. Таким образом, решение данной задачи имеет вид:
+	
+	\begin{center}
+		$U(x, t) = \displaystyle\sum\limits_{k=1}^{\infty }\dfrac{16U_0}{\pi (2k-1) (4 - (2k-1)^2)} \cos\left(\dfrac{\pi (2k-1) \alpha t}{l}\right) \sin\left(\dfrac{\pi (2k-1) x}{l}\right) $
+	\end{center}
+	
+	\quad \textbf{Ответ:} $U(x, t) = \displaystyle\sum\limits_{k=1}^{\infty }\dfrac{16U_0}{\pi (2k-1) (4 - (2k-1)^2)} \cos\left(\dfrac{\pi (2k-1) \alpha t}{l}\right) \cdot \newline \cdot \sin\left(\dfrac{\pi (2k-1) x}{l}\right) $
+	
+	\newpage
+	
+	\quad \textbf{Задание 3.03.12} Найти закон $U(x, t)$ в пластине с толщиной $b$, с условиями: 
+	
+	\begin{center}
+		Н. у.: $\begin{cases}
+			U(x, t)\bigg|_{t = 0} = T_0 f(x)
+		\end{cases}$; Г. у.: $\begin{cases}
+			\dfrac{\partial U}{\partial x} \bigg|_{x = 0} = 0\\
+			\\
+			\dfrac{\partial U}{\partial x} \bigg|_{x = b} = 0
+		\end{cases}$
+	\end{center}
+	
+	\quad Доказать ортогональность собственных функций и вычислить их квадрат нормы. 
+	
+	\quad \textbf{Решение.}1) Математическая формулировка задачи: 
+	
+	\begin{equation}
+		\dfrac{\partial^2 U}{\partial x^2} - \dfrac{1}{\alpha} \dfrac{\partial U}{\partial t} = 0
+	\end{equation}
+	
+	\quad С условиями: 
+	
+	\begin{equation}
+		\text{Н. у.:} \begin{cases}
+			U(x, t)\bigg|_{t = 0} = T_0 f(x)
+		\end{cases}\text{; Г. у.: }\begin{cases}
+			\dfrac{\partial U}{\partial x} \bigg|_{x = 0} = 0\\
+			\\
+			\dfrac{\partial U}{\partial x} \bigg|_{x = b} = 0
+		\end{cases}
+	\end{equation}
+	
+	\quad Разделим переменные методом Фурье: $U(x, t) = X(x) \cdot T(t)$ 
+	
+	\begin{equation}
+		 \dfrac{1}{X} \dfrac{d^2X}{dx^2} = \dfrac{1}{\alpha T}\dfrac{dT}{dt} = -\lambda \Leftrightarrow
+			\begin{cases}
+			\dfrac{d^2 X}{dx^2} +\lambda X = 0 \\
+			\\
+			\dfrac{dT}{dt} +\lambda\alpha T = 0
+		\end{cases}
+	\end{equation}
+	
+	\quad Рассмотрим общее решение первого уравнения и подставим в условия (25): 
+	
+	\begin{center}
+		$X(x) = C_1 e^{i\sqrt{\lambda} x} + C_2 e^{-i\sqrt{\lambda} x}$
+	\end{center}
+	
+	\begin{equation}
+		\begin{cases}
+			i\sqrt{\lambda}C_1 - i\sqrt{\lambda} C_2 = 0 \\
+			i\sqrt{\lambda}C_1 e^{i\sqrt{\lambda} b} - i\sqrt{\lambda}C_2e^{-i\sqrt{\lambda}b} = 0
+		\end{cases} \Leftrightarrow \left[\begin{array}{cc|c}
+			i\sqrt{\lambda} & -i\sqrt{\lambda} & 0 \\
+			i\sqrt{\lambda}e^{i\sqrt{\lambda} b} & -i\sqrt{\lambda}e^{-i\sqrt{\lambda}b} & 0 \\
+		\end{array}\right]
+	\end{equation}
+	\label{key}
+	\quad Из совместности системы (26) следует: 
+	
+	\begin{equation}
+		\lambda e^{-i\sqrt{\lambda} b} - \lambda e^{i\sqrt{\lambda}b} = 0 \implies \sin\left(\sqrt{\lambda} b\right) = 0
+	\end{equation}
+	
+	\begin{equation}
+		\sqrt{\lambda} b = \pi k \implies \lambda_k = \dfrac{\pi k }{b}, \forall k \in \mathbb{Z}
+	\end{equation}
+	
+	\quad Выражение (29) определяет собственные числа системы, собственные же функции в таком случае будут иметь вид: 
+	
+	\begin{equation}
+		X_k = C_k \sin\left(\dfrac{\pi k x}{b}\right) 
+	\end{equation}
+	
+	\quad Теперь решим второе уравнение из системы (26):
+	
+	\begin{center}
+		$\dfrac{dT}{dt} + \lambda \alpha T = 0 \implies \dfrac{dT}{T} = -\lambda \alpha dt$
+	\end{center}
+	
+	\begin{equation}
+		T_k(t) = \tilde{A_k} e^{-\frac{\pi k \alpha t}{b}}
+	\end{equation}
+	
+	\quad Общее решение уравнения (24) имеет вид:
+	
+	\begin{equation}
+		U(x, t) = \displaystyle\sum\limits_{k=1}^{\infty} A_k e^{\frac{\pi k \alpha t}{b}} \sin\left(\dfrac{\pi k x}{b}\right) 
+	\end{equation}
+	
+	\quad Для определения коэфицентов $A_k$ воспользуемся начальными условиями (25:
+	
+	\begin{center}
+		$U\bigg|_{t= 0} = \displaystyle\sum\limits_{k=1}^{\infty} A_k \sin\left(\dfrac{\pi k x}{l}\right) = T_0 f(x)$
+	\end{center}
+	
+	\quad По аналогии с (22) норма собственных функций (30) равна соответсвенно: $\left\| \sin\left(\dfrac{\pi k x}{b}\right) \right\|^2 = \dfrac{b}{2}$, поэтому коэфиценты $A_k$ определяются как: 
+	
+	\begin{equation}
+		A_k = \dfrac{2T_0 }{b} \displaystyle\int\limits_{0}^{b} f(x) \sin\left(\dfrac{\pi k x}{l}\right) dx 
+	\end{equation}
+	
+	\quad 2) Теперь проверим ортогональность собственных функций, т.е. рассмотрим произведение:
+	
+	\begin{equation}
+		\left<\sin\left(\dfrac{\pi k x}{b}\right) | \sin\left(\dfrac{\pi n x}{b}\right)\right> = \displaystyle\int\limits_{0}^{b} \sin\left(\dfrac{\pi k x}{b}\right) \sin\left(\dfrac{\pi n x}{b}\right) dx = 0\text{ } \blacksquare 
+	\end{equation}
+	
+	\quad Тем самым собственные функции этой задачи ортогональны. 
+	
+	\quad \textbf{Ответ}: $U(x, t) = \displaystyle\sum\limits_{k=1}^{\infty} A_k e^{\frac{\pi k \alpha t}{b}} \sin\left(\dfrac{\pi k x}{b}\right) $,  $A_k = \dfrac{2T_0 }{b} \displaystyle\int\limits_{0}^{b} f(x) \sin\left(\dfrac{\pi k x}{l}\right) dx $
+	
+	% Убрал посторонний физический текст, который был в конце
+	
+\end{document}

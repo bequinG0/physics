@@ -1,0 +1,706 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\begin{document}
+	\begin{center}
+		\section*{Расчётное задание по математическому анализу: Линейные ДУ и СДУ}
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Вариант 10}
+		\subsubsection*{Преподаватель: Бортковская Мария Романовна}
+	\end{center}
+	
+	\quad \textbf{Задание 1.} Даны  корни характеристического уравнения  для ЛДУ с постоянными коэффициентами, в скобках указана кратность корня (в случае пары комплексно-сопряженных корней - кратность каждого из двух корней). Дана правая часть неоднородного ЛДУ. 
+	
+	\quad а) Запишите НЛДУ с заданными характеристическими корнями и указанной правой частью. 
+	
+	\quad б) Запишите общее решение полученного НЛДУ (коэффициенты частного решения НЛДУ находить не надо, только указать его вид, подходящий для метода неопределённых коэффициентов). В ответе укажите, где - общее решение ОЛДУ, где - частное решение НЛДУ. 
+	
+	\begin{center}
+		
+		$-1(2); -1 \pm i(2); \pm i;\text{ } f(x) = e^x(x\cos x + (x^2-2)\sin x)$
+	\end{center}
+	
+	\quad \textbf{Решение.} Для того чтобы определить вид НЛДУ необходимо для начала определить вид характеристического многочлена: 
+	
+	$(\lambda+1)^2 (\lambda + 1 - i)^2 (\lambda + 1 + i)^2 (\lambda-i)(\lambda+i) = (\lambda + 1)^2(\lambda^2 + 2\lambda + 2)^2(\lambda^2 + 1) = (\lambda^2 + 2\lambda + 1)(\lambda^4 + 4\lambda^3 + 8\lambda^2 + 8\lambda + 4)(\lambda^2 + 1) = (\lambda^2 + 2\lambda + 1)(\lambda^6 + 4\lambda^5 + 9\lambda^4 + 12\lambda^3 + 12\lambda^2 + 8\lambda + 4) = \lambda^8 + 6\lambda^7 + 18\lambda^6 + 34\lambda^5 + 45\lambda^4 + 44\lambda^3 + 32\lambda^2 + 16\lambda + 4$
+	
+	\quad Тогда такому характеристическому многочлену будет соответствовать НЛДУ:
+	
+	\begin{center}
+		$ y^{(8)} + 6y^{(7)} + 18y^{(6)} + 34y^{(5)} + 45y^{(4)} + 44y''' + 32y'' + 16y' + 4 = e^x(x\cos x + (x^2 - 2)\sin x) $ (1);
+	\end{center}
+	
+	\quad Общее решение НЛДУ складывается из частного решения НЛДУ и общего решения ОЛДУ, а значит необходимо определить вид общего решения ОЛДУ:
+	\begin{center}
+		$\begin{cases}
+			y_1(x) = C_1 e^{-x} + C_2 x e^{-x} \\ 
+			y_2(x) = e^{-x}(C_3 \cos x + C_4 \sin x) + x e^{-x}(C_5 \cos x + C_6 \sin x) \\ 
+			y_3(x) = e^{0}(C_7 \cos x + C_8 \sin x) = C_7 \cos x + C_8 \sin x 
+		\end{cases}$ (2); $\implies$
+		
+		$\implies y_{\text{общ}} = C'_1 y_1 + C'_2 y_2 + C'_3 y_3 = C_1 e^{-x} + C_2xe^{-x} + e^{-x}(C_3\cos x + C_4 \sin x) + xe^{-x}(C_5 \cos x + C_6 \sin x) + C_7 \sin x + C_8 \cos x $ (3);
+	\end{center}
+	
+	\quad Для НЛДУ со специальной правой частью $f(x) = e^x(x\cos x + (x^2-2)\sin x)$ общий вид частного решения: 
+	
+	\begin{center}
+		$y_{\text{частн}} = e^{x}((kx + b)\cos x + (cx^2 + dx + g)\sin x)$ (4);
+	\end{center}
+	
+	\quad Откуда общее решение НЛДУ определяется как: 
+	
+	\begin{center}
+		$y(x) = C_1 e^{-x} + C_2xe^{-x} + e^{-x}(C_3\cos x + C_4 \sin x) + xe^{-x}(C_5 \cos x + C_6 \sin x) + C_7 \sin x + C_8 \cos x + e^{x}((kx + b)\cos x + (cx^2 + dx + g)\sin x) $ (5);
+	\end{center}
+	
+	\quad \textbf{Ответ:} а) НЛДУ: $  y^{(8)} + 6y^{(7)} + 18y^{(6)} + 34y^{(5)} + 45y^{(4)} + 44y''' + 32y'' + 16y' + 4 = e^x(x\cos x + (x^2 - 2)\sin x) $
+	
+	б) общее решение ОЛДУ: $ y_{\text{общ}} = C_1 e^{-x} + C_2xe^{-x} + e^{-x}(C_3\cos x + C_4 \sin x) + xe^{-x}(C_5 \cos x + C_6 \sin x) + C_7 \sin x + C_8 \cos x $
+	
+	общий вид частного решения НЛДУ: $ y_{\text{частн}} = e^{x}((kx + b)\cos x + (cx^2 + dx + g)\sin x) $
+	
+	общее решение НЛДУ: $ y(x) = C_1 e^{-x} + C_2xe^{-x} + e^{-x}(C_3\cos x + C_4 \sin x) + xe^{-x}(C_5 \cos x + C_6 \sin x) + C_7 \sin x + C_8 \cos x + e^{x}((kx + b)\cos x + (cx^2 + dx + g)\sin x) $
+	
+	
+	\quad \textbf{Задание 2.} Решите ЛДУ 2 порядка, найдя частное решение методом вариации постоянных. В ответ запишите общее решение данного НЛДУ.
+	
+	\begin{center}
+			$\dfrac{d^2y}{dx} + 2\dfrac{dy}{dx} - 3 y = \dfrac{1}{e^x + 1}$ (1)
+	\end{center}
+	
+	\quad \textbf{Решение.} Первоначально определим общее решение ОЛДУ и для этого решим соответствующий характеристический многочлен:
+	
+	\begin{center}
+		$\lambda^2 + 2\lambda - 3 = 0 $
+		
+		 $D = 4 + 4\cdot 3 = 16 \implies \sqrt{D} = 4 $
+		 
+		 $\lambda_{1,2} = \dfrac{-2 \pm 4}{2} = $
+		 $\left[
+		 \begin{array}{rl}
+		 	1 \\
+		 	-3
+		 \end{array} 
+		 \right. $
+	\end{center}
+	
+	\quad Следовательно решения ОЛДУ имеют вид:
+	
+	\begin{center}
+		$\begin{cases}
+			y_1(x) = e^{-3x} \\
+			y_2(x)= e^{x} 
+		\end{cases}$ $\implies y_{\text{общ}} = C_1 e^{-3x} + C_2 e^{x} $
+	\end{center}
+	
+	\quad Для определения констант $ C_1 $ и $ C_2$  используем метод вариации постоянных. Рассмотрим систему уравнений: 
+	
+	\begin{equation*}
+		\begin{cases}
+			\dfrac{dC_1}{dx}e^{-3x} + \dfrac{dC_2}{dx}e^{x} = 0, \\ 
+			-3\dfrac{dC_1}{dx}e^{-3x} + \dfrac{dC_2}{dx}e^{x} = \dfrac{1}{e^x + 1}
+		\end{cases}
+		\quad \Leftrightarrow \quad
+		\left[
+		\begin{array}{cc|c}
+			e^{-3x} & e^x & 0 \\
+			-3e^{-3x} & e^x & \frac{1}{e^x + 1}
+		\end{array}
+		\right]
+	\end{equation*}
+	\begin{center}
+		$\Delta = e^{-3x}\cdot e^{x} + 3e^{-3x} \cdot e^x = e^{-2x} + 3e^{-2x} = 4e^{-2x}$ 
+		
+		$\Delta_{C_1} = 0 - e^x \dfrac{1}{e^x + 1} = - \dfrac{e^x}{e^x + 1}$
+		
+		$\Delta{C_2} = e^{-3x} \cdot \dfrac{1}{e^x+ 1} - 0 = \dfrac{e^{-3x}}{e^x + 1 }$
+	\end{center}
+	
+	$\implies \dfrac{dC_1}{dx} = \dfrac{\Delta_{C_1}}{\Delta} = -\dfrac{e^x}{e^x + 1} \cdot \dfrac{1}{4e^{-2x}} = - \dfrac{e^{3x}}{4(e^x + 1)} $
+	
+	\[C_1 = \int \dfrac{dC_1}{dx} dx = - \dfrac{1}{4} \int \dfrac{e^{3x}}{(e^x + 1)} = 
+	 \left[
+	 \begin{array}{rl}
+		-\frac{1}{4} \int \frac{(t-1)^2 dt}{t}  \\
+		t = e^x + 1 
+	\end{array} 
+	\right] =  \]
+	 $ = -\dfrac{1}{4} \int{\dfrac{t^2 -2t + 1 }{t}} = -\dfrac{(e^x + 1)^2 }{8} + \dfrac{e^x + 1}{2} - \dfrac{1}{4}\ln |e^x + 1| + \tilde{C_1}   $ .
+	
+	$\implies \dfrac{dC_2}{dx} = \dfrac{\Delta_{C_2}}{\Delta} = \dfrac{e^{3x}}{e^x + 1} \cdot \dfrac{1}{4e^{-2x}} = - \dfrac{e^{5x}}{4(e^x + 1)} $ .
+	
+	\[C_2 = \int \dfrac{dC_2}{dx} dx = - \int \dfrac{e^{5x}}{4(e^x + 1)} dx  = 
+	\left[
+	\begin{array}{rl}
+		-\frac{1}{4} \int \frac{(t-1)^4}{t} dt \\
+		t = e^x + 1
+	\end{array}
+	\right]  = \]
+	$ = - \dfrac{1}{4} \int \dfrac{t^4 - 4t^3 + 6t^2 - 4t + 1}{t} = -(e^x + 1)^4 + \dfrac{(e^x+1)^3}{3} - \dfrac{3(e^x + 1)^2}{4} + e^x + 1 - \dfrac{1}{4} \ln {|e^x + 1|} + \tilde{C_2} $ .
+	
+	\quad Таким образом частное решение уравнения (1) имеет вид:
+	
+	\begin{center}
+		$y_{\text{част}} (x) = C_1 y_1 + C_2 y_2 = \bigg(-\dfrac{(e^x + 1)^2}{8} + \dfrac{e^x + 1}{2} - \dfrac{1}{4} \ln {|e^x + 1|}  \bigg)e^{-3x} + +  e^x \bigg( -(e^x +1)^4 + \dfrac{(e^x +1)^3}{3} - \dfrac{3(e^x + 1)^2}{4} + e^x + 1 - \dfrac{1}{4} \ln {|e^x + 1|} \bigg) $
+	\end{center}
+	
+	\quad \textbf{Ответ:} $y_{\text{общ}} (x) = \bigg(-\dfrac{(e^x + 1)^2}{8} + \dfrac{e^x + 1}{2} - \dfrac{1}{4} \ln {|e^x + 1|}  \bigg)e^{-3x} + +  e^x \bigg( -(e^x +1)^4 + \dfrac{(e^x +1)^3}{3} - \dfrac{3(e^x + 1)^2}{4} + e^x + 1 - \dfrac{1}{4} \ln {|e^x + 1|} \bigg) + \tilde{C_3} e^{-3x} + \tilde{C_4} e^x $
+	
+	\quad \textbf{Задача 3}. Решите НЛДУ со специальной правой частью, найдя частное решение методом неопределённых коэффициентов. 
+	
+	\begin{center}
+		$\dfrac{d^3y}{dx^3} + 2\dfrac{d^2y}{dx^2} - \dfrac{dy}{dx} - 2 y = 27x^2 e^{-2x} $ (1)
+	\end{center}
+	
+	\quad \textbf{Решение. } Решим ОЛДУ для данного НЛДУ. Запишем характеристический многочлен, вычислим его корни:
+	
+	\begin{center}
+		$\lambda^3 +2\lambda^2 - \lambda - 2 = 0$
+		
+		$(\lambda^2 -1)(\lambda + 2) = 0 \implies \lambda_{1,2,3} = $
+		 $\left[
+		\begin{array}{rl}
+			\pm 1 \\
+			-2
+		\end{array} 
+		\right. $
+	\end{center}
+	
+	\quad Таким оразом частное решение ОЛДУ имеет вид:
+	
+	\begin{center}
+		$y(x) = C_1 e^x + C_2 e^{-x} + C_3 e^{-2x}$
+	\end{center}
+	
+	\quad Нетрудно заметить что уравнение (1) имеет специальную правую часть вида: $f(x) = e^{\alpha x}(P_n(x) \cos{\beta x} + Q_k(x) \sin{\beta x}) $. Тогда можно определить вид частного решения НЛДУ:
+	
+	\begin{center}
+		$ y_{\text{ч}}(x) = xe^{-2x}(ax^2 + bx + c) = e^{-2x}(ax^3 + bx^2 + cx)  $
+	\end{center}
+	
+	\quad По формуле Лейбница посчитаем все производные вплоть до третьего порядка, а затем подставляем их в исходное уравнение (1) и методом неопределённых коэфицентов определяем $a, b ,c$ . 
+	
+	\begin{center}
+		$\dfrac{\partial^n}{\partial x^n} (u \cdot \upsilon) = \sum \limits_{k=0}^{n} C_n^k \dfrac{\partial^k u}{\partial x^k} \cdot  \dfrac{\partial^{n-k} \upsilon }{\partial x^{n-k}}$ (2)
+		
+		$ \dfrac{dy}{dx} = -2 e^{-2x} (ax^3 + bx^2 + cx) + e^{-2x}(3ax^2 + 2bx + c)  $
+		
+		$\dfrac{d^2 y}{dx^2} = 4e^{-2x}(ax^3 + bx^2 + cx) - 2 \cdot 2e^{-2x }(3ax^2 + 2bx + c) + e^{-2x} (6ax + 2b) = 4e^{-2x}(ax^3 + bx^2 + cx) - 4e^{-2x }(3ax^2 + 2bx + c) + e^{-2x} (6ax + 2b) $
+		
+		$ \dfrac{d^3 y}{dx^3} = -8e^{-2x}(ax^3 + bx^2 + cx) + 3 \cdot 4e^{-2x}(3ax^2 + 2bx +c) + 3\cdot (-2)e^{-2}(6ax + 2b) + 6ae^{-2x} = -8e^{-2x}(ax^3 + bx^2 + cx) + 12e^{-2x}(3ax^2 + 2bx + c) - 6e^{-2x}(6ax + 2b) + 6ae^{-2x} $
+		
+	\end{center}
+	
+	$\dfrac{d^3 y}{dx^3} + 2\dfrac{d^2y}{dx^2} - \dfrac{dy}{dx} -2y = -8e^{-2x}(ax^3 + bx^2 + cx) + 12e^{-2x}(3ax^2 + 2bx + c) - 6e^{-2x}(6ax + 2b) + 6ae^{-2x} + 8e^{-2x}(ax^3 + bx^2 + cx) - 8e^{-2x }(3ax^2 + 2bx + c) + 2e^{-2x} (6ax + 2b)  + 2 e^{-2x} (ax^3 + bx^2 + cx) - e^{-2x}(3ax^2 + 2bx + c) - 2e^{-2x}(ax^3 + bx^2 + cx)  = 3e^{-2x}(3ax^2 + 2bx + c) - 4e^{-2x}(6ax + 2b)  + 6ae^{-2x} = 27x^2 e^{-2x} $
+	
+	\begin{center}
+			$ 9ax^2 + (6b -24a)x -8b + 6a + 3c = 27x^2 $ (3)
+	\end{center}
+	
+	\quad Составим систему уравнений для метода неопределённых коэфицентов: 
+	
+	\begin{center}
+		$ \begin{cases}
+			9a = 27 \\
+			6b - 24a = 0 \\
+			6a + 3c - 8b = 0
+		\end{cases}  $ $\implies$
+		$\begin{cases}
+			a = 3 \\ 
+			b = 12 \\ 
+			c = 26 
+		\end{cases}
+		$
+	\end{center}
+	
+	\quad Следовательно общее решение уравнения (1) имеет вид: 
+	
+	\begin{center}
+		$ y(x) = C_1 e^{x} + C_2 e^{-x} + C_3 e^{-2x} + xe^{-2x}(3x^2 + 12x + 26) $
+	\end{center} 
+	
+	\quad \textbf{Ответ: } $  y(x) = C_1 e^{x} + C_2 e^{-x} + C_3 e^{-2x} + xe^{-2x}(3x^2 + 12x + 26) $
+	
+	
+	\quad \textbf{Задача 3.} Решите задачу Коши с начальными данными   для неоднородной СЛДУ  с постоянной матрицей $K: Y'=KY+C(x)$.
+	
+	\begin{center}
+		$ K = \left(
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\
+			6 & -7 & 13 \\
+			6 & -6 & 12
+		\end{array}
+		\right)$;  
+		$ Y_0 = \left(
+		\begin{array}{c}
+				2 \\
+				-1 \\
+				2
+		\end{array}
+		\right)$; 
+		$C(x) = \left(
+		\begin{array}{c}
+			0 \\
+			\sin 2x \\
+			0
+		\end{array}
+		\right)$ (1)
+	\end{center}
+	
+	\quad \textbf{Решение.} Определим вид общего решения ОСЛДУ. Для этого найдём корни характеристического многочлена матрицы К:
+	
+	\begin{center}
+		$det(K - \lambda E) = 0 \implies \left| 
+		\begin{array}{ccc}
+			-4 - \lambda & 3 & -7 \\
+			6 & -7 -\lambda & 13 \\
+			6 & -6 & 12-\lambda
+		\end{array}
+		\right| = 0$ 
+	\end{center}
+	
+	\quad $ (-4 - \lambda) ((-7 - \lambda)(12 - \lambda) + 6\cdot13) - 3(6(12 - \lambda) - 6\cdot 13) - 7(-6\cdot 6 - 6(-7-\lambda)) = (4 + \lambda) (7+\lambda)(12-\lambda) - 78\cdot4 - 78\lambda -18\cdot 12 + 18\lambda + 18 \cdot 13 + 7 \cdot 36 - 42 \cdot 7 - 42\lambda = (\lambda^2 + 11\lambda + 28)(12 - \lambda) - 78\cdot4 - 78\lambda-18\cdot 12 + 18\lambda + 18\cdot 13 + 7\cdot36 - 42\cdot7 -42\lambda = 12\lambda^2 + 132\lambda + 12\cdot 28 - \lambda^3 -11\lambda^2 - 28\lambda - 78\cdot 4 - 78\lambda - 18 \cdot 12 + 18\lambda + 18\cdot 13 + 7\cdot36 - 42\cdot 7 - 42\lambda = -\lambda^3 + \lambda^2 + 2\lambda = 0 $
+	
+	\begin{center}
+		$-\lambda^3 + \lambda^2 + 2\lambda = 0$
+		
+		$\lambda_1 = 0, \quad \lambda^2 - \lambda - 2 = 0 $
+		
+		$\lambda_{2, 3} = \left[
+		\begin{array}{c}
+			2 \\
+			-1
+		\end{array}
+		\right.$
+	\end{center}
+	
+	\quad Здесь $\lambda_{1, 2, 3}$ собственые числа матрицы K. Теперь, для определения вида общего решения необходимо найти собсвенные векторы этой матрицы:
+	
+	1. $\lambda_1 = 0$ :
+	
+	\begin{center}
+		$\left(
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\
+			6 & -7 & 13 \\
+			6 & -6 & 12
+		\end{array}
+		\right) \cdot 
+		\left(
+		\begin{array}{c}
+			\upsilon_1 \\
+			\upsilon_2 \\
+			\upsilon_3
+		\end{array}
+		\right) = 0$
+	\end{center}
+	
+	\quad Для нахождения компонент собственного вектора $ \upsilon_1, \upsilon_2, \upsilon_3 $ необходимо решить соответствующую СЛАУ. Данная СЛАУ несовместна по теореме Крамера:
+	
+	\begin{center}
+		$  \left|
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\
+			6 & -7 & 13 \\
+			6 & -7 & 12
+		\end{array}
+		\right| = 0 $
+	\end{center} 
+	
+	\quad Рассмотрим матрицу системы, определим её ранг:
+	\begin{center}
+		$\left(
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\
+			6 & -7 & 13 \\
+			6 & -6 & 12
+		\end{array}
+		\right) \sim 
+		\left(
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\
+			0 & -1 & 1 \\
+			6 & -6 & -1
+		\end{array}
+		\right) \sim 
+		\left(
+		\begin{array}{ccc}
+			-4 & 3 & -7 \\ 
+			0 & -1 & 1 \\
+			-2 & 0 & -2
+		\end{array}
+		\right) \sim 
+		\left(
+		\begin{array}{ccc}
+			-4 & 0 & -4 \\
+			0 & -1 & 1 \\
+			-2 & 0 & -2
+		\end{array}
+		\right) \sim
+		\left(
+		\begin{array}{ccc}
+			0 & -1 & 1 \\
+			-2 & 0 & -2
+		\end{array}
+		\right)$
+	\end{center}
+	
+	
+	\quad Таким образом собственный вектор для данного собственного числа равен:
+	\begin{center}
+		 $V_1 = \left(
+		 \begin{array}{c}
+		 	-1 \\
+		 	1 \\
+		 	1
+		 \end{array}
+		 \right)$
+	\end{center}
+	
+	\quad Аналогичным образом определим СВ для $\lambda_{2,3}$:
+	
+	2. $\lambda_2 = -1$:
+	
+	\[
+	\left(
+	\begin{array}{ccc}
+		-3 & 3 & -7 \\
+		6 & -6 & 13 \\
+		6 & -6 & 13
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-3 & 3 & -7 \\
+		6 & -6 & 13 
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-3 & 3 & -7 \\
+		0 & 0 & -1 
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-3 & 3 & 0 \\
+		0 & 0 & -1 
+	\end{array}
+	\right) \implies
+	\]
+	\begin{center}
+		$\implies V_2 =  \left(
+		\begin{array}{c}
+			1 \\
+			1 \\
+			0 
+		\end{array}
+		\right)$
+	\end{center}
+	
+	3. $\lambda_3 = 2$:
+	\[
+	\left(
+	\begin{array}{ccc}
+		-6 & 3 & -7 \\
+		6 & -9 & 13 \\
+		6 & -6 & 10
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-6 & 3 & -7 \\
+		0 & -3 & 3 \\
+		6 & -6 & 10
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-6 & 3 & -7 \\
+		0 & -3 & 3 \\
+		6 & -3 & 7
+	\end{array}
+	\right) \sim \left(
+	\begin{array}{ccc}
+		-6 & 3 & -7 \\
+		0 & -3 & 3 
+	\end{array}
+	\right) \implies 
+	\]
+	\begin{center}
+		$\implies V_3 = \left(
+		\begin{array}{c}
+			1 \\
+			3/2 \\
+			3/2
+		\end{array}
+		\right) $
+	\end{center}
+	
+	
+	\quad Таким образом общее решение ОCЛДУ имеет вид:
+	
+	\begin{center}
+		$Y(x) = C_1 \left(
+		\begin{array}{c}
+			-1 \\
+			1 \\
+			1
+		\end{array}
+		\right) + C_2 \left(
+		\begin{array}{c}
+			1 \\
+			1 \\
+			0
+		\end{array}
+		\right) e^{-x} + C_3 \left(
+		\begin{array}{c}
+			1 \\
+			3/2 \\
+			3/2
+		\end{array}
+		\right)e^{2x}$ (2)
+	\end{center}
+	
+	\quad Для того, чтобы определить общее решение системы (1) надо отыскать вид частного решения НСЛДУ. У систем вида $ Y' = KY + C(x) $, в случае когда $C(x)$ имеет специальный вид $ C(x) = e^{\alpha x}(P_m (x) \cos{\beta x} + Q_l (x) \sin {\beta x})$, частное решение будет выглядеть как $Y_{\text{ч}} = e^{\alpha x}(P_{n+r} \cos {\beta x} + Q_{n+r} \sin {\beta x})$. Для системы (1) частное решение можно представить так:
+	
+	\begin{center}
+		$Y_{\text{ч}} (x) = \left(
+		\begin{array}{c}
+			a_1 \\
+			a_2 \\
+			a_3
+		\end{array}
+		\right) \cos{2x} + \left(
+		\begin{array}{c}
+			b_1 \\
+			b_2 \\
+			b_3
+		\end{array}
+		\right) \sin{2x}$ (3)
+	\end{center}
+	
+	\quad После подстановки в систему (1) имеем: 
+	\begin{center}
+		$\begin{cases}
+			2b_1 \cos 2x - 2a_1 \sin 2x = (-4a_1 + 3a_2 - 7a_3)\cos 2x + (-4b_1 + 3b_2 - 7b_3)\sin 2x \\
+			2b_2 \cos 2x - 2 a_1 \sin 2x = (6a_1 - 7a_2 + 13a_3) \cos 2x + (6b_1 - 7b_2 + 13b_3 + 1) \sin 2x \\
+			2b_3 \cos 2x - 2 a_1 \sin 2x = (6a_1 -6a_2 + 12a_3) \cos 2x + (6b_1 - 6b_2 + 12b_3) \sin 2x
+		\end{cases}$
+	\end{center}
+	
+	\quad Или же в матричном виде можно записать эту систему так:
+	
+	\begin{center}
+		$\begin{cases}
+			-2A = KB + V_0 \\
+			2B = KA
+		\end{cases}$
+	\end{center}
+	
+	\begin{center}
+		Где $A = \left( 
+		\begin{array}{c}
+			a_1 \\
+			a_2 \\
+			a_3
+		\end{array}
+		\right)$,  $B= \left( 
+		\begin{array}{c}
+			b_1 \\
+			b_2 \\
+			b_3
+		\end{array}
+		\right)$,  $V_0= \left( 
+		\begin{array}{c}
+			0 \\
+			1 \\
+			0
+		\end{array}
+		\right)$
+		
+		$\implies 
+		\begin{cases}
+			A = -(\dfrac{1}{2}K^2 + 2E)^{-1} V_0 \\
+			B = -\dfrac{1}{2}(\dfrac{1}{2}K^2 + 2E)^{-1}V_0
+		\end{cases}$ (4)
+	\end{center}
+	
+	$\left[
+	\dfrac{1}{2}\left(
+	\begin{array}{ccc}
+		-4 & 3 & -7\\
+		6  &-7 & 13 \\
+		6 & -6 & 12
+	\end{array}
+	\right) \left(
+	\begin{array}{ccc}
+		-4 & 3 & -7\\
+		6  &-7 & 13 \\
+		6 & -6 & 12
+	\end{array}
+	\right) + 2\left(
+	\begin{array}{ccc}
+		1 & 0 & 0\\
+		0  &1 & 0 \\
+		0 & 0 & 1
+	\end{array}
+	\right)
+	\right]^{-1}	=  $ 
+	
+	$ = \left[
+	\left(
+	\begin{array}{ccc}
+		-4 & 9/2 & -17/2\\
+		6  &-11/2& 23/2 \\
+		6 & -6 & 12
+	\end{array}
+	\right) + \left(
+	\begin{array}{ccc}
+		2 & 0 & 0\\
+		0  &2 & 0 \\
+		0 & 0 & 2
+	\end{array}
+	\right)
+	\right]^{-1} = \left(
+	\begin{array}{ccc}
+		-4 & 9/2 & -17/2\\
+		6  &-7/2& 23/2 \\
+		6 & -6 & 14
+	\end{array}
+	\right)^{-1}$;
+	
+	$-\left(
+	\begin{array}{ccc}
+		-4 & 9/2 & -17/2\\
+		6  &-7/2& 23/2 \\
+		6 & -6 & 14
+	\end{array}
+	\right)^{-1} \left( 
+	\begin{array}{c}
+		0 \\
+		1 \\
+		0
+	\end{array}
+	\right) = - \left(
+	\begin{array}{ccc}
+		1 & -0.6 & 1.1\\
+		-0.75  &1.15& -1.4 \\
+		-0.75 & 0.75 & -1
+	\end{array}
+	\right)\left( 
+	\begin{array}{c}
+		0 \\
+		1 \\
+		0
+	\end{array}
+	\right) =  \text{ }=\left( 
+	\begin{array}{c}
+		3/5 \\
+		-23/20 \\
+		-3/4
+	\end{array}
+	\right) = A \implies B = \left( 
+	\begin{array}{c}
+		3/10\\
+		-23/40 \\
+		-3/8
+	\end{array}
+	\right)$
+	
+	\text{}
+	
+	\quad Таким образом общее решение НСЛДУ имеет вид:
+	
+	\begin{center}
+		$Y(x) = C_1 \left(
+		\begin{array}{c}
+			-1 \\
+			1 \\
+			1
+		\end{array}
+		\right) + C_2 \left(
+		\begin{array}{c}
+			1 \\
+			1 \\
+			0
+		\end{array}
+		\right) e^{-x} + C_3 \left(
+		\begin{array}{c}
+			1 \\
+			3/2 \\
+			3/2
+		\end{array}
+		\right)e^{2x}  + \left( 
+		\begin{array}{c}
+			3/5 \\
+			-23/20 \\
+			-3/4
+		\end{array}
+		\right) \cos 2x + \left( 
+		\begin{array}{c}
+			3/10\\
+			-23/40 \\
+			-3/8
+		\end{array}
+		\right) \sin 2x $ (5)
+	\end{center}
+	
+	\quad Теперь осталось решить задачу Коши с начальным $Y_0$. Подставляем значения и решаем полученную систему:
+	
+	\begin{center}
+		$ \begin{cases}
+			-C_1 +C_2 +C_3 = 1.4 \\
+			C_1 + C_2 + 1.5C_3 = 0.15 \\
+			C_1 + 1.5C_3 = 2.75
+		\end{cases} \Leftrightarrow 
+		\left(
+		\begin{array}{ccc|c}
+			-1 & 1 & 1 & 1.4 \\
+			1 & 1 & 1.5 & 0.15 \\ 
+			1 & 0 & 1.5 & 2.75
+		\end{array}
+		\right)$
+		
+		$\Delta = -2.5, \text{ } \Delta_{C_1} = 3.25, \text{ } \Delta_{C_2} = 6.5, \text{ } \Delta_{C_3} = -6.75$
+		
+		$\implies C_1 = -1.3, \text{ } C_2 = -2.6, \text{ } C_3 = 2.7$
+	\end{center}
+	
+	\quad \textbf{Ответ:} $Y(x) = -1.3\left(
+	\begin{array}{c}
+		-1 \\
+		1 \\
+		1
+	\end{array}
+	\right) -2.6 \left(
+	\begin{array}{c}
+		1 \\
+		1 \\
+		0
+	\end{array}
+	\right) e^{-x} + 2.7 \left(
+	\begin{array}{c}
+		1 \\
+		3/2 \\
+		3/2
+	\end{array}
+	\right)e^{2x}  + \left( 
+	\begin{array}{c}
+		3/5 \\
+		-23/20 \\
+		-3/4
+	\end{array}
+	\right) \cos 2x + \left( 
+	\begin{array}{c}
+		3/10\\
+		-23/40 \\
+		-3/8
+	\end{array}
+	\right) \sin 2x $
+	
+	
+\end{document} 

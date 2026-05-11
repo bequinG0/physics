@@ -1,0 +1,144 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Индивидуальное домашнее задание: интегралы и ряды в ТФКП}
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Вариант 10}
+		\subsubsection*{Преподаватель: Бортковская Мария Романовна}
+	\end{center}
+
+
+	\quad \textbf{Задание 1.}  Вычислить интеграл с помощью интегральной формулы Коши и ее следствия о производных; возможно, применяя интегральную теорему Коши для многосвязной области: 
+	
+	\begin{center}
+		$ \displaystyle \int\limits_{(C)} \dfrac{\cos{z} dz}{(z-i)^3} $, где $C = \left\{ z \in\mathbb C,  |z - i| =1 \right\}$
+	\end{center}
+	
+	\quad \textbf{Решение.} Для вычисления заданного интеграла используем формулу Коши для производных: 
+	
+	\begin{center}
+		$f^{(n)}(z) = \dfrac{n!}{2 \pi i} \displaystyle \int\limits_{(C)} \dfrac{f(\zeta) d\zeta}{(\zeta - z_0)^{n+1}} \implies \displaystyle\int\limits_{(C)} \dfrac{cos\zeta d\zeta}{(\zeta - i)} = \dfrac{2\pi i}{2!} \cdot \dfrac{d^2}{dz^2} (\cos z) \bigg|_{z=i} $
+		
+		$ \dfrac{2 \pi i}{2!} \cdot \dfrac{d^2}{dz^2} (\cos z)\bigg|_{z=i} =  -\pi i \cos{i} = -\pi i \ch{1}$
+	\end{center}
+	
+	\quad \textbf{Задание 2.} Разложить ФКП в ряд Лорана по степеням $z-2i$ в проколотой окрестности точки $z=2i$:
+	
+	\begin{center}
+		$f(z) = z^2 \sin{\dfrac{1}{z-2i}}$ (1)
+	\end{center}
+	
+	\quad \textbf{Решение.} Для начала определимся с окрестностью $z = 2i$,  в которой $f(z)$ регулярна. $z^2$ регулярна всюду, а $\sin{\dfrac{1}{z-2i}}$ регулярна всюду кроме точки $z = 2i$, т. е. $f(z)$ регулярна в $ 0 < |z-2i| < \infty$. Для удобства сделаем замену $t = z-2i$, тогда:
+	
+	\begin{center}
+		
+		$f(t) = (t+2i)^2 \sin{\dfrac{1}{t}}$
+		
+		$ \sin {\dfrac{1}{t}} = \dfrac{1}{t} - \dfrac{1}{3! t^3} + \dfrac{1}{5! t^5} - ... = \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{(-1)^{k}}{(2k+1)!} \cdot \dfrac{1}{ t^{2k+1}} $ (2)
+		
+	\end{center}
+		
+	$ z^2 = (t+2i)^2 = t^2 + 4it - 4 \implies f(t) = (t^2 + 4it - 4) \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{(-1)^{k}}{(2k+1)!} \cdot \newline \cdot \dfrac{1}{ t^{2k+1}} = \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{(-1)^k}{(2k+1)!} \cdot \dfrac{1}{t^{2k-1}} + \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{(-1)^k}{(2k+1)!} \cdot \dfrac{4i}{t^{2k}} - \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{(-1)^k}{(2k+1)!} \cdot \dfrac{4}{t^{2k+1}} = \newline =  \underbrace{t}_{\text{Регулярная часть}} + \underbrace{\displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^k}{t^k} \left( \dfrac{1}{(2k+1)!} + \dfrac{4i}{k!} \right) + \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{4i (-1)^k }{t^{2k} (2k+1)! }}_{\text{Главная часть}}$.
+	
+	\quad Таким образом разложение в ряд Лорана по степеням $z-2i$ имеет вид:
+	
+	$f(z) =  (z - 2i) + \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^k}{(z-2i)^{2k+1}} \left( \dfrac{1}{(2k+1)!} + \dfrac{4i}{k!} \right) + \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{4i (-1)^k }{(z-2i)^{2k} (2k+1)! }$(3)
+	
+	\quad \textbf{Задание 3.} Найти для (1) характер всех особых точек, включая $z = \infty$. Найти $ res_{z=2i} f(z)$
+	
+	\quad \textbf{Решение.} Данная ФКП регулярна всюду, кроме $z = 2i$ и $z = \infty$, следовательно это и есть  все особые точки данной ФКП.  
+	
+	\quad 1. Рассмотрим предел $\lim\limits_{z \rightarrow \infty} f(z) = \lim\limits_{z \rightarrow \infty} z^2 \sin(\dfrac{1}{z-2i}) = \lim\limits_{t \rightarrow \infty} (t+ \newline + 2i)^2 \sin \left( \dfrac{1}{t} \right) = \lim\limits_{t \rightarrow \infty} \dfrac{t^2 + 4it - 4}{t} = \infty  $. 
+	\quad Сделаем замену $z=\dfrac{1}{w}$, тогда функция $f(w)$ имеет полюс порядка $m$ в точке $w = 0$ в том случае, если в разложении (3) для функции $f(w)$ имеется ровно $m$ членов с отрицательными степенями $w$, т.е членов вида $\dfrac{1}{w^k}$, для $k = \overline{1,m}$.
+	
+	
+	$f(w) = -2i + \dfrac{1}{w} + \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^k w^k}{(1-2iw)^k} \left( \dfrac{1}{(2k+1)!} + \dfrac{4i}{k!} \right) + \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{4i (-1)^k w^{2k} }{(1-2iw)^{2k} (2k+1)! }$ 
+
+	
+	\quad Нетрудно заметить, что количество слагаемых с отрицательными степенями $w$ равно одному. Таким образом $f(w)$ имеет полюс первого порядка в точке $w=0$, а значит фукнция $f(z)$ имеет полюс первого порядка в точке $z = \infty$. 
+	
+	\quad 2. Рассмотрим точку $z = 2i$. Докажем, что не существует предела: $\lim\limits_{\substack{x \to 0 \\ y \to 2}} f(z)$. Доказательство:
+	
+	\begin{center}
+		$\lim\limits_{\substack{x \to 0 \\ y \to 2}} f(z) = \lim\limits_{\substack{x \to 0 \\ y \to 2}} (x^2 + 2ixy - y^2) \bigg( \sin \left( \dfrac{x}{x^2+(y-2)^2} \right) \ch\left( \dfrac{y-2}{x^2 + (y-2)^2} \right) - \newline - \sh \left( \dfrac{y-2}{x^2 + (y-2)^2} \right) \cos\left( \dfrac{x}{x^2 + (y-2)^2} \right)\bigg) = \lim\limits_{x \to 0} (x^2 + 4ix - 4) \sin \dfrac{1}{x} =  \newline = \lim\limits_{x \to 0} (x^2 + 4ix - 4) = -4$
+		
+		$\lim\limits_{\substack{x \to 0 \\ y \to 2}} f(z) = \lim\limits_{\substack{x \to 0 \\ y \to 2}} (x^2 + 2ixy - y^2) \bigg( \sin \left( \dfrac{x}{x^2+(y-2)^2} \right) \ch\left( \dfrac{y-2}{x^2 + (y-2)^2} \right) - \newline - \sh \left( \dfrac{y-2}{x^2 + (y-2)^2} \right) \cos\left( \dfrac{x}{x^2 + (y-2)^2} \right)\bigg) = \lim\limits_{y \to 2} 4 \sh\left( \dfrac{1}{y-2} \right) =  \infty $ (4)
+		
+		$\implies \lim\limits_{z \to 2i} f(z)$ не существует.
+		
+	\end{center}
+	
+	\quad Таким образом можно показать, что точка $z = 2i$ точно не полюс. В силу (4), можно также показать, что функция не ограничена ни в какой, даже в самой малой, окрестноти точки $z = 2i$, а значит эта точка не устранимая, т. е. $z = 2i$ существенно особая точка. 
+	
+	\quad Для нахождения вычета $res_{z=2i}f(z)$ найдём коэфицент в ряде Лорана (3) при члене $(z -2i)^{-1}$:
+	
+	\begin{center}
+		$ res_{z=2i} f(z) = -4 - \dfrac{1}{3!} = -4 - \dfrac{1}{6} = -\dfrac{25}{6} $
+	\end{center}
+	
+	\quad \textbf{Задание 4 (Вариант 18). } Вычислить интеграл с помощью теоремы о вычетах:
+	
+	\begin{center}
+		$\displaystyle\int\limits_{(\partial D)^{+}} \frac{z}{z+3} e^{\frac{1}{3z}} dz$, где $D = \left\{ z \in \mathbb C, |z| > 4 \right\}$ (1)
+	\end{center} 
+	
+	\quad \textbf{Решение.} Согласно теореме о вычетах: 
+	
+	\begin{center}
+		$\displaystyle \int\limits_{(\partial D)^+} f(z) dz  = 2 \pi  i\sum\limits_{k} res_{a_k} f(z)$ 
+	\end{center}
+	
+	\quad Где $a_k$ последовательность особых точек лежащих внутри $ D$.
+	
+	\quad Также важно понимать, что обход по контуру $(\partial D)^+$ производиться таким образом, чтобы область находилась слева от контура. Поскольку в данном конкретном случае в области $D$ нет особых точек, то следует изменить напраление обхода, таким образом как бы переходя от внешности круга к его внутренности, где уже есть особые точки: 
+	
+	\begin{center}
+		$\displaystyle \int\limits_{(\partial D)^+} \dfrac{z}{z+3} e^{\frac{1}{3z}} dz= - \displaystyle \int\limits_{(\partial D)^-} \dfrac{z}{z+3} e^{\frac{1}{3z}}dz = - 2\pi i \cdot res_{z=0} f(z) - 2\pi i \cdot  res_{z=-3} f(z) $ (2)
+	\end{center} 
+	
+	\quad  Точка $z = 0$ существенно особая точка. Разложим $f(z) = \dfrac{z}{z+3} e^{\frac{1}{3z}}$ в ряд Лорана по степеням $z$ в кольце $0 < |z| < 3$ и найдём коэфицент при $z^{-1}$. Этот коэфицент и будет вычетом $res_{z=0} f(z)$:
+	
+	\begin{center}
+		$\dfrac{z}{z+3} = \dfrac{z}{3(1 + \frac{z}{3}) } = \dfrac{z}{3} \displaystyle\sum\limits_{k=0}^{\infty} (-1)^{k} \left(  \dfrac{z}{3} \right)^k = \displaystyle\sum\limits_{k=0}^{\infty} (-1)^{k} \left(  \dfrac{z}{3} \right)^{k+1} $
+		
+		$e^{\frac{1}{3z}} = \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{1}{(3z)^{k} k!}  $
+		
+		$\implies f(z) = \displaystyle\sum\limits_{k=0}^{\infty}  (-1)^{k} \left(  \dfrac{z}{3} \right)^{k+1}\cdot  \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{1}{(3z)^{k} k!}  \implies res_{z=0} f(z) = \newline = \dfrac{1}{3} \cdot \dfrac{1}{3^2 \cdot 2!} - \dfrac{1}{3^2}\cdot \dfrac{1}{ 3^3 \cdot 3!} + \dfrac{1}{3^3} \cdot \dfrac{1}{3^4 \cdot 4!} - ...  $
+		
+		$ \dfrac{1}{3} \cdot \dfrac{1}{3^2 \cdot 2!} - \dfrac{1}{3^2}\cdot \dfrac{1}{ 3^3 \cdot 3!} + \dfrac{1}{3^3} \cdot \dfrac{1}{3^4 \cdot 4!} - ...  = 3\bigg( \dfrac{1}{2!} \cdot \dfrac{1}{9^2} - \dfrac{1}{3!} \cdot \dfrac{1}{9^3} + \dfrac{1}{4!} \cdot \dfrac{1}{9^4} - ...\bigg)$.
+		
+		Рассмотрим расзложение:
+		
+		$\ln(1+x) = x - \dfrac{x^2}{2!} + \dfrac{x^3}{3!} - \dfrac{x^4}{4!} + ... \implies x - \ln(1+x) = \dfrac{x^2}{2!} + \dfrac{x^3}{3!} - \dfrac{x^4}{4!} + ...  \implies $
+		
+		$\implies 3 \bigg( \dfrac{1}{9} - \ln\dfrac{10}{9} \bigg) = 3\bigg( \dfrac{1}{2!} \cdot \dfrac{1}{9^2} - \dfrac{1}{3!} \cdot \dfrac{1}{9^3} + \dfrac{1}{4!} \cdot \dfrac{1}{9^4} - ...\bigg)$
+	\end{center}
+	
+	\quad Точка $z = -3$ полюс первого порядка, а значит:
+	
+	\begin{center}
+		$res_{z=-3} f(z) = \lim\limits_{z \rightarrow -3} (z+3) f(z) = \lim\limits_{z \rightarrow -3} z e^{\frac{1}{3z}} = -3e^{-\frac{1}{9}}$
+		
+		$ (2) \implies \displaystyle \int\limits_{(\partial D)^+} \dfrac{z}{z+3} e^{\frac{1}{3z}} dz = -2 \pi i \left(  \dfrac{1}{3} - 3\ln\dfrac{10}{9} - 3 e^{-\frac{1}{9}} \right)$
+	\end{center}
+	
+\end{document}

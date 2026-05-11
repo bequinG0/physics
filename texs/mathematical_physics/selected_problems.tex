@@ -1,0 +1,139 @@
+% --- преамбула для "матфиз" стиля (pdfLaTeX) ---
+
+% Файл: Лекция6_верстка.tex
+% Сверстано по твоему референсу (малые заголовки, строгая последовательность окружений)
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+
+\usepackage{titlesec}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{4pt}
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{}{}{}[\quad]
+\newcommand{\qheading}[1]{\paragraph{#1}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[subsubsection]
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Теорема}
+\newtheorem{lemma}[definition]{Лемма}
+\newtheorem{corollary}[definition]{Следствие}
+
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Замечание}
+\newtheorem{example}[definition]{Пример}
+
+\renewenvironment{proof}[1][Доказательство]{%
+	\par\noindent\textit{#1.}\quad
+}{\hfill\(\blacksquare\)\par}
+
+\numberwithin{equation}{subsubsection}
+\captionsetup{font=small,labelfont=bf}
+\setlist[itemize]{noitemsep,topsep=4pt,parsep=0pt,partopsep=0pt}
+
+\begin{document}
+	
+	\begin{center}
+		{\Large\bf Лекция 6. Постановка, существование и единственность начально-краевых задач для уравнений гиперболического типа}
+	\end{center}
+	
+	\subsubsection{Постановка начально-краевой задачи}
+	Пусть \(B\subset\mathbb{R}^n\) — область с гладкой границей \(\partial B\). Рассматриваем уравнение гиперболического типа (в общем виде)
+	\[
+	\text{(PDE)}\qquad U_{tt} = \mathcal{L} U + F(t,x),
+	\]
+	где \(\mathcal{L}\) — второй пространственный дифференциальный оператор (например, оператор Лапласа с коэффициентами), \(x\in B\), \(t>0\), и задано граничное условие на \(\partial B\) и начальные условия при \(t=0\):
+	\[
+	U|_{t=0}=U_0(x),\qquad U_t|_{t=0}=V_0(x).
+	\]
+	(В оригинале лекции формулировка даётся в конкретном виде — см. источник.) :contentReference[oaicite:2]{index=2}
+	
+	Граничные условия могут быть различных типов:
+	\begin{enumerate}
+		\item Дирихле: \(U|_{\partial B}=f(t,\xi)\).
+		\item Нейман: \(\partial_n U|_{\partial B}=g(t,\xi)\).
+		\item Смешанные (например, Робина и т.п.).
+	\end{enumerate}
+	
+	\subsubsection{Условие согласования}
+	Необходимы условия согласования начальных и граничных данных (чтобы решение было непрерывно до границы и в момент \(t=0\)). В лекции это перечислено в виде трёх требований на допустимые множества и значения данных. :contentReference[oaicite:3]{index=3}
+	
+	\subsubsection{Единственность решения (схема доказательства)}
+	\begin{theorem}
+		(Единственность решения начально-краевой задачи)  
+		Пусть две функции \(U^{(1)}\) и \(U^{(2)}\) удовлетворяют одной и той же задаче (одинаковые уравнение, граничные и начальные условия) и обладают необходимой регулярностью. Тогда \(U^{(1)}\equiv U^{(2)}\) в области рассмотрения.
+	\end{theorem}
+	
+	\begin{proof}
+		Пусть \(W=U^{(1)}-U^{(2)}\). Тогда \(W\) удовлетворяет однородной задаче (с нулевыми начальными и граничными данными):
+		\[
+		W_{tt} = \mathcal{L} W,\qquad W|_{t=0}=0,\ W_t|_{t=0}=0,\ W|_{\partial B}=0.
+		\]
+		Введём подходящую энергетическую функционалу (энергию)
+		\[
+		E(t)=\frac12\int_B \big( |W_t|^2 + a(x)\,|\nabla W|^2 \big)\,dx,
+		\]
+		и получим интегральное тождество (энергетическое) вида
+		\[
+		\frac{d}{dt}E(t) = \text{(граничные и нулевые члены)}.
+		\]
+		Интегрирование по времени от \(0\) до \(t\) даёт \(E(t)=0\) при всех \(t\), откуда \(W\equiv 0\). Это завершает доказательство единственности. :contentReference[oaicite:4]{index=4}
+	\end{proof}
+	
+	\begin{corollary}
+		Следует, что при выполнении условий согласования решение, если существует, единственно.
+	\end{corollary}
+	
+	\qheading{Замечание}
+	В исходной лекции даётся более подробное интегральное тождество с отображением площадных и объёмных интегралов; я вынес сюда только ключевую идею (энергетический метод). См. источник для подробной формы тождеств. :contentReference[oaicite:5]{index=5}
+	
+	\subsubsection{Интегральное тождество (пример)}
+	В лекции приводится интегральное тождество, получаемое при умножении уравнения на тестовую функцию \(V\) и интегрировании по области \(B\):
+	\[
+	\int_B (U_{tt}V + \nabla U\cdot\nabla V)\,dx = \int_B F V\,dx + \int_{\partial B}(\cdots)\,dS,
+	\]
+	и дальнейшие преобразования позволяют вывести оценку энергии. (Полная формула в исходнике.) :contentReference[oaicite:6]{index=6}
+	
+	\subsubsection{Метод Даламбера (задача о колебаниях струны)}
+	Далее в лекции рассматривается применение общего интеграла (метода Даламбера) для уравнения волны на прямой:
+	\[
+	u_{tt}-c^2 u_{xx}=0,\qquad x\in\mathbb{R},\ t>0,
+	\]
+	с начальными условиями
+	\[
+	u(x,0)=\phi(x),\qquad u_t(x,0)=\psi(x).
+	\]
+	Общее решение (Даламбер) имеет вид
+	\[
+	u(x,t)=\frac{\phi(x-ct)+\phi(x+ct)}{2}+\frac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)\,ds.
+	\]
+	
+	\qheading{Частные случаи и интерпретация}
+	Если начальное возмущение финитно (имеет компактный носитель), то с течением времени возмущение расползётся вдоль характеристик; описывается появление переднего и заднего фронтов волн (см. рисунки в исходнике). Также обсуждается случай конечной струны длины \(l\) с закреплёнными концами и явление отражений.
+	
+	\subsubsection{Замечание об устойчивости решения}
+	В лекции подчеркивается устойчивость решения по правым частям: если правая часть уравнения \(F\) мала в некоторой норме, то и соответствующая компонента решения имеет такой же порядок малости (оценки в энергетических нормах).
+	
+	% ----- конец лекции 6 -----
+	\vspace{1em}
+	
+	$\dfrac{1}{\pi} \displaystyle\int\limits_{0}^{+\infty} \dfrac{x - \sin x}{x^3} dx$
+	
+\end{document}
+
+

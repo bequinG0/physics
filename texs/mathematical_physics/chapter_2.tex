@@ -1,0 +1,155 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание по математической физике}
+		\subsubsection*{Глава №2: Задачи Штурма-Лиувилля  в  математической  физике}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы ФФИ: Куликовских Илья}
+		\subsubsection*{Группа: 5030302/30801}
+		\subsubsection*{Вариант 6}
+		\subsubsection*{Преподаватель: Елатонцев Вадим Александрович}
+	\end{center}
+	
+	\quad \textbf{Задание 2.01.07} Показать что уравнение:
+	
+	\begin{equation}
+		\dfrac{d^2 y}{dx^2} + \dfrac{2}{x} \dfrac{dy}{dx} + y = 0
+	\end{equation}
+	
+	имеет решение $y_1(x) = \dfrac{1}{x} \sin x$ . Найти второе линейно-независимое решение $y_2 (x)$ по формуле:
+	
+	\begin{equation}
+		y_2 (x) = y_1 (x) \displaystyle\int\dfrac{e^{-A_1 (x)}}{y_1^2 (x)} dx 
+	\end{equation}
+	
+	\quad где $A_1 = \displaystyle\int \dfrac{2}{x} dx$ .  Вычислить определитель вронского $W(x)$.
+	
+	\quad \textbf{Решение.} Проверим, что $y = \dfrac{1}{x}\sin x$ действителььно является решением ОЛДУ (1):
+	
+	\begin{center}
+		$\dfrac{2}{x^3}\sin x -\dfrac{2}{x^2}\cos x - \dfrac{1}{x}\sin x - \dfrac{2}{x^3}\sin x + \dfrac{2}{x^2}\cos x + \dfrac{1}{x}\sin x = 0 $ 
+	\end{center}
+	
+	\quad Далее определим второе решение ОЛДУ (1) по формуле (2) и проверим его линейную зависимость с первым, вычислив определитель Вронского $W(x)$:
+	
+	\begin{center}
+		$\displaystyle\int\dfrac{2}{x}dx = 2\ln|x| \implies e^{-2\ln|x|} = \dfrac{1}{x^2}$
+
+		$y_2(x) = \dfrac{1}{x}\sin x \displaystyle\int\dfrac{1}{x^2 \frac{1}{x^2} \sin^2 x} dx = \dfrac{1}{x}\sin x \ctg x = \dfrac{1}{x}\cos x $
+	\end{center}
+	
+	\quad Проверим получившиеся решение: 
+	
+	\begin{center} 
+		$\dfrac{2}{x^3} \cos x + \dfrac{2}{x^2}\sin x - \dfrac{1}{x}\cos x - \dfrac{2}{x^3}\cos x - \dfrac{2}{x^2}\sin x + \dfrac{1}{x}\cos x = 0 $
+	\end{center}
+	
+	\quad Вычислим определитель Вронского:
+	
+	\begin{equation}
+		W(x) = \left|\begin{array}{cc}
+			\dfrac{1}{x}\sin x & \dfrac{1}{x}\cos x \\
+			\dfrac{1}{x}\cos x - \dfrac{1}{x^2} \sin x & -\dfrac{1}{x}\sin x - \dfrac{1}{x^2}\cos x \\
+		\end{array}\right|
+	\end{equation}
+	
+	\begin{equation}
+		W(x) = -\dfrac{1}{x^2}\sin^2 x - \dfrac{1}{2x^3}\sin2x - \dfrac{1}{x^2}\cos^2 x + \dfrac{1}{2x^3}\sin 2x = -\dfrac{1}{x^2}\implies 
+	\end{equation}
+	
+	\quad $\implies $ Решения являются линейно независимыми и следовательно образуют фундаментальную систему решений (ФСР) ОЛДУ (1) $\blacksquare$.
+		
+	\quad \textbf{Задание 2.01.08} Найти общее решение неоднородного линейного дифференциального уравнения методом вариации постоянных: 
+	
+	\begin{equation}
+		\dfrac{d^2 y}{dx^2} + \dfrac{2}{x} \dfrac{dy}{dx} + y = \dfrac{ \ctg x }{x}
+	\end{equation} 
+	
+	\quad \textbf{Решение.} Общее решение НЛДУ является суммой общего решения ОЛДУ и частоного решения этого НЛДУ. Для выражения общего решения этого ОЛДУ воспользуемся результатои прошлой задачи:
+	
+	\begin{center}
+		$\dfrac{d^2 y}{dx^2} + \dfrac{2}{x} \dfrac{dy}{dx} + y = 0$
+	\end{center}
+	\begin{equation}
+		y(x) = C_1 y_1 (x) + C_2 y_2 (x) = \dfrac{C_1}{x}\sin x + \dfrac{C_2}{x}\cos x
+	\end{equation}
+	
+	\quad Частное решение уравнения (5) имеет вид: 
+	
+	\begin{equation}
+		y_{\text{част}}(x) = C_1 (x) y_1 (x) + C_2 (x) y_2 (x) 
+	\end{equation}
+
+	\quad Для определения констант $C_1 (x)$, $C_2 (x)$ воспользуемся методом вариации постоянных. Рассмотрим систему: 
+	
+	\begin{equation}
+		\begin{cases}
+			y_1 (x)\dfrac{dC_1}{dx} + y_2 (x)\dfrac{dC_2}{dx} = 0 \\
+			\\
+			\dfrac{dy_1}{dx} \dfrac{dC_1}{dx} + \dfrac{dy_2}{dx}\dfrac{dC_2}{dx} = \dfrac{\ctg x}{x} 
+		\end{cases} \implies \left[\begin{array}{cc|c }
+			y_1 & y_2 & 0 \\
+			& & \\
+			\dfrac{dy_1}{dx} & \dfrac{d y_2}{dx} & \dfrac{\ctg x}{x}
+		\end{array}\right]
+	\end{equation}
+	
+	\begin{center}
+		$\implies \Delta = W(x) = -\dfrac{1}{x^2}$; $\Delta_1 = -\dfrac{\ctg x}{x}y_2(x)$; $\Delta_2 = \dfrac{\ctg x}{x} y_1 (x)$
+	\end{center}
+	
+	\quad $\dfrac{dC_1}{dx} = \dfrac{\Delta_1}{\Delta} = \dfrac{x^2 \ctg x}{x^2}\cos x = \dfrac{\cos^2 x}{\sin x} = \dfrac{1}{\sin x} - \sin x \implies $
+	
+	$\implies C_1 = \displaystyle\int\left(\dfrac{1}{\sin x} -\sin x\right)dx = \displaystyle\int\dfrac{dx}{\sin x} - \displaystyle\int\sin x dx = \displaystyle\int\dfrac{2(1 + t^2)}{2t(1 + t^2)}dt + +\cos x = \ln|\tg \dfrac{x}{2}| + \cos x + \tilde{C_1}$
+	
+	\quad $\dfrac{dC_2}{dx} = \dfrac{\Delta_2}{\Delta} = -\dfrac{x^2 \cos x}{x^2} = -\cos x \implies  C_2 = -\displaystyle\int\cos x dx =\newline= -\sin x + \tilde{C_2}$
+	
+	\quad Таким образом частное решение НЛДУ (5) имеет вид:
+	
+	\begin{equation}
+		y_{\text{част}}(x) = \dfrac{1}{x}\left( \ln|\tg\dfrac{x}{2}| + \cos x \right)\sin x - \dfrac{1}{x}\sin x \cos x
+	\end{equation}
+	
+	\quad Общее решение НЛДУ (5) таким образом равно:
+	
+	\begin{equation}
+		y_{\text{общ}} = \dfrac{C_1}{x}\sin x + \dfrac{C_2}{x}\cos x + \dfrac{1}{x}\left( \ln|\tg\dfrac{x}{2}| + \cos x \right)\sin x - \dfrac{1}{x}\sin x \cos x
+	\end{equation} 
+	
+	\quad \textbf{Ответ: } $y_{\text{общ}} = \dfrac{C_1}{x}\sin x + \dfrac{C_2}{x}\cos x + \dfrac{1}{x}\left( \ln|\tg\dfrac{x}{2}| + \cos x \right)\sin x - -\dfrac{1}{x}\sin x \cos x$
+	
+	\quad \textbf{Задание 2.02.04} Показать что уравнение: 
+	
+	\begin{equation}
+		y\dfrac{\partial U}{\partial x} - x \dfrac{\partial U}{\partial y} = 0
+	\end{equation}
+	
+	имеет общее решение $U(x, y) = \varphi(\sqrt{x^2 + y^2}) $. Использовать метод характеристик. 
+	
+	\quad \textbf{Решение.} Распишем уравнения метода характеристик
+	
+	\begin{center}
+		$\dfrac{dy}{dt} = -x$; $\dfrac{dx}{dt} = y \implies $
+		
+		$\implies \dfrac{dy}{x} = -\dfrac{dx}{y} \implies y^2 + x^2 = (\sqrt{x^2 + y^2})^2 = Const$
+		
+	\end{center}
+	
+	\quad Таким образом, $U(x, y) = f(Const) = f(\sqrt{x^2 + y^2}) $ $\blacksquare$.
+	
+\end{document}

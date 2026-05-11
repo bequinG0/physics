@@ -1,0 +1,545 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+\begin{document}
+	
+	\begin{center}
+		\subsubsection*{Расчётные задачи по квантовой механике.}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы фундаментальных физических исследований: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5030302/30801}
+		\subsubsection*{Преподаватель: Малышкин Владислав Генадьевич}
+	\end{center}
+	
+	\quad \textbf{Задача 1.13.} В состоянии частицы с волновой функцией  
+	\begin{center}
+		$\psi (x) = C e^ {\frac{i p_0 x}{\hbar} - \frac{(x - x_0)^2}{2a^2} }$
+	\end{center}
+	где \( p_0, \, x_0, \, a \) — вещественные параметры, найти распределение вероятностей различных значений координаты. Определить средние значения и флуктуации координаты и импульса частицы.
+	 
+	\quad \textbf{Решение: } 1) Определим константу $C$ из условия нормировки волновой функции: 
+	
+	\begin{center}
+		$\left< \psi | \psi \right> = \displaystyle\int\limits_{-\infty}^{+\infty} \psi^* \psi dx = \displaystyle\int\limits_{-\infty}^{+\infty} C^2 e^{-\frac{(x-x_0)^2}{a^2}} dx = C^2 a\sqrt{\pi} = 1 \implies C^2 = \dfrac{1}{a\sqrt{\pi}}$
+	\end{center}
+	
+	\quad 2) Распишем среднее значение координаты и импульса: 
+	
+	$\overline{x} = \left< \psi | \hat{x} | \psi \right> = C^2 \displaystyle\int\limits_{-\infty}^{+\infty} xe^{-\frac{(x-x_0)^2}{a^2}} dx = \left[\begin{array}{c}
+		t = x-x_0 \\
+		C^2\displaystyle\int\limits_{-\infty}^{+\infty} te^{-\frac{t^2}{a^2}} dt +  C^2 x_0 \displaystyle\int\limits_{-\infty}^{+\infty} e^{-\frac{t^2}{a^2}} dt
+	\end{array}\right] = \newline = C^2 x_0 a\sqrt{pi} = x_0 $
+	
+	$\overline{p} = \left< \psi | \hat{p} | \psi \right> = -i\hbar C^2 \displaystyle\int\limits_{-\infty}^{+\infty} \dfrac{d}{dx} e^{-\frac{(x-x_0)^2}{a^2}} dx = \displaystyle\int\limits_{-\infty}^{+\infty} e^{-\frac{(x-x_0)^2}{a^2}}  \left(\dfrac{ip_0}{\hbar} - \dfrac{(x-x_0)}{a^2}\right) dx =\newline= -i\hbar C^2 \dfrac{ip_0}{\hbar} \displaystyle\int\limits_{-\infty}^{+\infty} e^{-\frac{t^2}{a^2}} dt = p_0 $
+	
+	\quad 3) В качетсве характеристики флуктуаций найдём дисперсию для координаты и импульса: 
+	
+	$\sigma^2_x = \left<\psi | (x-x_0)^2 | \psi \right> = C_2 \displaystyle\int\limits_{-\infty}^{+\infty} (x-x_0)^2 e^{-\frac{(x-x_0)^2}{a^2}} dx = \left[\begin{array}{c}
+		z = \frac{(x-x_0)^2}{a^2} \\
+		C^2 a^3 \displaystyle\int\limits_{-\infty}^{+\infty} z^{\frac{1}{2}}e^{-z} dz 
+	\end{array}\right] =\newline= C^2 a^3 \Gamma\left(\dfrac{3}{2}\right) = \dfrac{a^2}{2}$
+	
+	$\sigma^2_p = \left<\psi | (p-p_0)^2 | \psi \right> = \displaystyle\int\limits_{-\infty}^{+\infty} \psi^* (p-p_0)^2 \psi dx = \left[\begin{array}{c}
+		p - p_0 = -i\hbar\frac{d}{dx} - p_0 \\
+		-i\hbar\frac{d\psi}{dx} = \left(p_0 - i\hbar\frac{x-x_0}{a^2}\right)\psi
+	\end{array}\right] =\newline= \displaystyle\int\limits_{-\infty}^{+\infty} \left| \left(p_0 - i\hbar\frac{x-x_0}{a^2} - p_0\right)\psi \right|^2 dx = \displaystyle\int\limits_{-\infty}^{+\infty} \left| -i\hbar\frac{x-x_0}{a^2} \psi \right|^2 dx = \frac{\hbar^2}{a^4} \displaystyle\int\limits_{-\infty}^{+\infty} (x-x_0)^2 |\psi|^2 dx = \frac{\hbar^2}{a^4} \cdot \frac{a^2}{2} = \frac{\hbar^2}{2a^2}$ $\blacksquare$
+	
+	$\newline$
+	
+	\quad \textbf{Задача 1.36.} Указать нормированные соответствующим образом собственные функции радиус-вектора $\psi_{\mathbf{r}_0}$, и импульса $\psi_{\mathbf{p}_0}$, в $\mathbf{r}$- и $\mathbf{p}$-представлениях.
+	
+	\quad \textbf{Решение.} Первоначально отыщем собственные волновые функции оператора радиус-вектора и оператора импульса: 
+	
+	\begin{center}
+		$\hat{\mathbf{r}}\psi_{\mathbf{r_0}} (\mathbf{r}) = \mathbf{r} \psi_{\mathbf{r_0}}(\mathbf{r}) \implies \mathbf{r} \psi_{\mathbf{r_0}}(\mathbf{r}) = \mathbf{r_0} \psi_{\mathbf{r_0}}(\mathbf{r}) \implies (\mathbf{r} - \mathbf{r_0})\psi_{\mathbf{r_0}}(\mathbf{r}) = 0$
+		
+		$\implies \psi_{\mathbf{r_0}} (\mathbf{r}) = \delta^{(3)}(\mathbf{r}-\mathbf{r_0})$
+		
+	\end{center} 
+	
+	\quad В силу свойств дельта-функции, получившаяся собственная функция уже нормирована условием:
+	\[
+	\langle \psi_{\mathbf{r_0}} | \psi_{\mathbf{r'_0}} \rangle = \int \delta^{(3)}(\mathbf{r} - \mathbf{r_0}) \, \delta^{(3)}(\mathbf{r} - \mathbf{r'_0}) \, d^3\mathbf{r} = \delta^{(3)}(\mathbf{r_0} - \mathbf{r'_0})
+	\]
+	
+	\quad Теперь рассмотрим собственные функции оператора импульса $\hat{\mathbf{p}} = -i\hbar\nabla$:
+	
+	\begin{center}
+		$-i\hbar\nabla \psi_{\mathbf{p_0}} (\mathbf{r}) = \mathbf{p_0} \psi_{\mathbf{p_0}} (\mathbf{r})$
+		
+		Решение ищем в виде $\psi_{\mathbf{p_0}} (\mathbf{r}) = C e^{i\mathbf{k}\cdot\mathbf{r}}$, подставляя:
+		\[
+		-i\hbar \cdot i\mathbf{k} \, C e^{i\mathbf{k}\cdot\mathbf{r}} = \hbar\mathbf{k} \, C e^{i\mathbf{k}\cdot\mathbf{r}} = \mathbf{p_0} \, C e^{i\mathbf{k}\cdot\mathbf{r}}
+		\]
+		Отсюда $\mathbf{k} = \mathbf{p_0}/\hbar$. Тогда:
+		\[
+		\psi_{\mathbf{p_0}} (\mathbf{r}) = C \exp\left( \frac{i\mathbf{p_0}\cdot\mathbf{r}}{\hbar} \right)
+		\]
+	\end{center}
+	
+	\quad Условие нормировки на дельта-функцию для непрерывного спектра:
+	\[
+	\langle \psi_{\mathbf{p_0}} | \psi_{\mathbf{p'_0}} \rangle = \delta^{(3)}(\mathbf{p_0} - \mathbf{p'_0})
+	\]
+	Вычисляем скалярное произведение:
+	\[
+	\int_{-\infty}^{\infty} C^2 \exp\left( \frac{i(\mathbf{p_0} - \mathbf{p'_0})\cdot\mathbf{r}}{\hbar} \right) d^3\mathbf{r} = |C|^2 (2\pi\hbar)^3 \delta^{(3)}(\mathbf{p_0} - \mathbf{p'_0})
+	\]
+	Отсюда выбираем $C = \frac{1}{(2\pi\hbar)^{3/2}}$.
+	
+	\quad Таким образом, нормированные собственные функции:
+	
+	$\mathbf{r}$-представлении:
+		\[
+		\psi_{\mathbf{r_0}}(\mathbf{r}) = \delta^{(3)}(\mathbf{r} - \mathbf{r_0}), \quad \psi_{\mathbf{p_0}}(\mathbf{r}) = \frac{1}{(2\pi\hbar)^{3/2}} \exp\left( \frac{i\mathbf{p_0}\cdot\mathbf{r}}{\hbar} \right)
+		\]
+	$\mathbf{p}$-представлении (волновая функция как функция импульса):
+		\[
+		\tilde{\psi}_{\mathbf{r_0}}(\mathbf{p}) = \frac{1}{(2\pi\hbar)^{3/2}} \exp\left( -\frac{i\mathbf{p}\cdot\mathbf{r_0}}{\hbar} \right), \quad \tilde{\psi}_{\mathbf{p_0}}(\mathbf{p}) = \delta^{(3)}(\mathbf{p} - \mathbf{p_0})
+		\]
+	
+	\quad \textbf{Ответ:} 
+	$\psi_{\mathbf{r_0}}(\mathbf{r}) = \delta^{(3)}(\mathbf{r} - \mathbf{r_0}), \psi_{\mathbf{p_0}}(\mathbf{r}) = \frac{1}{(2\pi\hbar)^{3/2}} e^{i\mathbf{p_0}\cdot\mathbf{r}/\hbar} $
+	
+
+	$\tilde{\psi}_{\mathbf{r_0}}(\mathbf{p}) = \frac{1}{(2\pi\hbar)^{3/2}} e^{-i\mathbf{p}\cdot\mathbf{r_0}/\hbar} \quad \tilde{\psi}_{\mathbf{p_0}}(\mathbf{p}) = \delta^{(3)}(\mathbf{p} - \mathbf{p_0}) $
+	
+	
+	\quad \textbf{Задача 2.8.} Найти энергетический спект и волновые функции стационарных состояний в потенциале: 
+	
+	\begin{center}
+		$U(x) = \begin{cases}
+			+\infty, \forall x \in (-\infty, 0] \\
+			F_0 x, \forall x \in (0, +\infty)
+		\end{cases}$
+	\end{center} 
+	
+	\quad \textbf{Решение.} Напишем стационарное уравнение Шрёдингера $\forall x \in (0, +\infty)$ : 
+	
+	\begin{center}
+		$-\dfrac{\hbar^2}{2m}\dfrac{d^2 \psi}{dx^2} + F_0 x \psi = E\psi$ 
+		
+		$\dfrac{d^2 \psi}{dx^2} -\dfrac{2mF_0}{\hbar^2} x \psi= E\psi$
+	\end{center}
+	
+	\quad Уравнение вида: $\dfrac{d^2 y}{dx^2} - xy = 0$ называется уравнением Эйри. Его решениями являются функции Эйри и Бэйри: $y(x) = C_1 Ai (x) + C_2 Bi (x)$. Воспользуемся этим уравнением для поиска решения уравнения задачи: 
+	
+	\begin{center}
+		Пусть $\xi = \alpha \left( x - \dfrac{E}{F_0} \right)\text{, } \alpha = \left(\dfrac{2mF_0}{\hbar^2}\right)^{\frac{1}{3}} \implies \dfrac{d^2 \psi}{dx^2 } - \xi\psi = 0$
+		
+		$\implies \psi = C_1 Ai(\xi) + C_2 Bi(\xi) $
+		
+		Г. у.: $\begin{cases}
+			\psi (x) \bigg|_{x = 0} = 0 \\ 
+			\\
+			\psi (x) \bigg|_{x \to \infty} \to 0 
+		\end{cases} \implies \begin{cases}
+			\psi (\xi) \bigg|_{\xi = -\alpha\frac{E}{F_0}} = 0 \\ 
+			\\
+			\psi (\xi) \bigg|_{\xi \to \infty} \to 0 
+		\end{cases}$
+		
+		$\implies Ai\left(\dfrac{\alpha E_n}{F_0}\right) = 0\text{, } -\alpha\dfrac{E_n}{F_0} = \gamma_n$
+		
+		где $\gamma_n$ нули функции Эйри. 
+	\end{center}
+	
+	\quad Таким образом энергетический спектр:  $E_n = \left(\dfrac{\hbar^2 F_0^2}{2m}\right)^{\frac{1}{3}} |\gamma_n|$
+	
+	\quad \textbf{Ответ: } $E_n = \left(\dfrac{\hbar^2 F_0^2}{2m}\right)^{\frac{1}{3}} |\gamma_n|$, где стационарные состояния описываются функциями Эйри.
+	
+	\quad \textbf{Задача 2.48} Найти энергетические уровни и соответствующие волновые функции плоского изотропного осциллятора. Какова кратность вырождения уровней?
+	
+	\quad \textbf{Решение.} Плоский изотропный ротатор это система с потенциалом: 
+	
+	\begin{center}
+		$U(x, y) = \dfrac{1}{2}m\omega^2 \left(x^2 + y^2\right) $
+	\end{center}
+	
+	\quad Напишем стационарное уравнение Шрёдингера: 
+	
+	\begin{center}
+		$-\dfrac{\hbar^2}{2m} \left(\dfrac{\partial^2}{\partial x^2} + \dfrac{\partial^2}{\partial y^2}\right)\psi + \dfrac{1}{2} m\omega^2 (x^2 + y^2) \psi = E\psi $
+	\end{center}
+
+	\quad Решим задачу, разделив переменные, методом Фурье: 
+	
+	\begin{center}
+		$\begin{cases}
+			\dfrac{d^2 X}{dx^2} + \dfrac{2m}{\hbar^2} \left( E_x - \dfrac{1}{2} m \omega^2 x^2 \right) X = 0 \\
+			\\
+			\dfrac{d^2 Y}{dy^2} + \dfrac{2m}{\hbar^2} \left( E_y - \dfrac{1}{2} m \omega^2 y^2 \right) Y = 0
+		\end{cases}$
+		
+	\end{center}
+	
+	\quad Общее решение в уравнениях такого вида:
+	
+	\begin{center}
+		$\dfrac{d^2 \zeta}{d\xi^2} + \left(\lambda - \xi^2 \right) = 0$
+		
+		$\zeta = C_1 D_{\frac{\lambda - 1}{2}} (\sqrt{2}\xi ) + C_2 D_{\frac{\lambda - 1}{2}} (-\sqrt{2}\xi )$
+		
+		где $D_n(z) = 2^{-n/2} \, e^{-z^2/4} \, H_n\!\left( \frac{z}{\sqrt{2}} \right)$
+		
+		$\implies X(x) = C_1 \, D_{\frac{E_x}{\hbar\omega} - \frac{1}{2}}\!\left( \sqrt{\frac{2m\omega}{\hbar}}\, x \right) 
+		+ C_2 \, D_{\frac{E_x}{\hbar\omega} - \frac{1}{2}}\!\left( -\sqrt{\frac{2m\omega}{\hbar}}\, x \right)$
+		
+		$Y(y) = C_3 \, D_{\frac{E_y}{\hbar\omega} - \frac{1}{2}}\!\left( \sqrt{\frac{2m\omega}{\hbar}}\, y \right) 
+		+ C_4 \, D_{\frac{E_y}{\hbar\omega} - \frac{1}{2}}\!\left( -\sqrt{\frac{2m\omega}{\hbar}}\, y \right)$
+	\end{center}
+	
+	\quad Граничные условия имеют вид: 
+	
+	\begin{center}
+		Г.у.: $\begin{cases}
+			\displaystyle \psi(x, y)_{|x| \to \infty} \to 0 \\ \psi(x, y)_{|y| \to \infty} \to  0 \\
+			\displaystyle \psi(x, y) \in C^{1} \left[\mathbb{R}^2\right]
+		\end{cases}$
+	\end{center}
+	
+	\quad Таким обрзаом, имеем: 
+	
+	\[
+	X_{n_x}(x) = \left( \frac{m\omega}{\pi\hbar} \right)^{1/4} \frac{1}{\sqrt{2^{\,n_x} n_x!}} \,
+	H_{n_x}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, x \right) e^{-\frac{m\omega}{2\hbar} x^2},
+	\]
+
+	\[
+	Y_{n_y}(y) = \left( \frac{m\omega}{\pi\hbar} \right)^{1/4} \frac{1}{\sqrt{2^{\,n_y} n_y!}} \,
+	H_{n_y}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, y \right) e^{-\frac{m\omega}{2\hbar} y^2},
+	\]
+	
+	
+	\[
+	E_n = \hbar\omega(n_x + n_y + 1)
+	\]
+	\quad Общий вид волновой функции после совмещения переменных: 
+	\begin{center}
+		$\psi_{n_x, n_y}(x, y) = 
+		\frac{1}{\sqrt{\pi} \, 2^{\frac{n_x + n_y}{2}} \sqrt{n_x! \, n_y!}} 
+		\left( \frac{m\omega}{\hbar} \right)^{1/2}
+		H_{n_x}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, x \right)
+		H_{n_y}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, y \right)
+		e^{-\frac{m\omega}{2\hbar}(x^2 + y^2)} $
+		
+	\end{center}
+	
+	\quad \textbf{Ответ: } 
+	$\psi_{n_x, n_y}(x, y) = 
+	\frac{1}{\sqrt{\pi} \, 2^{\frac{n_x + n_y}{2}} \sqrt{n_x! \, n_y!}} 
+	\left( \frac{m\omega}{\hbar} \right)^{1/2}
+	H_{n_x}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, x \right)
+	H_{n_y}\!\left( \sqrt{\frac{m\omega}{\hbar}} \, y \right)
+	e^{-\frac{m\omega}{2\hbar}(x^2 + y^2)} $
+	
+	
+	\[
+	E_n = \hbar\omega(n_x + n_y + 1)
+	\]
+	
+	\quad \textbf{Задача 3.5.} Найти следующие коммутаторы:
+	
+	а) $[l_i, r^2]$, $[l_i, \hat{p}^2]$, $[l_i, (\hat{\mathbf{p}}\mathbf{r})]$, $[l_i, (\hat{\mathbf{p}}\mathbf{r})^2]$,  
+	
+	б) $[l_i, (\hat{\mathbf{p}}\mathbf{r}) \hat{p}_k]$, $[l_i, (\hat{\mathbf{p}}\mathbf{r}) x_k]$, $[l_i, (a x_k + b \hat{p}_k)]$,  
+	
+	в) $[l_i, x_k x_l]$, $[l_i, \hat{p}_k \hat{p}_l]$, $[l_i, x_k \hat{p}_l]$
+	
+	
+	\quad \textbf{Решение. } a) Найдём коммутаторы в первой строчке:
+	
+	\quad $\left[\hat{l_i}, \hat{\mathbf{r}}^2 \right] = \left[\hat{l_i}, \hat{x_k} \hat{x_k} \right] = x_k \left[\hat{l_i}, \hat{x_k} \right] + \left[\hat{l_i}, \hat{x_k}\right]x_k = i\hbar\varepsilon_{ikm}\hat{x_k}\hat{ x_m }+ i\hbar\varepsilon_{imk} \hat{x_m} \hat{x_k} = \newline = i\hbar\varepsilon_{ikm}\hat{x_k} \hat{x_m} - i\hbar\varepsilon_{ikm} \hat{x_k}\hat{ x_m} = 0$
+	
+	$\left[\hat{l_i}, \hat{\mathbf{p}}^2 \right] = \left[\hat{l_i}, \hat{p_k} \hat{p_k} \right] = p_k \left[\hat{l_i}, \hat{p_k} \right] + \left[\hat{l_i}, \hat{p_k}\right]p_k = i\hbar\varepsilon_{ikm}\hat{p_k}\hat{ p_m }+ i\hbar\varepsilon_{imk} \hat{p_m} \hat{p_k} = \newline = i\hbar\varepsilon_{ikm}\hat{p_k} \hat{p_m} - i\hbar\varepsilon_{ikm} \hat{p_k}\hat{ p_m} = 0$
+	
+	$\left[\hat{l_i}, \left(\hat{\mathbf{p}} \hat{\mathbf{r}} \right) \right] = \hat{p}_k \left[\hat{l_i}, \hat{x_k} \right] + \left[\hat{l_i}, \hat{p_k}\right] \hat{x}_k = \hat{p}_k i\hbar\varepsilon_{ikm}\hat{ x_m }+ i\hbar\varepsilon_{ikm} \hat{p_m} \hat{x_k} = \newline = i\hbar\varepsilon_{imk}\hat{p_m} \hat{x_k} + i\hbar\varepsilon_{ikm} \hat{p_m}\hat{ x_k} = -i\hbar\varepsilon_{ikm}\hat{p_m} \hat{x_k} + i\hbar\varepsilon_{ikm} \hat{p_m}\hat{ x_k} = 0$
+	
+	
+	 $\left[\hat{l_i}, \left(\hat{\mathbf{p}} \hat{\mathbf{r}} \right)^2 \right] 
+	= \left[\hat{l_i}, \hat{p}_k \hat{x}_k \hat{p}_l \hat{x}_l \right] 
+	= \left[\hat{l_i}, \hat{p}_k \right] \hat{x}_k \hat{p}_l \hat{x}_l 
+	+ \hat{p}_k \left[\hat{l_i}, \hat{x}_k \right] \hat{p}_l \hat{x}_l 
+	+ \hat{p}_k \hat{x}_k \left[\hat{l_i}, \hat{p}_l \right] \hat{x}_l 
+	+ \newline + \hat{p}_k \hat{x}_k \hat{p}_l \left[\hat{l_i}, \hat{x}_l \right]
+	= i\hbar\varepsilon_{ikm} \hat{p}_m \hat{x}_k \hat{p}_l \hat{x}_l 
+	+ i\hbar\varepsilon_{ikm} \hat{p}_k \hat{x}_m \hat{p}_l \hat{x}_l 
+	+ i\hbar\varepsilon_{ilm} \hat{p}_k \hat{x}_k \hat{p}_m \hat{x}_l 
+	+ i\hbar\varepsilon_{ilm} \hat{p}_k \hat{x}_k \hat{p}_l \hat{x}_m
+	= \newline = i\hbar\varepsilon_{ikm} \hat{p}_m \hat{x}_k \hat{p}_l \hat{x}_l 
+	- i\hbar\varepsilon_{ikm} \hat{p}_m \hat{x}_k \hat{p}_l \hat{x}_l 
+	+ i\hbar\varepsilon_{ilm} \hat{p}_k \hat{x}_k \hat{p}_m \hat{x}_l 
+	- i\hbar\varepsilon_{ilm} \hat{p}_k \hat{x}_k \hat{p}_m \hat{x}_l 
+	= 0
+	$
+	
+	\quad б) $\left[\hat{l}_i, \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right)\hat{p}_k\right] = \left[\hat{l}_i, \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right) \right] \hat{p}_k + \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right)\left[\hat{l}_i, \hat{p}_k\right] = i\hbar\varepsilon_{ikm} \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right) \hat{p}_m$
+	
+	$\left[\hat{l}_i, \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right)\hat{x}_k\right] = \left[\hat{l}_i, \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right) \right] \hat{x}_k + \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right)\left[\hat{l}_i, \hat{x}_k\right] = i\hbar\varepsilon_{ikm} \left(\hat{\mathbf{p}}\hat{\mathbf{r}}\right) \hat{x}_m $
+	
+	$\left[\hat{l}_i, \left(a\hat{x}_k + b\hat{p}_k\right)\right] = a\left[\hat{l}_i,\hat{x}_k \right] + b\left[\hat{l}_i, \hat{p}_k\right] = i\hbar\varepsilon_{ikm}(a\hat{x}_m + b\hat{p}_m) $
+		
+	\quad в) Для нахождения коммутаторов в третьей строчке воспольщуемся формулой:
+	
+	\begin{center}
+		$\left[\hat{l}_i, \hat{f}_{kl}\right] = i\left(\varepsilon_{ikp} \delta_{nl} + \varepsilon_{iln}\delta_{kp}\right) \hat{f}_{pn} $
+	\end{center}
+	
+	
+	\quad Тогда:
+	
+	\begin{center}
+		$\left[\hat{l}_i, \hat{x}_{k} \hat{x}_l \right] = i\left(\varepsilon_{ikp} \delta_{nl} + \varepsilon_{iln}\delta_{kp}\right) \hat{x}_{p} \hat{x}_n $
+		
+		$\left[\hat{l}_i, \hat{p}_{k} \hat{p}_l \right] = i\left(\varepsilon_{ikp} \delta_{nl} + \varepsilon_{iln}\delta_{kp}\right) \hat{p}_{p} \hat{p}_n $
+		
+		$\left[\hat{l}_i, \hat{x}_{k} \hat{p}_l \right] = i\left(\varepsilon_{ikp} \delta_{nl} + \varepsilon_{iln}\delta_{kp}\right) \hat{x}_{p} \hat{p}_n $
+		
+		$\newline\blacksquare$
+	\end{center}
+	
+	\quad \textbf{Задача 3.38. } Как известно, проблема сложения моментов двух систем \( l_1 \) и \( l_2 \) в результирующий момент \( L \) решается в общем виде следующим соотношением:
+	
+	\[
+	\Psi_{LM} = \sum_{m_1 m_2} C_{l_1 m_1 l_2 m_2}^{LM} \Psi_{l_1 m_1}^{(1)} \Psi_{l_2 m_2}^{(2)}, \quad M = m_1 + m_2,
+	\]
+	
+	где \( C_{l_1 m_1 l_2 m_2}^{LM} \) — коэффициенты Клебша—Гордана. Используя технику повышающих (понижающих) операторов \( \hat{L}_{\pm} \), найти коэффициенты Клебша—Гордана в случае \( L = l_1 + l_2 \).
+	
+	\quad \textbf{Решение.} Согласно условию задачи необходимо найти коэфиценты разложения функции $\Psi_{LM}$ по функциям $\Psi_{l_1 m_1}$, $\Psi_{l_2 m_2}$. Рассмотрим действие оператора $\hat{l}_1$:
+	
+	\begin{center}
+		$\hat{l}_1 \Psi_{l_1 m_1} = m_1\hbar\Psi_{l_1 m_1}$ \quad $\hat{\mathbf{l}}^2 \Psi_{l_1 m_1} = l(l+1)\hbar \Psi_{l_1 m_1}$
+	\end{center}
+	
+	\quad Рассмотрим оператор $\hat{l}_{1+}$
+	
+	\begin{center}
+		$\hat{l}_{1} \left(\hat{l}_{1+} \Psi{l_1 m_1}\right) = \hat{l}_{1+} \hat{l}_1 \Psi{l_1 m_1} + \left[\hat{l}_1, \hat{l}_{1+}\right]\Psi{l_1 m_1} = (m+1)\hbar \hat{l}_{1+}\Psi_{l_1 m_1}$
+		
+		$\implies \hat{l}_{1+}\Psi_{l_1 m_1} = C_{l_1 m_1}^{+} \Psi_{l_1 m_1 + 1} $
+	\end{center}
+	
+	\quad Проводя аналогичные действия с оператором $\hat{l}_{1-}$ получаем:
+	
+	\begin{center}
+		$C_{l m}^{\pm} = \hbar\sqrt{l(l+1) - m(m\pm 1)} $
+	\end{center}
+	
+	\quad Рассмотрим случай, когда полный момент \( L \) принимает максимально возможное значение:
+	\[
+	L = l_1 + l_2.
+	\]
+	
+	\quad Состояние с максимальной проекцией \( M = L \) строится однозначно:
+	\[
+	\Psi_{L, L} = \Psi_{l_1 l_1} \Psi_{l_2 l_2}.
+	\]
+	
+	\quad Здесь коэффициент Клебша—Гордана равен единице:
+	\[
+	C_{l_1 l_1, l_2 l_2}^{L L} = 1.
+	\]
+	
+	\quad Действуем оператором понижения полного момента 
+	\[
+	\hat{L}_- = \hat{l}_{1-} + \hat{l}_{2-},
+	\]
+	где операторы действуют только на свою подсистему.
+	
+	\quad Напомним, что для операторов отдельных моментов:
+	\[
+	\hat{l}_{i-} \Psi_{l_i m_i} = \hbar\sqrt{l_i(l_i+1) - m_i(m_i-1)} \, \Psi_{l_i, m_i-1}.
+	\]
+	
+	\quad Тогда
+	\[
+	\hat{L}_- \Psi_{L, L} 
+	= \hat{l}_{1-} \Psi_{l_1 l_1} \cdot \Psi_{l_2 l_2} 
+	+ \Psi_{l_1 l_1} \cdot \hat{l}_{2-} \Psi_{l_2 l_2}.
+	\]
+	
+	\quad Подставим явные выражения:
+	\[
+	\hat{l}_{1-} \Psi_{l_1 l_1} = \hbar\sqrt{l_1(l_1+1) - l_1(l_1-1)} \, \Psi_{l_1, l_1-1} = \hbar\sqrt{2l_1} \, \Psi_{l_1, l_1-1},
+	\]
+	\[
+	\hat{l}_{2-} \Psi_{l_2 l_2} = \hbar\sqrt{2l_2} \, \Psi_{l_2, l_2-1}.
+	\]
+	
+	\quad Получаем:
+	\[
+	\hat{L}_- \Psi_{L, L} = \hbar\sqrt{2l_1} \, \Psi_{l_1, l_1-1} \Psi_{l_2 l_2} + \hbar\sqrt{2l_2} \, \Psi_{l_1 l_1} \Psi_{l_2, l_2-1}.
+	\]
+	
+	\quad С другой стороны, для собственных состояний полного момента:
+	\[
+	\hat{L}_- \Psi_{L M} = \hbar\sqrt{L(L+1) - M(M-1)} \, \Psi_{L, M-1}.
+	\]
+	
+	\quad Применяя к \( \Psi_{L, L} \):
+	\[
+	\hat{L}_- \Psi_{L, L} = \hbar\sqrt{L(L+1) - L(L-1)} \, \Psi_{L, L-1} = \hbar\sqrt{2L} \, \Psi_{L, L-1}.
+	\]
+	
+	\quad Приравнивая два выражения для \( \hat{L}_- \Psi_{L, L} \), находим:
+	\[
+	\Psi_{L, L-1} = \sqrt{\frac{l_1}{L}} \, \Psi_{l_1, l_1-1} \Psi_{l_2 l_2} + \sqrt{\frac{l_2}{L}} \, \Psi_{l_1 l_1} \Psi_{l_2, l_2-1}.
+	\]
+	
+	\quad Таким образом, коэффициенты Клебша—Гордана для \( L = l_1 + l_2 \) и \( M = L-1 \):
+	\[
+	C_{l_1, l_1-1; l_2, l_2}^{L, L-1} = \sqrt{\frac{l_1}{L}},
+	\qquad
+	C_{l_1, l_1; l_2, l_2-1}^{L, L-1} = \sqrt{\frac{l_2}{L}}.
+	\]
+	
+	\quad Повторяя процедуру применения \( \hat{L}_- \) к полученным состояниям, можно последовательно найти все коэффициенты Клебша—Гордана для максимального полного момента \( L = l_1 + l_2 \).
+	
+	\quad \textbf{Задача 4.10.} Потенциал нулевого радиуса задаётся наложением на волновую функцию граничного условия вида
+	
+	\[
+	\frac{(r \Psi(r))'}{r \Psi(r)} \rightarrow -\alpha_0 \quad \text{при} \quad r \to 0,
+	\]
+	
+	т. е.
+	
+	\[
+	\Psi \approx \left( - \frac{1}{\alpha_0 r} + 1 + \ldots \right).
+	\]
+	
+	Обсудить вопрос о возможности существования (в зависимости от знака $\alpha_0$) в таком потенциале связанных состояний частицы. Найти волновую функцию связанного состояния в импульсном представлении. Каковы средние значения $T$, $U$?
+	
+	\quad \textbf{Решение. } Распишем стационарное уравнение Шрёдингера в сферических координатах: 
+	
+	\begin{center}
+		$\dfrac{d^2}{dr^2} \left(r\Psi\right) + \kappa^2 r\Psi = 0$, где $\kappa^2 = -\dfrac{2mE}{\hbar^2}$ 
+	\end{center}
+	
+	\quad Данное уравнение заменой переменных $u = r\Psi$ сводится к уравнению:
+	
+	\begin{center}
+		$\dfrac{d^2 u}{dr^2} - \kappa^2 u = 0 \implies u(r) = C_1 e^{\kappa r} + C_2 e^{-\kappa r}$
+		
+		$\Psi(r) = \dfrac{C_1 e^{\kappa r}}{r} + \dfrac{C_2 e^{-\kappa r}}{r}$
+	\end{center}
+	
+	\quad Применим условие ограниченности на бесконечности и тогда: 
+	
+	\begin{center}
+		$\Psi(r) = C \dfrac{e^{-\kappa r}}{r} $
+	\end{center}
+	 
+	\quad Теперь воспользуемся граничным условием из задачи и занормируем ВФ слева от $x = 0$: 
+	
+	\begin{center}
+		$\displaystyle\int\limits_{-\infty}^{0} \left|\Psi(r)\right|^2 dr = 1 \implies \Psi (r) = \dfrac{1}{\sqrt{2 \pi \alpha_0}} \dfrac{ e^{-\kappa r}}{r} $
+	\end{center}
+	
+	$\quad \text{Найдём средние значения } \langle T \rangle \text{ и } \langle U \rangle.$
+
+	\quad В сферических координатах для радиальной части:
+	\[
+	\langle T \rangle = -\frac{\hbar^2}{2m} \int \Psi^* \Delta \Psi \, dV.
+	\]
+	
+	\quad Вычислим лапласиан:
+	\[
+	\Delta \Psi = \frac{1}{r} \frac{d^2}{dr^2}(r\Psi).
+	\]
+	
+	\quad Поскольку \( r\Psi(r) = C e^{-\kappa r} \), то
+	\[
+	\frac{d^2}{dr^2}(C e^{-\kappa r}) = C \kappa^2 e^{-\kappa r}.
+	\]
+	
+	\quad Следовательно,
+	\[
+	\Delta \Psi = \frac{1}{r} \cdot C \kappa^2 e^{-\kappa r} = \kappa^2 \Psi.
+	\]
+	
+	\quad Подставляем в интеграл:
+	\[
+	\langle T \rangle = -\frac{\hbar^2}{2m} \kappa^2 \int |\Psi|^2 dV = -\frac{\hbar^2 \kappa^2}{2m}.
+	\]
+	
+	\quad Из связи энергии и параметра \( \kappa \):
+	\[
+	E = -\frac{\hbar^2 \kappa^2}{2m}.
+	\]
+	
+	\quad Поэтому
+	\[
+	\langle T \rangle = -E.
+	\]
+
+	\quad Из уравнения \( E = \langle T \rangle + \langle U \rangle \) получаем:
+	\[
+	\langle U \rangle = E - \langle T \rangle = E - (-E) = 2E.
+	\]
+	
+	\quad Условие на потенциал нулевого радиуса даёт \( \kappa = \alpha_0 \) (при \( \alpha_0 > 0 \)). Тогда:
+	\[
+	E = -\frac{\hbar^2 \alpha_0^2}{2m},
+	\]
+	\[
+	\langle T \rangle = \frac{\hbar^2 \alpha_0^2}{2m}, \qquad
+	\langle U \rangle = -\frac{\hbar^2 \alpha_0^2}{m}.
+	\]
+	
+	При \( \alpha_0 < 0 \) связанных состояний не существует.
+	
+	\quad \textbf{Задача 5.3. } В случае спина \( s = 1/2 \) нормированная волновая функция наиболее общего спинового состояния имеет вид
+	\[
+	\Psi = \begin{pmatrix} \cos \alpha \\ e^{i\beta} \sin \alpha \end{pmatrix},
+	\quad
+	0 \leq \alpha \leq \frac{\pi}{2}, \quad 0 \leq \beta < 2\pi.
+	\]
+	
+	Найти полярный и азимутальный углы такой оси \( \mathbf{n} \) в пространстве, вдоль которой проекция спина имеет определённое значение, равное \( +1/2 \) (возможность указать такую ось для произвольного состояния — специфика спина \( s = 1/2 \); сравнить с результатом задачи 3.42 для момента \( L = 1 \)).
+	
+	\quad \textbf{Решение. } Найдём скалярное произведение $\vec{S} \cdot \vec{n} $:
+	
+	\begin{center}
+		$\vec{n} = (\sin\theta \cos\varphi, \sin\theta\sin\varphi, \cos\theta)$
+		
+		$\vec{S} = \dfrac{\hbar}{2} \left(\sigma_x, \sigma_y, \sigma_z \right)$
+		
+		$\implies \hat{S} = \vec{S}\cdot\vec{n} = \left(\begin{array}{cc}
+			\cos\theta & e^{-i\varphi}\sin\theta \\
+			e^{i\varphi}\sin\theta & - \cos\theta 
+		\end{array}\right)$
+		
+		$\hat{S} \Psi = \dfrac{1}{2} \Psi \implies \left(\begin{array}{cc}
+			\cos\theta & e^{-i\varphi}\sin\theta \\
+			e^{i\varphi}\sin\theta & - \cos\theta 
+		\end{array}\right) \left(\begin{array}{c}
+			a \\
+			b
+		\end{array}\right) = \left(\begin{array}{c}
+			\frac{a}{2} \\
+			\frac{b}{2}
+		\end{array}\right)$
+	\end{center}
+	
+	\quad Решаем систему линейный уравнений и получаем: $\Psi = \left(\begin{array}{c}
+		\cos\alpha \\
+		e^{i\beta}\sin\alpha
+	\end{array}\right)$
+	
+	\quad Таким образом $\theta = 2\alpha$, $\varphi = \beta$
+\end{document}

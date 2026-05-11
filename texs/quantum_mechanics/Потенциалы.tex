@@ -1,0 +1,93 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{lscape} % Для альбомной ориентации
+\captionsetup[table]{justification=centering}
+
+\begin{document}
+	 % Начало альбомной ориентации
+	 
+	\begin{table}[h!]
+		\centering
+		\caption{Сводка решений уравнения Шрёдингера для различных потенциалов}
+		\label{tab:potential_solutions}
+		\begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{4cm}}
+			\toprule
+			\textbf{Потенциал} &
+			\textbf{Уравнение Шрёдингера} &
+			\textbf{Волновая функция} &
+			\textbf{Энергетический спектр} \\
+			\midrule
+			
+			\textbf{Бесконечно глубокая яма ширины $L$}
+			&
+			$V(x) = \begin{cases}
+				0, & 0 < x < L \\
+				\infty, & x \leq 0 \text{ или } x \geq L
+			\end{cases}$ 
+			$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi$
+			&
+			$\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)$ 
+			$n = 1, 2, 3, \ldots$ 
+			&
+			$E_n = \frac{\hbar^2\pi^2 n^2}{2mL^2}$ 
+			$n = 1, 2, 3, \ldots$ \\
+			\midrule
+			
+			\textbf{Дельта-потенциал}
+			&
+			$V(x) = -\alpha\delta(x)$, $\alpha > 0$ \\
+			$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} - \alpha\delta(x)\psi = E\psi$
+			&
+			$\psi(x) = \sqrt{\kappa}e^{-\kappa|x|}$ \\
+			$\kappa = \frac{m\alpha}{\hbar^2}$ \\
+			\textit{Одно связанное состояние}
+			&
+			$E = -\frac{m\alpha^2}{2\hbar^2}$ \\
+			\textit{Одно связанное состояние} \\
+			\midrule
+			
+			\textbf{Гармонический осциллятор}
+			&
+			$V(x) = \frac{kx^2}{2}$ \\
+			$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{kx^2}{2}\psi = E\psi$
+			&
+			$\psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt{2^n n!}}H_n(\xi)e^{-\xi^2/2}$ \\
+			$\xi = \sqrt{\frac{m\omega}{\hbar}}x$, $\omega = \sqrt{\frac{k}{m}}$ \\
+			$H_n$ — полином Эрмита
+			&
+			$E_n = \hbar\omega\left(n + \frac{1}{2}\right)$ \\
+			$n = 0, 1, 2, \ldots$ \\
+			\midrule
+			
+			\textbf{Линейный потенциал}
+			&
+			$V(x) = F_0x$ \\
+			$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + F_0x\psi = E\psi$
+			&
+			$\psi_n(x) = C_n\mathrm{Ai}\left(\frac{x}{x_0} - z_n\right)$ \\
+			$x_0 = \left(\frac{\hbar^2}{2mF_0}\right)^{1/3}$ \\
+			$C_n$ — нормировочная постоянная
+			&
+			$E_n = \left(\frac{\hbar^2 F_0^2}{2m}\right)^{1/3}z_n$ \\
+			$z_n$ — нули функции Эйри \\
+			$z_1 \approx 2.338$, $z_2 \approx 4.088$, \ldots \\
+			\bottomrule
+		\end{tabular}
+	\end{table}% Конец альбомной ориентации
+
+	\noindent \textbf{Примечания:}
+	\begin{itemize}
+		\item Для бесконечно глубокой ямы: $\psi(0) = \psi(L) = 0$.
+		\item Для дельта-потенциала: разрыв производной $\psi'(0^+) - \psi'(0^-) = -\frac{2m\alpha}{\hbar^2}\psi(0)$.
+		\item Для гармонического осциллятора: $\omega = \sqrt{\frac{k}{m}}$.
+		\item Для линейного потенциала: $\mathrm{Ai}(z)$ — функция Эйри, $z_n$ — её нули.
+	\end{itemize}
+	
+\end{document}

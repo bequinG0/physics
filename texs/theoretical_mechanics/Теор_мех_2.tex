@@ -1,0 +1,135 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание по теоритической механике: "Уравнение Лагранжа второго рода"}
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Преподаватель: Аюпова Галина Константиновна}
+	\end{center}
+	
+	\begin{wrapfigure}{r}{0.4\textwidth} % r - выравнивание справа, 0.5\textwidth - ширина
+		\centering
+		\includegraphics[width=0.4\textwidth]{../images/lagranj.png} % Замените example-image на имя вашего файла
+		\caption{Механическая система}
+	\end{wrapfigure}
+	
+	\quad \textbf{Задание.} Найти уравнения движения системы в обобщенных координатах при	заданных начальных условиях. Провести анализ скорости и координаты,	варьируя выбранный параметр (например, массу тел, силу, момент,	коэффициент трения). Продемонстрировать результаты на графике.	Необходимые данные приведены в таблице ниже, там же указаны	рекомендуемые обобщенные координаты.
+	
+	\quad \textbf{Решение.} Для начала введём обобщённые координаты $\varphi_1$, $\varphi_2$ изображённые на рисунке 1. Распишем кинетическую энергию системы через введённые обощённые координаты:
+	
+	\begin{center}
+		$T_1 = \dfrac{\Theta_1 (\dot{\varphi_1})^2}{2}, T_3 = \dfrac{\Theta_3 (\dot{\varphi_2})^2}{2}$ (1) 
+		
+		$\Theta_1 = \dfrac{m_1l^2}{3}$ - момент инерции стержня.
+		
+		$\Theta_2 = \dfrac{m_2 R_2^2}{2}$ - момент инерции колеса под цифрой 3.
+		
+		$\Theta_3 = \dfrac{m_3 R_3^2}{2}$ - момент инерции колсеа под цифрой 2.
+		
+	\end{center} 
+	
+	\quad Кинетическая энергия колеса под цифрой 3 определяется как сумма кинетической энергии поступательного движения по окружности и вращательного движения относительно точки закрепления, тоесть:
+	
+	\begin{center}
+		$T_2 = \dfrac{m_2(l\dot\varphi_1 + R_3 \dot\varphi_2)^2}{2} + \dfrac{\Theta_2 (\frac{l}{R_2} \dot\varphi_1 + \frac{R_3}{R_2} \dot\varphi_2 )^2}{2} $ (2)
+	\end{center} 
+	
+	\quad Таким образом кинетическая энергия механической системы равна:
+	
+	\begin{center}
+		$T = \dfrac{\Theta_1 (\dot\varphi_1)^2}{2} + \dfrac{\Theta_3 (\dot\varphi_2)^2}{2} + \dfrac{m_2(l\dot\varphi_1 + R_3 \dot\varphi_2)^2}{2} + \dfrac{\Theta_2 (\frac{l}{R_2} \dot\varphi_1 + \frac{R_3}{R_2} \dot\varphi_2 )^2}{2} $ (3)
+		
+		$\dfrac{\partial T}{\partial \dot\varphi_1} = \Theta_1 \dot\varphi_1 + m_2 l (l\dot\varphi_1 + R_3 \dot\varphi_2) + \dfrac{\Theta_2 l}{R_2} \left( \dfrac{l}{R_2} \dot\varphi_1 +  \dfrac{R_3}{R_2} \dot\varphi_2 \right) = \newline = \Theta_1 \dot\varphi_1 + \left( m_2 l^2 + \dfrac{\Theta_2 l^2}{R_2 ^2} \right) \dot\varphi_1 + \left(\dfrac{\Theta_2 l R_3}{R_2 ^2} + m_2 l  R_3 \right) \dot\varphi_2   $
+		
+		$\dfrac{\partial}{\partial t} \left( \dfrac{\partial T}{\partial \dot\varphi_1} \right) = M_1 + \left( \dfrac{\Theta_2 l^2}{R_2 ^2} + m_2 l^2 \right) \ddot \varphi_1 + \left( \dfrac{\Theta_2 l R_3}{R_2 ^2} + m_2 l R_3 \right)  \ddot\varphi_2 $ (4)
+		
+		$\dfrac{\partial T}{\partial \dot\varphi_2} = \Theta_3 \dot\varphi_2 + m_2 R_3 (l\dot\varphi_1 + R_3 \dot\varphi_2) +  \dfrac{\Theta_1 R_3}{R_2} \left( \dfrac{l}{R_2} \dot \varphi_1 + \dfrac{R_3}{R_2} \dot \varphi_2 \right) = \newline = \Theta_3 \dot\varphi_2 + \left( m_2 R_3 l + \dfrac{\Theta_1 R_3 l}{R_2 ^2}\right)\dot\varphi_1 + \left( m_2 R_3^2 + \dfrac{\Theta_1 R_3 ^2}{R_2 ^2 } \right)\dot\varphi_2$ 
+		
+		$ \dfrac{\partial }{\partial t} \left( \dfrac{\partial T}{\partial \dot \varphi_2} \right) = M_2 + \left( m_2 R_3 l  + \dfrac{\Theta_1 R_3 l}{R_2 ^2}\right) \ddot\varphi_1 + \left( m_2 R_2 ^2 + \dfrac{\Theta_1 R_3 ^2}{R_2 ^2} \right) \ddot\varphi_2 $ (5)
+		
+	\end{center}
+	
+	\quad Так как система, по условию задачи, находится в горизонтальном положении её потенциальная энергия равна нулю. Распишем уравнение Лагранжа второго рода:
+	
+	\begin{center}
+		$\begin{cases}
+			\dfrac{\partial }{\partial t} \left( \dfrac{\partial T}{\partial \dot\varphi_1 }\right)  - \dfrac{\partial T}{\partial \varphi_1} = 0 \\
+			\dfrac{\partial }{\partial t} \left( \dfrac{\partial T}{\partial \dot\varphi_2 }\right)  - \dfrac{\partial T}{\partial \varphi_2} = 0
+		\end{cases} \implies \newline \implies 
+		\begin{cases}
+			M_1 + \left( \dfrac{\Theta_2 l^2}{R_2 ^2} + m_2 l^2 \right) \ddot \varphi_1 + \left( \dfrac{\Theta_2 l R_3}{R_2 ^2} + m_2 l R_3 \right)  \ddot\varphi_2 = 0\\
+			M_2 + \left( m_2 R_3 l  + \dfrac{\Theta_1 R_3 l}{R_2 ^2}\right) \ddot\varphi_1 + \left( m_2 R_2 ^2 + \dfrac{\Theta_1 R_3 ^2}{R_2 ^2} \right) \ddot\varphi_2 = 0
+		\end{cases}$(6)
+		
+		$ 
+		\begin{cases}
+			M_1 + \dfrac{3m_2 l^2}{2} \ddot\varphi_1 + \dfrac{3 m_2 l R_3}{2} \ddot\varphi_2 = 0 \\
+			M_2 + \left( \dfrac{m_1 R_3 l^3}{3 R_2 ^2} + m_2 R_3 l \right) \ddot\varphi_2 + \left( \dfrac{m_1 l^2 R_3 ^2 }{3 R_2 ^2} + m_2 R_2 ^2 \right) \ddot\varphi_2 = 0
+		\end{cases} \Leftrightarrow \newline
+		\Leftrightarrow \left[
+		\begin{array} {cc|c}
+			\dfrac{3 m_2 l^2}{2}& \dfrac{3 m_2 l R_3}{2}& - M_1 \\
+			\left(\dfrac{m_1 R_3 l^3}{3 R_2 ^2} + m_2 R_3 l \right) & \left( \dfrac{m_1 l^2 R_3^2 }{3R_2 ^2} + m_2 R_2 ^2 \right) & -M_2
+		\end{array}
+		\right] \implies 
+		$
+		
+		$ \newline \implies \Delta = \dfrac{3 m_2 l^2}{2} \left( \dfrac{m_1 l^2 R_3 ^2}{3 R_2 ^2} + m_2 R_2 \right) - \dfrac{ 3m_2 l R_3}{2} \left( \dfrac{m_1 R_3 l^3}{3 R_2 ^2} + m_2 R_3 l \right) = \newline = \dfrac{3 m_1 m_2 R_3 ^2 l^4 }{6 R_2 ^2} - \dfrac{3 m_1 m_2 R_3 ^2 l^4}{6 R_2 ^2} + \dfrac{3 m_2 ^2 R_2}{2} - \dfrac{3 m_2 ^2 R_3 ^2 l^2}{2} = \dfrac{3 m_2^2 l^2 (R_2 ^2 - R_3 ^2)}{2}$
+		
+		$\Delta_{\varphi_1} = -M_1 \left( \dfrac{m_1 l^2 R_3 ^2}{3 R_2 ^2} + m_2 R_2 ^2 \right) + M_2 \dfrac{3m_2 l R_3}{2}$ 
+		
+		$ \Delta_{\varphi_2} = -M_2 \dfrac{3m_2 l^2}{2} + M_1 \left( \dfrac{m_1 R_3 l^3}{3R_2 ^2} + m_2 R_3 l  \right) $
+		
+		$
+		\begin{cases}
+			\ddot\varphi_1 = \dfrac{\Delta_{\varphi_1}}{\Delta} = \dfrac{2M_1 \left( \dfrac{m_1 l^2 R_3 ^2}{3 R_2 ^2} + m_2 R_2 ^2 \right) - 3M_2 m_2 l R_3}{3 m_2^2 l^2 (R_3 ^2 - R_2 ^2)}\\
+			\ddot\varphi_2 = \dfrac{\Delta_{\varphi_2}}{\Delta} = \dfrac{3M_2 m_2 l^2-2M_1 \left( \dfrac{m_1 R_3 l^3}{3R_2 ^2} + m_2 R_3 l  \right)}{3 m_2^2 l^2 (R_3 ^2 - R_2 ^2)}
+		\end{cases}
+		$ (7)
+		
+	\end{center}
+	
+	\quad Проинтегрируем по времени полученную систему уравнений:
+	
+	\begin{center}
+		$
+		\begin{cases}
+			\varphi_1 = \dfrac{9.68 M_1 m_1 l^2 + 3m_2 r^2 - 19.8 M_2 m_2 r l}{69.12 m_2 ^2 l^2 r^2 } t^2 \\
+			\varphi_2  = \dfrac{9M_2 m_2 r l^2 - 4.4 M_1 m_1 l^3 - 13.2 M_1 m_2 r^2 l }{69.12 m_2 ^2 l^2 r^3} t^2
+		\end{cases}
+		$ (8)
+	\end{center}
+	
+	\quad Проведём анализ полученных уравнений. Варьируем параметры, чтобы посмотреть как координаты от них зависят.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/teormech_2.png}
+		\caption{ результат варьирования переменной $r$.}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/teormech_3.png}
+		\caption{ результат варьирования переменной $l$.}
+	\end{figure}
+	
+	\quad Из рисунков видно что уравнения наиболее чувствительны к изменению длины стержня.
+	
+
+\end{document}

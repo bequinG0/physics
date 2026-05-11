@@ -1,0 +1,215 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+\begin{document}
+
+	\begin{center}
+		\subsubsection*{Расчётные задачи по дополнительным главам аналитической механики и электродинамики.}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического интститута, высшей школы фундаментальных физических исследований: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5030302/30801}
+		\subsubsection*{Преподаватель: Барсуков Дмитрий Петрович}
+	\end{center}
+	
+	\quad \textbf{Задача M1. (Коткин-Себро 8б)} Найти амплитуду установившихся колебаний ангармонического осцилятора:
+	
+	\begin{center}
+		$\dfrac{d^2 x }{dt^2} + 2\tilde{\lambda} \dfrac{dx}{dt} + \omega_0^2  x + \tilde{\beta} x^3 = \tilde{f_0} \cos\omega t$ (1)
+	\end{center} 
+	
+	\quad При условиях:  $\tilde\beta = \varepsilon\beta$, $\tilde\lambda = \varepsilon\lambda$, $\tilde f_0 = \varepsilon f_0$, $9\omega^2 - \omega_0^2 = \varepsilon\Delta$  если $\varepsilon << 1$; $\beta$, $\lambda$, $f_0$, $\Delta$ - конечные величины. (2)
+	
+	\quad \textbf{Решение.} Для начача приведём уравнение к виду:
+	
+	\begin{center}
+		$ \dfrac{d^2 x}{dt} + \omega_0^2 x = \varepsilon Q\left(x, \dfrac{dx}{dt}\right)$, $\varepsilon << 1$
+	\end{center}
+	
+	\quad Используя условие (2), получаем:
+	
+	\begin{center}
+		$ \dfrac{d^2 x}{dt} + \omega_0^2 x = \varepsilon \left( f_0 \cos\omega t - 2\lambda\dfrac{dx}{dt} - \beta x^3 \right)$
+	\end{center}
+	
+	\quad Будем искать решение в виде:
+	\begin{center}
+	 	$x = a(t)\cos\psi(t) + \varepsilon \xi_1(a, \psi)$ 
+	 	
+	 	где $a(t)$ и $\psi(t)$ - медленноменяющиеся функции, т.е.
+	 	
+	 	$\dfrac{da}{dt} = \varepsilon f(a)$, $\dfrac{d\psi}{dt} = \omega_0(a) + \varepsilon\varphi(a)$
+	 	
+	 \end{center}
+	 
+	 \quad Найдём производные первого и второго порядка $x$ по времени:
+	 
+	$\dfrac{dx}{dt} = \dfrac{d}{dt} \Bigg[ a\cos(\psi) + \varepsilon \xi(a, \psi)\Bigg] = \dfrac{da}{dt} \cos\psi + a\dfrac{d\psi}{dt}\sin\psi + \varepsilon \dfrac{\partial \xi_1}{\partial a} \dfrac{da}{dt} + \varepsilon \dfrac{\partial \xi_1}{\partial \psi} \dfrac{d\psi}{dt} = \varepsilon f(a) \cos\psi - a (\omega_0 + \varepsilon \varphi(a) ) \sin\psi + \varepsilon^2 \dfrac{\partial \xi_1}{\partial a} f(a) + \varepsilon\dfrac{\partial \xi_1}{\partial \psi} \omega_0 + \varepsilon^2 \dfrac{\partial \xi_1}{\partial \psi} \varphi(a) = - a\omega_0 \sin\psi + \varepsilon \bigg(f\cos\psi - a\varphi \sin\psi + \dfrac{\partial \xi_1}{\partial \psi}\omega_0\bigg) + \varepsilon^2 \bigg(\dfrac{\partial \xi_1}{\partial a} f + \dfrac{\partial \xi_1}{\partial \psi} \varphi \bigg)$ 
+	
+	\begin{equation}
+		\dfrac{dx}{dt} = - a\omega_0 \sin\psi + \varepsilon \bigg(f\cos\psi - a\varphi \sin\psi + \dfrac{\partial \xi_1}{\partial \psi}\omega_0\bigg) + \varepsilon^2 \bigg(\dfrac{\partial \xi_1}{\partial a} f + \dfrac{\partial \xi_1}{\partial \psi} \varphi \bigg)
+	\end{equation}
+	
+	\begin{center}
+		$\dfrac{d^2 x}{dt^2} = \dfrac{d}{dt} \Bigg[ - a\omega_0 \sin\psi + \varepsilon \bigg(f\cos\psi - a\varphi \sin\psi + \dfrac{\partial \xi_1}{\partial \psi}\omega_0\bigg) + \varepsilon^2 \bigg(\dfrac{\partial \xi_1}{\partial a} f + \dfrac{\partial \xi_1}{\partial \psi} \varphi \bigg) \Bigg] $
+	\end{center}
+	
+	$\dfrac{d^2 x}{dt^2} = -a\omega_0^2\cos\psi + \varepsilon \left( -2f\omega_0\sin\psi - 2a\omega_0\varphi\cos\psi + \omega_0^2 \dfrac{\partial^2 \xi_1}{\partial \psi^2} \right) + \varepsilon^2 \Bigg( -2f\varphi\sin\psi - a\varphi^2\cos\psi + 2\dfrac{\partial^2 \xi_1}{\partial\psi^2} \varphi\omega_0 + 2\dfrac{\partial^2 \xi}{\partial a \partial \psi} f\omega_0 \Bigg) + \varepsilon^3 \Bigg( f^2 \dfrac{\partial^2 \xi_1}{\partial^2 a} + 2\varphi f \dfrac{\partial^2 \xi_1}{\partial a \partial \psi} + \varphi^2 \dfrac{\partial^2 \xi_1 }{\partial \psi^2}\Bigg)$ (3)
+	
+	\quad C учётом первого порядка малости по $\varepsilon$ распишем:
+	
+	$\dfrac{d^2 x}{dt^2} + \omega_0^2 x  = -a\omega_0^2\cos\psi + \varepsilon \Bigg( -2f\omega_0\sin\psi - 2a\omega_0\cos\psi + \omega_0^2 \dfrac{\partial^2 \xi_1}{\partial \psi^2} \Bigg) + \newline + a\omega_0^2\cos\psi + \varepsilon\omega_0^2\xi_1 = \varepsilon\bigg( -2f\omega_0\sin\psi - 2a\omega_0\varphi\cos\psi +\omega_0^2\dfrac{\partial^2 \xi_1}{\partial \psi^2} + \omega_0^2 \xi_1 \bigg) = \varepsilon Q$	
+	 	
+	 $Q = f_0 \cos\omega t - 2\lambda\dfrac{dx}{dt} - \beta x^3 = f_0\cos\omega t - 2\lambda \bigg[  - a\omega_0 \sin\psi + \varepsilon \bigg(f\cos\psi -\newline- a\varphi \sin\psi + \dfrac{\partial \xi_1}{\partial \psi}\omega_0\bigg) \bigg] + \beta\bigg[ a\cos\psi + \varepsilon\xi_1 \bigg]^3 = f_0 \cos\omega t + 2\lambda\omega_0 a\sin\psi - \beta a^3 \cos^3\psi -\newline- 2\lambda\varepsilon\bigg( 3\xi_1\beta a^2 \cos^2\psi + f\cos\psi - a\varphi\sin\psi + \dfrac{\partial\xi_1}{\partial\psi} \omega_0 \bigg)$
+	
+	$\implies -2f\omega_0 \sin\psi - 2a\omega_0\varphi\cos\psi + \omega_0^2 \dfrac{\partial^2 \xi_1}{\partial \psi^2} + \omega_0^2 \xi_1 = f_0 \cos\omega t + 2\lambda\omega_0 a\sin\psi - \newline - \beta a^3 \cos^3\psi $ 
+	
+	\begin{equation}
+		\omega_0^2 \bigg(\dfrac{\partial^2 \xi_1 }{\partial\psi^2} + \xi_1 \bigg) = 2f\omega_0\sin\psi + 2a\omega_0\varphi\cos\psi + f_0\cos\omega t + 2\lambda\omega_0 a \sin\psi - \beta a^3 \cos^3\psi  
+	\end{equation}
+	
+	\begin{center}
+		$\cos^3 \psi = \dfrac{1}{4} \cos(3\psi) + \dfrac{3}{4} \cos\psi$
+	\end{center}
+
+	\quad Учитывая соотношение на расстройку имеем резонансный случай. При этом амплитуда и частота принимают следующий вид:
+
+	\begin{equation}
+		\dfrac{da}{dt} = \varepsilon(f(a) + \tilde{f}(a, \chi)) \quad \dfrac{d\psi}{dt} = \omega_0 (a) + \varepsilon (\varphi(a) + \tilde{\varphi}(a, \chi)) 
+	\end{equation}
+
+	\begin{center}
+		где $\chi$ - медленная фаза, т.е. $\chi = 3\omega t - \psi$
+	\end{center}
+
+	\begin{equation}
+		3\omega = \displaystyle\sum\limits_{k=0}^{\infty} \dfrac{d^k}{d\varepsilon^k} \left(\sqrt{\Delta \varepsilon + \omega_0^2}\right) \dfrac{\varepsilon^k}{k!} = \omega_0 + \dfrac{\Delta \varepsilon }{2\omega_0} + o(\varepsilon^2)
+	\end{equation}
+	
+	\begin{equation}
+		\omega t = \dfrac{\omega_0 t}{3} + \dfrac{\Delta \varepsilon}{6\omega_0}t = \left(\dfrac{\psi}{3} - \dfrac{\varepsilon \theta}{3}\right) + \dfrac{\Delta \varepsilon}{6\omega_0} t = \dfrac{\psi + \chi}{3} 
+	\end{equation}
+	
+	\begin{center}
+		Таким образом $\chi = \varepsilon\left(\dfrac{\Delta }{2\omega_0} t - \theta\right)$, где $\varepsilon t$ - медленное время. 
+	\end{center}
+	
+	\quad Добавки в соотношениях (3) с волной возникают от резонансных членов. Для начала учтём нерезонансные слагаемые, а затем вернёмся к резонансным. 
+	
+	\begin{equation}
+		\begin{cases}
+			2\lambda a\omega_0 + 2\omega_0 f(a) = 0 \\
+			-\dfrac{3\beta}{4}a^3 + 2a\omega_0 \varphi(a) = 0
+		\end{cases}
+	\end{equation}
+	
+	\quad Таким образом:
+	
+	\begin{equation}
+		\begin{cases}
+			f(a) = -\lambda a \\
+			\varphi(a) = \dfrac{3\beta}{8\omega_0}a^2
+		\end{cases} \implies \begin{cases}
+			\dfrac{da}{dt} = -\varepsilon \lambda a \\
+			\\
+			\dfrac{d\psi}{dt} =  \omega_0 + \varepsilon \dfrac{3\beta}{8\omega_0}a^2
+		\end{cases}
+	\end{equation}
+	
+	\quad Система (7) верна только в отсутсвии резонанса. Теперь надо учесть члены дающие резонанс: 
+	
+	\begin{equation}
+		\begin{cases}
+			\tilde{f}(a, \chi) = -\dfrac{1}{2\pi\omega_0} \displaystyle\int\limits_{0}^{2\pi} \left(f_0 \cos\left(\dfrac{\psi + \chi}{3}\right) - \dfrac{\beta}{4}a^3\cos(3\psi)\right)\sin\psi d\psi  \\
+			\tilde{\varphi}(a, \chi) = -\dfrac{1}{2\pi\omega_0} \displaystyle\int\limits_{0}^{2\pi} \left(f_0 \cos\left(\dfrac{\psi + \chi}{3}\right) - \dfrac{\beta}{4}a^3\cos(3\psi)\right)\cos\psi d\psi
+		\end{cases}
+	\end{equation}
+	
+	\quad После интегрирования: 
+	
+	\begin{equation}
+		\begin{cases}
+			\tilde{f}(a, \chi) = \dfrac{3f_0}{32\pi \omega_0} \left(3\cos{\dfrac{\chi}{3}} + \sqrt{3} \sin{\dfrac{\chi}{3}}\right)\\
+			\tilde{\varphi} (a, \chi) =  \dfrac{3f_0}{32\pi \omega_0} \left(\sqrt{3}\cos{\dfrac{\chi}{3}} + 9 \sin{\dfrac{\chi}{3}}\right)
+		\end{cases}
+	\end{equation}
+	
+	\quad Решать далее будем вот такую систему: 
+	
+	\begin{equation}
+		\begin{cases}
+			\dfrac{da}{dt} = \varepsilon \left(  \dfrac{3f_0}{32\pi \omega_0} \left(3\cos{\dfrac{\chi}{3}} + \sqrt{3} \sin{\dfrac{\chi}{3}}\right) - \lambda a\right) \\ 
+			\dfrac{d\chi}{dt} = \left(\dfrac{\Delta }{2\omega_0} - \dfrac{3\beta}{8\omega_0} a^2 - \dfrac{3f_0}{32\pi \omega_0} \left(\sqrt{3}\cos{\dfrac{\chi}{3}} + 9 \sin{\dfrac{\chi}{3}}\right)\right)
+		\end{cases}
+	\end{equation}
+	
+	\quad В резонансе уравнение (2) будет иметь вид: 
+	
+	\begin{equation}
+		\omega_0^2 \bigg(\dfrac{\partial^2 \xi_1 }{\partial\psi^2} + \xi_1 \bigg) = f_0\cos\left(\dfrac{\psi + \chi}{3}\right)- \beta a^3 \cos^3\psi  
+	\end{equation}
+	
+	\quad В силу линейности (11) имеет место следующее: 
+	
+	\begin{equation}
+		\begin{cases}
+			\omega_0^2 \bigg(\dfrac{\partial^2 \xi_1^1 }{\partial\psi^2} + \xi_1^1 \bigg) = f_0\cos\left(\dfrac{\psi + \chi}{3}\right) \\
+			\omega_0^2 \bigg(\dfrac{\partial^2 \xi_1^2 }{\partial\psi^2} + \xi_1^2 \bigg) =- \beta a^3 \cos^3\psi  
+		\end{cases}
+	\end{equation}
+	
+	\quad Решение тогда можно представить как: 
+	
+	\begin{center}
+		$\xi_1 = \xi_1^1 + \xi_1^2 $
+	\end{center}
+	
+	\quad На основе этого (пропуская подробные действия) явный вид решения (12): 
+	
+	\begin{equation}
+		\xi_1 (a, \psi, \chi) = \dfrac{9f_0 }{8 \omega_0 } \cos\left(\dfrac{\psi + \chi}{3} \right) + \dfrac{\beta a^3}{32\omega_0^2}\cos{3\psi}
+	\end{equation}
+	
+	\quad Используя соотношения (10) и (13) можно получить явный вид решения уравнения.
+	
+	$\newline$
+	
+	\quad \textbf{Задача M2.} Рассмотреть слаболинейный осцилятор с вынуждающей силой вблизи резонанса:
+	
+	\begin{center}
+		$ \dfrac{d^2 x}{dt^2} + \varepsilon \lambda\dfrac{dx}{dt} + \omega_0^2 x + \varepsilon\beta x^3 = f_0 \cos\Omega t  $ 
+	\end{center}
+	
+	\quad Составим выражения для производных $x(t)$  по времени и подставим их в исходное уравнение:
+	
+	\begin{center}
+	\end{center}
+	
+	\quad При условиях: $\varepsilon << 1$, $|\Omega - \omega_0| \approx \varepsilon\omega_0$.
+	
+	1) Используя метод Боголюбова, написать в 1-ом порядке по $\varepsilon$ написать уравнения для $a(t)$ и $\theta(t)$ и найти поправку $ \xi_1$. 
+	
+	2) Определить стационарные состояния, исследовать их на устойчивость. 
+	
+	3) Найти инкремент нарастания (декремент затухания) малыъ отклонений от стационарного состояния
+	
+	4) При $\lambda = 0$ описать общий вид эволюции $a(t)$ и $\theta(t)$ используя интеграл движения. 
+	
+	
+	
+	
+
+\end{document}

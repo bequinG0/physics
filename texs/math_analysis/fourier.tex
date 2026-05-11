@@ -1,0 +1,164 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} %установки для заголовков таблиц
+
+
+\begin{document}
+	\begin{center}
+		\subsection*{Расчётное задание по математическому анализу: Ряды Фурье}
+		\subsubsection*{Выполнил студент второго курса Физико-механического интститута, высшей школы МПУ: Куликовских Илья Михайлович}
+		\subsubsection*{группа: 5031503/30001}
+		\subsubsection*{Вариант 10}
+		\subsubsection*{Преподаватель: Бортковская Мария Романовна}
+	\end{center}
+	
+	\quad \textbf{Задание 1.}  Разложите функцию $f(x) = \sin(x-1)$, $\forall x \in (1, 2)$ в ряд Фурье на заданном промежутке. Постройте на одной странице:
+	
+	\begin{enumerate}
+		\item графики функции $f(x)$ на данном промежутке,
+		\item суммы $S(x)$ ряда Фурье (исходя из теоремы о его сходимости) на двух-трех периодах, включая промежуток, где задана $f(x)$.
+	\end{enumerate}
+	
+	На другой странице постройте:
+	\begin{enumerate}
+		\item график функции $f(x)$ на заданном промежутке,
+		\item графики частичных сумм $S_3(x)$, $S_5(x)$, $S_7(x)$ полученного ряда Фурье на этом же промежутке.
+	\end{enumerate}
+	
+	Построение графиков на второй странице можно выполнить с помощью удобных программных средств. Проследите за поведением частичных сумм на промежутке, за их значениями на концах промежутка и в точках разрыва $f(x)$. Что Вы наблюдаете?
+	
+	\quad \textbf{Решение. } Разложим функцию в ряд Фурье, для этого найдём коэфиценты $A$, $a_k$, $b_k$. Cделаем замену $t = 2\pi(x-\frac{3}{2})$, (замена нужна для удобства, чтобы исходная функция была определена на $(-\pi, \pi)$) тогда:
+
+	
+	\begin{center}
+		$f(t) = \sin(\dfrac{t}{2\pi} + \dfrac{1}{2}), \forall t \in (-\pi, \pi)$ (1)
+	\end{center}
+		
+	$A = \dfrac{1}{2\pi} \displaystyle\int\limits_{-\pi}^{\pi} f(t) dt =\dfrac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} \sin(\frac{t}{2\pi} + \frac{1}{2}) dt = \dfrac{1}{2\pi} \cdot 2\pi \displaystyle \int \limits_{-\pi}^{\pi} \sin(\frac{t}{2\pi} + \frac{1}{2}) d(\frac{t}{2\pi} + \newline + \frac{1}{2}) = \cos(\frac{t}{2\pi} + \frac{1}{2}) \bigg|_{-\pi}^{\pi} =  1 - \cos 1$.
+	
+	$a_k = \dfrac{1}{\pi} \displaystyle \int \limits_{-\pi}^{\pi} \sin(\frac{t}{2\pi} + \frac{1}{2}) \cos kt dt = \dfrac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} \sin(t(\frac{1}{2\pi} + k) + \frac{1}{2})dt + \dfrac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} \sin (t(\frac{1}{2\pi} - \newline - k) + \frac{1}{2})dt = -\dfrac{1}{1+2\pi k} \cos(t(\frac{1}{2\pi} + k) + \frac{1}{2}) \bigg|_{-\pi}^{\pi} - \dfrac{1}{1-2\pi k} \cos (t(\frac{1}{2\pi} - k) + \newline + \frac{1}{2}) \bigg|_{-\pi}^{\pi} = (-1)^k(1 - \cos 1) \left(\dfrac{1}{1 + 2\pi k} +  \dfrac{1}{1 - 2\pi k}\right)$.
+	
+	$b_k = \dfrac{1}{\pi}\displaystyle \int \limits_{-\pi}^{\pi} \sin(\frac{t}{2\pi} + \frac{1}{2}) \sin kt dt = \dfrac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} \cos(t(\frac{1}{2\pi} - k) + \frac{1}{2}) dt - \frac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} \cos(t(\frac{1}{2\pi} + \newline + k) + \frac{1}{2}) dt = \dfrac{1}{1 - 2\pi k} \sin(t(\frac{1}{2\pi} - k) + \frac{1}{2}) \bigg|_{-\pi}^{\pi} - \dfrac{1}{1 + 2\pi k} \sin(t(\frac{1}{2\pi} + k ) + \frac{1}{2}) = \newline = (-1)^k \sin 1 \left(\dfrac{1}{1-2\pi k} - \dfrac{1}{1+2\pi k}\right)$.
+
+	\quad Тогда выражения для ряда Фурье исходной функции примет вид:
+	
+	
+	\begin{center}
+		$f(t) \sim (1 - \cos 1) + \sum \limits_{k=1}^{\infty} \Biggl[ (-1)^k(1 - \cos 1) \left(\dfrac{1}{1 + 2\pi k} + \dfrac{1}{1 - 2\pi k}\right)\cos kt + \newline
+		+ (-1)^k \sin 1 \left( \dfrac{1}{1-2\pi k} - \dfrac{1}{1+2\pi k}\right) \sin kt \Biggr], \forall t \in (-\pi, \pi) \text{ } (2) $
+	\end{center}
+	
+	\quad Исходя из основной теоремы о сходимости ряда Фурье для функции $f(t)$, на $t \in (-\pi, \pi)$ имеем:
+	
+	\begin{center}
+		$S(t) = 
+		\begin{cases}
+			f(t), \forall t \in (-\pi, \pi) \\
+			\dfrac{f(-\pi) + f(\pi)}{2}, t = \pm \pi
+		\end{cases}$
+		
+		$S(\pm \pi) = \dfrac{0+\sin(1)}{2} = \dfrac{1}{2} \sin 1$
+	\end{center}
+	
+	\quad Ниже приведены графики $f(t)$, $S_n(t)$, $S_3(t)$, $S_5(t)$, $S_7(t)$. Визуально заметно, что при стремлении $n$ к бесконечности график $S(t)$ приближается к $f(t)$. 
+	
+	\pagebreak
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/func.png}
+		\caption{ График функции $f(t) = \sin(\frac{t}{2\pi} + \frac{1}{2}), \forall t \in [-\pi, \pi] $.}
+	\end{figure}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/sum.png}
+		\caption{ Сумма ряда фурье $S_n(t) $.}
+	\end{figure}
+	
+	\pagebreak
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.9\textwidth]{../images/summ.png}
+		\caption{ Частичные суммы: $S_3(t), S_ 5(t), S_7(t)$.}
+	\end{figure}
+	
+	\quad \textbf{Задание 2.} Разложить функцию, доопределив её симметрично относительно нуля как чётную, в неполный ряд Фурье по косинусам. Построить графики. 
+	
+	\begin{center}
+		$f(x) = 
+		\begin{cases}
+			0, \forall x \in \left( 0, \frac{\pi}{2} \right] \\
+			1, \forall x \in \left( \frac{\pi}{2}, \pi \right]
+		\end{cases}$ (1)
+	\end{center}
+	
+	\quad \textbf{Решение.} Для начала доопределим функцию до чётной слева от нуля. Таким образом получаем:
+	
+	\begin{center}
+		$f(x) = 
+		\begin{cases}
+				0, \forall x \in [-\frac{\pi}{2}, \frac{\pi}{2}] \\
+				1, \forall x \in [-\pi, -\frac{\pi}{2}) \cup (\frac{\pi}{2}, \pi]
+		\end{cases}$ (2)
+	\end{center}
+	
+	\quad Теперь разложим $f(x)$ в ряд Фурье как чётную функцию, определённую $\forall x \in [-\pi, \pi]$:
+	
+	\begin{center}
+		$A = \dfrac{1}{2\pi} \displaystyle \int \limits_{-\pi}^{\pi} f(x) dx = \dfrac{1}{\pi} \displaystyle \int \limits_{\frac{\pi}{2}}^{\pi} dx = \dfrac{x}{\pi} \bigg|_{\frac{\pi}{2}}^{\pi} =  \dfrac{1}{2}$
+	\end{center}
+	
+	$ a_k = \dfrac{1}{\pi} \displaystyle \int \limits_{-\pi}^{\pi} f(x) \cos kx dx = \dfrac{2}{\pi} \displaystyle \int \limits_{\frac{\pi}{2}}^{\pi} \cos kx dx = \dfrac{2}{\pi k} \displaystyle \int \limits_{\frac{\pi}{2}}^{\pi} \cos kx d(kx) =    \dfrac{2}{\pi k} \sin kx \bigg|_{\frac{\pi}{2}}^{\pi} = \newline = -\dfrac{2}{\pi k} \sin (\frac{\pi k}{2})$
+	
+	\begin{center}
+		$b_k = \dfrac{1}{\pi} \displaystyle \int \limits_{\frac{\pi}{2}}^{\pi} f(x) \sin kx dx = \dfrac{1}{\pi} \displaystyle \int \limits_{-\pi}^{-\frac{\pi}{2}} \sin kx dx + \dfrac{1}{\pi} \displaystyle \int \limits_{\frac{\pi}{2}}^{\pi} \sin kx dx = 0 $
+	\end{center}
+	
+	\quad Таким образом ряд Фурье для исходной функции имеет вид:
+	
+	\begin{center}
+		$f(x) \sim \dfrac{1}{2} - \sum \limits_{k=1}^{\infty}\dfrac{2}{\pi k} \sin (\frac{\pi k}{2}) \cos kx $
+	\end{center}
+	
+	\quad Ниже приведены графики $f(x)$, $S_n(x)$, $S_3(x)$, $S_5(x)$, $S_7(x)$:
+	
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/func_2.png}
+		\caption{ График функции $f(x)$.}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../images/sum_2.png}
+		\caption{ Сумма ряда Фурье $S_n(x)$.}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{../images/summ_2.png}
+		\caption{ График частичных сумм ряда Фурье.}
+	\end{figure}
+	
+	
+\end{document}
+
+
+
+
+

@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+
+\title{Superconductivity: Fundamental Principles and Key Effects}
+\author{Review Report}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\quad \textbf{Introduction}
+	
+	Superconductivity was discovered by Heike Kamerlingh Onnes in 1911. It is one of the most interesting quantum effects in physics. When some materials are cooled below a critical temperature $T_c$, they change into a special state with two unique properties: perfect electrical conduction and complete expulsion of magnetic fields. This review explains the basic physics of superconductivity by focusing on three main effects.
+	
+	\quad \textbf{The Meissner Effect: Magnetic Field Expulsion}
+	
+	The Meissner effect is not just a result of zero resistance. It is a separate fundamental property. Below $T_c$, the material becomes a perfect diamagnet and pushes out all magnetic fields from inside.
+	
+	A special relationship between current and magnetic field exists in superconductors — the first London equation:
+	\[
+	\nabla \times \mathbf{J}_s = -\frac{1}{\mu_0\lambda_L^2}\mathbf{B}
+	\]
+	where $\mathbf{J}_s$ is the supercurrent density, $\lambda_L$ is the characteristic length.
+	
+	Using Maxwell's equation for steady state:
+	\[
+	\nabla \times \mathbf{B} = \mu_0\mathbf{J}_s
+	\]
+	Taking the curl of this equation and using the first London equation, we get:
+	\[
+	\nabla^2\mathbf{B} = \frac{1}{\lambda_L^2}\mathbf{B}
+	\]
+	
+	The solution for a semi-infinite superconductor ($x \geq 0$):
+	\[
+	B(x) = B_0 e^{-x/\lambda_L}
+	\]
+	where $\lambda_L = \sqrt{\frac{m}{\mu_0 n_s (2e)^2}}$ is the London penetration depth.
+	
+	\textit{Physical Interpretation:}
+	\begin{itemize}
+		\item Magnetic field enters the superconductor only up to depth $\lambda_L$ ($\sim$100 nm)
+		\item Surface currents create shielding that cancels external field inside
+		\item These currents flow without energy loss due to superconductivity
+		\item The effect works only below critical temperature $T_c$ and field $H_c$
+	\end{itemize}
+	
+	\textit{Significance:}
+	
+	The Meissner effect shows that superconductivity is a true thermodynamic phase, not just zero resistance. The complete magnetic field expulsion is a key sign of the superconducting transition and is used in many applications.
+	
+	\quad \textbf{Flux Quantization: Macroscopic Quantum Effect}
+	
+	Superconductors show clear macroscopic quantum behavior through magnetic flux quantization. In a superconducting ring, the trapped magnetic flux is quantized in units of:
+	\begin{equation}
+		\Phi = n\Phi_0, \quad \Phi_0 = \frac{h}{2e} = 2.07\times10^{-15} \text{ Wb}
+	\end{equation}
+	
+	This happens because the superconducting wavefunction must be single-valued. We can write the wavefunction as $\psi(\mathbf{r}) = \sqrt{n_s}e^{i\theta(\mathbf{r})}$, where $\theta$ is the phase. For a closed loop around the flux, the phase must change by integer multiples of $2\pi$:
+	\begin{equation}
+		\oint \nabla\theta \cdot d\mathbf{l} = 2\pi n
+	\end{equation}
+	
+	Using the momentum expression $\mathbf{p} = \hbar\nabla\theta - 2e\mathbf{A}$, we get the flux quantization condition. The $2e$ factor shows that current is carried by electron pairs, not single electrons.
+	
+	\quad \textbf{Josephson Effects: Quantum Phase Effects}
+	
+	Brian Josephson predicted in 1962 that Cooper pairs can tunnel between two superconductors separated by a thin insulator. The Josephson effects show that the superconducting phase has real physical effects.
+	
+	The DC Josephson effect gives supercurrent without voltage:
+	\begin{equation}
+		I = I_c \sin(\varphi)
+	\end{equation}
+	where $\varphi = \theta_1 - \theta_2$ is the phase difference, and $I_c$ is the critical current.
+	
+	With DC voltage $V$, the AC Josephson effect occurs:
+	\begin{equation}
+		\frac{d\varphi}{dt} = \frac{2eV}{\hbar}
+	\end{equation}
+	This creates an oscillating supercurrent with frequency $\omega_J = \frac{2eV}{\hbar}$. This frequency-voltage relation is exact and is used for precise measurements of $e/h$.
+	
+	\quad \textbf{Conclusion}
+	
+	The Meissner effect, BCS theory, flux quantization, and Josephson effects together show superconductivity as a macroscopic quantum phenomenon. These principles explain the special properties of superconductors and enable important technologies like MRI machines, particle accelerators, and quantum computers. While high-temperature superconductors still present challenges, the basic quantum principles of conventional superconductors remain fundamental to our understanding.
+	
+\end{document}

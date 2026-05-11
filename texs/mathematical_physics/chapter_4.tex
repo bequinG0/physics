@@ -1,0 +1,217 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[english, russian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\parindent}{1cm}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{physics}
+\usepackage{caption} %заголовки плавающих объектов
+\captionsetup[table]{justification=centering} %установки для заголовков таблиц
+\captionsetup[figure]{justification=centering} 
+
+\begin{document}
+	\begin{center}
+		\subsubsection*{Расчётное задание по математической физике}
+		\subsubsection*{Глава №4: Специальные функции математической физики}
+		\subsubsection*{Выполнил студент третьего курса Физико-механического института, высшей школы ФФИ: Куликовских Илья}
+		\subsubsection*{Группа: 5030302/30801}
+		\subsubsection*{Вариант 6}
+		\subsubsection*{Преподаватель: Елатонцев Вадим Александрович}
+	\end{center}
+	
+	\quad \textbf{Задача 4.01.48.} Вычислить интеграл $\displaystyle\int\limits_{0}^{\frac{\pi}{2}} \cos^{n} t dt $ для произвольного значение $n$ c помощью Гамма функции. 
+	
+	\quad \textbf{Решение. } Для определения интеграла воспользуемся формулой: 
+	
+	\begin{equation}
+		\displaystyle\int\limits_{0}^{\frac{\pi}{2}} \cos^{2a - 1} \alpha \sin^{2b-1} \alpha d\alpha = \dfrac{1}{2} B(a, b)
+	\end{equation}
+	
+	\begin{center}
+		$2a - 1 = n \implies a = \dfrac{n+1}{2} \implies \dfrac{1}{2}B\left(\dfrac{n+1}{2}, \dfrac{1}{2}\right) = \displaystyle\int\limits_{0}^{\frac{\pi}{2}} \cos^n t dt $
+	
+		Таким образом: 
+		
+		$\displaystyle\int\limits_{0}^{\frac{\pi}{2}} \cos^n t dt = \dfrac{1}{2} B\left(\dfrac{n+1}{2}, \dfrac{1}{2}\right) = \dfrac{\Gamma\left(\dfrac{n+1}{2}\right) \Gamma\left(\dfrac{1}{2}\right)}{2\Gamma\left(\dfrac{n+2}{2}\right)} = \dfrac{\sqrt{\pi}}{2}\dfrac{\Gamma\left(\dfrac{n+1}{2}\right)}{\Gamma\left(\dfrac{n+2}{2}\right)}$
+	\end{center}
+	
+	\quad $\Gamma\left(\dfrac{n+1}{2}\right)$ - зависит от чётности $n$: $\Gamma\left(\dfrac{n+1}{2}\right) =\left(\dfrac{n-1}{2}\right)!$ \newline $\forall n \in \mathbb{N} $, $n$ - нечётное. Намного интересней обстоит ситуация в случае когда $n$ - чётное. Рассмотрим эту ситуацию отдельно:
+	
+	\begin{center}
+		$\Gamma\left(\dfrac{n+1}{2}\right) = \displaystyle\int\limits_{0}^{\infty} t^{\frac{n-1}{2}} e^{-t} dt = -\displaystyle\int\limits_{0}^{\infty} t^{\frac{n-1}{2}} d\left(e^{-t}\right) =\newline = \displaystyle\int\limits_{0}^{\infty} e^{-t} d\left(t^{\frac{n-1}{2}}\right) - \underbrace{e^{-t} t^{\frac{n-1}{2}} \bigg|_{0}^{\infty}}_{=0} = \dfrac{n-1}{2} \displaystyle\int\limits_{0}^{\infty} t^{\frac{n-3}{2}} e^{-t} dt = \dfrac{n-1}{2} \Gamma\left(\dfrac{n-1}{2}\right) \implies$
+		
+		$\implies \Gamma\left(\dfrac{n+1}{2}\right) = \dfrac{n-1}{2} \cdot \dfrac{n-3}{2} \cdot \dfrac{n-5}{2}\cdot \ldots \cdot\dfrac{1}{2} \cdot \Gamma\left(\dfrac{1}{2}\right) = \dfrac{\sqrt{\pi} (n-1)!!}{2^{\frac{n}{2}}}$
+	\end{center}
+	
+	\quad Аналогично поступаем с $\Gamma\left(\dfrac{n+2}{2}\right)$:
+	
+	\begin{center}
+		$\Gamma\left(\dfrac{n+2}{2}\right) = \begin{cases}
+			\left(\dfrac{n}{2}\right)!, \quad n \text{ - чётное} \\
+			\\
+			\dfrac{\sqrt{\pi} n!!}{2^{\frac{n+1}{2}}}, \quad n \text{ - нечётное}
+		\end{cases}$
+	\end{center}
+	
+	\quad \textbf{Ответ:} $\displaystyle\int\limits_{0}^{\frac{\pi}{2}} \cos^n (t) dt= \begin{cases}
+		\dfrac{\pi (n-1)!!}{2^{\frac{n}{2} + 1} \left(\frac{n}{2}\right)! }, \quad n \text{ - чётное} \\ 
+		\\
+		\dfrac{1}{n!!} \cdot \left(\dfrac{n-1}{2}\right)! \cdot 2^{\frac{n-1}{2}} , \quad n \text{ - нечётное}
+	\end{cases}$ 
+	
+	
+	\quad \textbf{Задача 4.09.15} Известно, что уравнение Бесселя для \( n = 0 \)
+	\begin{equation}
+		x \dfrac{d^2 y}{dx^2} + \dfrac{dy}{dx} + x y = 0
+	\end{equation}
+	имеет регулярное в точке \( x = 0 \) решение,
+	которое можно представить в виде степенного ряда
+	
+	\begin{equation}
+		J_0(x) = \sum_{k=0}^{\infty} \frac{(-1)^k}{(k!)^2} \left( \frac{x}{2} \right)^{2k}
+	\end{equation}
+	
+	Второе линейно независимое решение этого уравнения имеет вид функции Бесселя второго рода нулевого порядка \( Y_0(x) \). Функцию \( Y_0(x) \) можно представить через функцию \( \Psi(x) \) [Двайт 806.1]
+	
+	\begin{equation}
+		Y_0(x) = \frac{2}{\pi} \left( \gamma + \ln \left( \frac{x}{2} \right) \right) J_0(x) + \frac{2}{\pi} \Psi(x)
+	\end{equation}
+	
+	В этом выражении \( \gamma = 0.5772 \) — постоянная Эйлера. Представляя функцию \( \Psi(x) \) в виде степенного ряда \( y(x) = \displaystyle\sum\limits_{k=2}^{\infty} C_k x^k \), и подставляя этот степенной ряд в уравнения Бесселя, найти явный вид коэффициентов \( C_2, C_3, C_4 \).
+	
+	\textbf{Указание.} Для решения этой задачи необходимо вывести дифференциальное уравнение для функции \( \Psi(x) \)
+	\begin{equation}
+		\dfrac{d^2 \Psi}{dx^2} + \frac{1}{x} \dfrac{d\Psi }{dx} + \Psi (x)+ \dfrac{2}{x}\dfrac{dJ_0}{dx} = 0
+	\end{equation}
+	
+	\quad \textbf{Решение. } Первым шагом выведем дифференциальное уравнение для $\Psi(x)$ :
+	
+	$\dfrac{dY_0}{dx} = \dfrac{d}{dx} \bigg(\dfrac{2}{\pi} \bigg[ \gamma + \ln{\dfrac{x}{2}}\bigg]J_0 (x) + \dfrac{2}{\pi} \Psi(x)\bigg) = \dfrac{2}{\pi x} J_0 (x) + \dfrac{2}{\pi} \bigg(\gamma + \ln{\dfrac{x}{2}}\bigg) \dfrac{dJ_0}{dx} + \newline + \dfrac{2}{\pi} \dfrac{d\Psi}{dx}$
+	
+	$\dfrac{d^2 Y_0}{dx^2} = \dfrac{d}{dx} \bigg( \dfrac{2}{\pi x} J_0 (x) + \dfrac{2}{\pi} \bigg(\gamma + \ln{\dfrac{x}{2}}\bigg) \dfrac{dJ_0}{dx} + \dfrac{2}{\pi} \dfrac{d\Psi}{dx} \bigg) = -\dfrac{2}{\pi x^2} J_0 (x) + \newline + \dfrac{4}{\pi x} \dfrac{dJ_0}{dx} + \dfrac{2}{\pi} \bigg(\gamma + \ln{\dfrac{x}{2}}\bigg) \dfrac{d^2 J_0}{dx^2} + \dfrac{2}{\pi}\dfrac{d^2 \Psi}{dx^2} $
+	
+	\begin{center}
+		$\dfrac{d^2 Y_0}{dx^2 } + \dfrac{1}{x} \dfrac{dY_0}{dx} + Y_0 (x) = \newline = \dfrac{2}{\pi} \dfrac{d^2 \Psi}{dx^2} + \dfrac{2}{\pi x} \dfrac{d\Psi}{dx} + \dfrac{2}{\pi} \Psi(x) + \dfrac{2}{\pi} \bigg(\gamma + \ln {\dfrac{x}{2}}\bigg)\underbrace{ \bigg(\dfrac{d^2 J_0 }{dx^2} + \dfrac{1}{x} \dfrac{dJ_0 }{dx} + J_0 (x) \bigg)}_{= 0} + \dfrac{4}{\pi x} \dfrac{dJ_0}{dx} = 0$
+	\end{center}
+	
+	\begin{equation}
+		\dfrac{d^2 \Psi}{dx^2} + \frac{1}{x} \dfrac{d\Psi }{dx} + \Psi (x)+ \dfrac{2}{x}\dfrac{dJ_0}{dx} = 0
+	\end{equation}
+	
+	\quad Нетрудно заметить что выражение (6) в точности повторяет формулу (4). Теперь подставим в полученное уравнение ряд $\displaystyle\sum\limits_{k=2}^{\infty} C_k x^k$ : 
+	
+	\begin{center}
+		$\dfrac{d\Psi}{dx} = \dfrac{d}{dx} \displaystyle\sum\limits_{n=2}^{\infty} C_n x^n = \displaystyle\sum\limits_{n=2}^{\infty} C_n n x^{n-1}$
+	
+		$\dfrac{d^2 \Psi}{dx^2} = \dfrac{d}{dx} \displaystyle\sum\limits_{n=2}^{\infty} C_n n x^{n-1} = \displaystyle\sum\limits_{n=2}^{\infty} C_n n (n-1) x^{n-2} $
+		
+		$\dfrac{2}{x} \dfrac{dJ_0}{dx} = \dfrac{2}{x} \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^{k} k}{(k!)^2} \left(\dfrac{x}{2}\right)^{2k-1} = \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^{k} k}{(k!)^2} \left(\dfrac{x}{2}\right)^{2k-2} $
+	\end{center}
+	
+	\begin{equation}
+		\dfrac{d^2 \Psi}{dx^2} + \frac{1}{x} \dfrac{d\Psi }{dx} + \Psi (x)+ \dfrac{2}{x}\dfrac{dJ_0}{dx} = \displaystyle\sum\limits_{n=2}^{\infty} \left(C_n n^2 x^{n-2} + C_n x^{n} \right) =- \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^{k} k}{(k!)^2} \left(\dfrac{x}{2}\right)^{2k-2} 
+	\end{equation}
+	
+	\quad Теперь необходимо обратить внимание на чётность степеней при $x$ по разные стороны от знака равно в выражении (7). Справа все степени чётные значит так должно быть и слева, по этой причине $C_3 = 0$. Теперь найдём $C_2$ и $C_4$:
+	
+	\begin{center}
+		$ \displaystyle\sum\limits_{n=0}^{\infty} C_{n+2} (n+2)^2 x^n + \displaystyle\sum\limits_{n=2}^{\infty} C_n x^n = - \displaystyle\sum\limits_{k=1}^{\infty} \dfrac{(-1)^k k x^{2k-2}}{(k!)^2 2^{2k-2}} $
+	\end{center}
+	
+	\quad Теперь приравняем коэфиценты при равных степенях $x$ с обеих сторон:
+	
+	\begin{equation}
+		\text{При } x^0 \text{:} \quad  n = 0 \quad k = 1 \implies 4C_2 = 1 \quad C_2 = \dfrac{1}{4}
+	\end{equation}
+	
+	\begin{equation}
+		\text{При } x^2 \text{:} \quad  n = 2 \quad k = 2 \implies 16C_4 + C_2 = -\dfrac{1}{8} \quad C_4 = -\dfrac{3}{128}
+	\end{equation}
+	
+	
+	\quad \textbf{Ответ:} $C_2 = \dfrac{1}{4}$, $C_3 = 0$, $C_4 = -\dfrac{3}{128}$
+	
+	$\newline$
+	
+	\quad \textbf{Задача 4.11.10} Вычислить дифференциал числа столкновений атомов со стенкой с определённым значением импульса 
+	\( dv_{p_z \to p_z + dp_z} \left( \frac{1}{\text{см}^2 \cdot \text{с}} \right) \) 
+	для релятивистского газа с концентрацией \( n \left( \frac{1}{\text{см}^3} \right) \).
+	
+	Величина \( dv_{p_z \to p_z + dp_z} \left( \frac{1}{\text{см}^2 \cdot \text{с}} \right) \) определяется соотношением:
+	
+	\begin{equation}
+		dv_{p_z \to p_z + dp_z} = n dp_z \int_{-\infty}^{\infty} dp_x \int_{-\infty}^{\infty} \, V_z \, f(p) dp_y\,,
+	\end{equation}
+	
+	где величина \( V_z = \dfrac{c p_z}{\sqrt{m^2 c^2 + p^2}} \) --- релятивистская скорость частицы вдоль оси \( z \), 
+	
+	\begin{equation}
+		f(p) = \frac{c^3}{4\pi (k_0 T)^3 z^2 K_2(z)} \exp\left[ -\frac{c\sqrt{m^2 c^2 + p^2}}{k_0 T} \right]
+	\end{equation}
+	--- нормированное распределение Максвелла (см. задачу 4.11.9).
+	
+	Для вычисления интеграла по проекциям \( p_x \) и \( p_y \) необходимо ввести цилиндрическую систему координат:
+	\begin{equation}
+		dp_x \, dp_y = p_r \, dp_r \, d\varphi.
+	\end{equation}
+	Квадрат импульса \( p^2 = p_r^2 + p_z^2 \).
+	
+	При вычислении интеграла по \( p_r \) необходимо ввести новые переменные: \( p_r \to t \) по формуле
+	\begin{equation}
+		p_r = \sqrt{m^2 c^2 + p_z^2} \, \operatorname{sh} t.
+	\end{equation}
+	
+	Получить ответ для величины
+	\begin{equation}
+		dv_{p_z \to p_z + dp_z} = \frac{c^3 n p_z \exp\left[ -\dfrac{c\sqrt{m^2 c^2 + p_z^2}}{k_0 T} \right] dp_z} {2(k_0 T)^2 z^2 K_2(z)}.
+	\end{equation}
+	
+	\quad \textbf{Решение.} Задача сводится к взятию интеграла (10) в цилиндрических координатах импульсного пространства. Выполним переход цилиндрическим координатам: $(p_x, p_y, p_z) \rightarrow (p_r, \varphi, p_z)$
+	
+	\begin{equation}
+		\begin{cases}
+			p_x = p_r \cos\varphi \\
+			p_y = p_r \sin\varphi 
+		\end{cases} \implies dp_x dp_y = J(r, \varphi) d\varphi dp_r \quad J(r, \varphi) = p_r
+	\end{equation}
+	
+	\begin{center}
+		где $p_r$ - радиальная компонента импульса в импульсном пространстве. 
+	\end{center}
+	
+	\quad Введём константы/переменные:
+	
+	\begin{center}
+		$A(z) = \dfrac{c^4 p_z }{4\pi (k_0 T)^3 z^2 K_2 (z)}$, \quad $E_z^2 = m^2 c^2 + p_z^2 $, \quad $B = \dfrac{k_0 T}{c}$
+	\end{center}
+	
+	\quad Тогда интеграл (10) примет следующий вид:
+	
+	\begin{equation}
+		d\upsilon = ndp_z \displaystyle\int\limits_{0}^{2\pi} d\varphi \displaystyle\int\limits_{0}^{\infty} \dfrac{A(z) p_r}{\sqrt{E_z^2 + p_r^2}} e^{-\frac{\sqrt{E_z^2 + p_r^2}}{B}} dp_r 
+	\end{equation}
+	
+	\begin{equation}
+		\displaystyle\int\limits_{0}^{\infty} \dfrac{A(z) p_r }{\sqrt{E_z^2 + p_r^2}} e^{-\frac{\sqrt{E_z^2 + p_r^2 }}{B}}dp_r = \left[\begin{array}{c}
+			\dfrac{1}{2} A(z) \displaystyle\int\limits_{E_z^2}^{\infty} \dfrac{e^{-\frac{\sqrt{t}}{B}}}{\sqrt{t}} dt \\
+			t = E_z^2 + p_r^2 \quad \dfrac{1}{2} dt = p_r dp_r
+		\end{array}\right]
+	\end{equation}
+	
+	\begin{equation}
+		\dfrac{1}{2} A(z) \displaystyle\int\limits_{E_z^2}^{\infty} \dfrac{e^{-\frac{\sqrt{t}}{B}}}{\sqrt{t}} dt = -A(z) B \displaystyle\int\limits_{E_z^2}^{\infty} e^{-\frac{\sqrt{t}}{B}} d\left(\dfrac{\sqrt{t}}{B}\right) = A(z) B e^{-\frac{E_z}{B}}
+	\end{equation}
+	
+	\begin{equation}
+		d\upsilon = 2\pi n \dfrac{c^4 p_z }{4\pi (k_0 T)^3 z^2 K_2 (z)} \dfrac{k_0 T}{c} \cdot e^{-\frac{cE_z}{k_0 T}} dp_z = \dfrac{nc^3 p_z}{2k_0^2 T^2 z^2 K_2 (z) } \cdot e^{-\frac{c\sqrt{m^2 c^2 + p_z^2}}{k_0 T}} dp_z
+	\end{equation}
+	
+	\quad Нетрудно заметить что выражение (19) в точности повторяет формулу (14) $\blacksquare$
+\end{document}
