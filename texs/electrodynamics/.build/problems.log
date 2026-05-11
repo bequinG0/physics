@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.8)  8 MAY 2026 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  11 MAY 2026 22:16
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **problems.tex
 (./problems.tex
@@ -47,7 +48,7 @@ on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
 \U@D=\dimen149
-\l@unhyphenated=\language13
+\l@unhyphenated=\language91
 
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -581,7 +582,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
 )
-(./problems.aux
+(.build/problems.aux
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 8
 .
  (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd
@@ -592,30 +593,30 @@ Package babel Info: 'russian' activates 'russian' shorthands.
 )
 \openout1 = `problems.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Info: Redefining \th on input line 58.
-Package hyperref Info: Link coloring OFF on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Info: Redefining \th on input line 62.
+Package hyperref Info: Link coloring OFF on input line 62.
 
-(./problems.out) (./problems.out)
+(.build/problems.out) (.build/problems.out)
 \@outlinefile=\write3
 \openout3 = `problems.out'.
 
@@ -678,36 +679,36 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Command \cyrr invalid in math mode on input line 66.
+LaTeX Warning: Command \cyrr invalid in math mode on input line 70.
 
 Missing character: There is no ð in font cmr12!
 
-Overfull \hbox (1.15936pt too wide) in paragraph at lines 80--81
+Overfull \hbox (1.15936pt too wide) in paragraph at lines 84--85
 []$[] [] \OT1/cmr/m/n/12 = [] [] = \OMS/cmsy/m/n/12 ^^@[][] ^^@
  []
 
 
-Overfull \hbox (46.87369pt too wide) in paragraph at lines 82--83
+Overfull \hbox (46.87369pt too wide) in paragraph at lines 86--87
 \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p[][] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p[]
 [][] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 qp[][] \OMS/cmsy/m/n/12 ^^@ []\OT1/c
 mr/m/n/12 2\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 +
  []
 
 
-Overfull \hbox (9.8221pt too wide) in paragraph at lines 82--83
+Overfull \hbox (9.8221pt too wide) in paragraph at lines 86--87
 \OT1/cmr/m/n/12 + [][] + \OML/cmm/m/it/12 qp[][] \OMS/cmsy/m/n/12 ^^@ []\OT1/cm
 r/m/n/12 2\OML/cmm/m/it/12 y[] \OT1/cmr/m/n/12 + [][] + \OML/cmm/m/it/12 qp[][]
  \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 z[] \OT1/cmr/m/n/12 +
@@ -722,10 +723,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.182 		$
+l.186 		$
          \dfrac{\partial^2 \varphi}{\partial \eta^2} = -\dfrac{3}{4D^{\frac{...
 [2]
-Overfull \hbox (13.27582pt too wide) detected at line 189
+Overfull \hbox (13.27582pt too wide) detected at line 193
 [][][][] \OML/cmm/m/it/12 X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12
  )\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Q\OT1/cmr/m/n/12 ) + []
 []\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Q\OT1/cmr/m/n/12 ) + []
@@ -738,10 +739,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.242 		$
+l.246 		$
          \dfrac{1}{\sqrt{\ch\xi_1 - \cos\eta}} = \sqrt{2}\displaystyle\sum\l...
 [3]
-Overfull \hbox (27.25797pt too wide) detected at line 270
+Overfull \hbox (27.25797pt too wide) detected at line 274
 [][][][][]
  []
 
@@ -750,32 +751,32 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.292 	\end{equation}
+l.296 	\end{equation}
                       [4]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.352 	\end{equation}
+l.356 	\end{equation}
                       [5]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 	\end{equation}
+l.407 	\end{equation}
                       [6]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.463 	
+l.467 	
         [7]
 
-Package caption Warning: Unused \captionsetup[figure] on input line 40.
+Package caption Warning: Unused \captionsetup[figure] on input line 44.
 See the caption package documentation for explanation.
 
 
-Package caption Warning: Unused \captionsetup[table] on input line 41.
+Package caption Warning: Unused \captionsetup[table] on input line 45.
 See the caption package documentation for explanation.
 
 
@@ -783,8 +784,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.482 \end{document}
-                     [8] (./problems.aux)
+l.486 \end{document}
+                     [8] (.build/problems.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -793,12 +794,12 @@ Package rerunfilecheck Info: File `problems.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13983 strings out of 468980
- 214463 string characters out of 5462462
- 669581 words of memory out of 5000000
- 42445 multiletter control sequences out of 15000+600000
+ 13984 strings out of 467525
+ 214532 string characters out of 5425861
+ 673814 words of memory out of 5000000
+ 42688 multiletter control sequences out of 15000+600000
  636521 words of font info for 65 fonts, out of 8000000 for 9000
- 430 hyphenation exceptions out of 8191
+ 1141 hyphenation exceptions out of 8191
  75i,11n,79p,1309b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
@@ -812,7 +813,7 @@ m/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dis
 t/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on problems.pdf (8 pages, 211448 bytes).
+Output written on .build/problems.pdf (8 pages, 211448 bytes).
 PDF statistics:
  167 PDF objects out of 1000 (max. 8388607)
  127 compressed objects within 2 object streams
