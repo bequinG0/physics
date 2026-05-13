@@ -479,6 +479,42 @@
 	
 	\quad \textbf{Задача 424.} Построить одномерный волновой пакет $\Psi$ для момента времени $t = 0$, взяв в качестве амплитудной функции кривую Гаусса $a(k) = a_0 \exp[-\frac{(k - k_0)^2}{(\Delta k)^2}]$, где $a_0$, $k_0$, $\Delta k$ — постоянные. Найти связь между шириной пакета $\Delta x$ и интервалом волновых чисел $\Delta k$, вносящих основной вклад в суперпозицию.
 	
+	\quad \textbf{Решение.} Согласно условию задачи:
+	
+	\begin{equation}
+		\Psi(x) = \dfrac{1}{2\pi} \displaystyle\int\limits_{-\infty}^{\infty} \overline{\Psi}(k) e^{ikx} dk 
+	\end{equation}
+	
+	\begin{center}
+		$\displaystyle\int\limits_{-\infty}^{\infty} a_0 e^{-\frac{(k-k_0)^2}{\Delta k^2}} e^{ikx} dk = a_0 e^{ik_0 x} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\frac{(k-k_0)^2}{\Delta k^2}} e^{i(k-k_0)x} d(k-k_0) = a_0 e^{ik_0 x} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\frac{k^2}{\Delta k^2}} e^{ikx} dk $
+	
+		$ -\dfrac{k^2}{\Delta k^2} + ikx = -\left(\dfrac{k^2}{\Delta k^2} - 2 \dfrac{k}{\Delta k} \dfrac{i\Delta k x}{2} + \dfrac{\Delta k^2 x^2}{4} - \dfrac{\Delta k^2 x^2}{4}\right) = -\left(\dfrac{k^2}{\Delta k^2} - \dfrac{i\Delta k x}{2}\right)^2 - \dfrac{x^2 \Delta k^2}{4} $
+	\end{center}
+	
+	\begin{equation}
+		a_0 e^{ik_0 x} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\frac{k^2}{\Delta k^2}} e^{ikx} dk = a_0 \Delta k e^{-ik_0 x} e^{-\frac{x^2 \Delta k^2}{4}} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\left(\frac{k^2}{\Delta k^2} - \frac{i\Delta k x}{2}\right)^2} d\left(\dfrac{k^2}{\Delta k^2} - \dfrac{i\Delta k x}{2}\right) 
+	\end{equation}
+	
+	\begin{center}
+		$a_0 \Delta k e^{-ik_0 x} e^{-\frac{x^2 \Delta k^2}{4}} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\left(\frac{k^2}{\Delta k^2} - \frac{i\Delta k x}{2}\right)^2} d\left(\dfrac{k^2}{\Delta k^2} - \dfrac{i\Delta k x}{2}\right) = a_0 \Delta k e^{-ik_0 x} e^{-\frac{x^2 \Delta k^2}{4}} \sqrt{\pi} $
+	\end{center}
+	
+	\begin{equation}
+		\Psi (x) = \dfrac{1}{2\pi} \displaystyle\int\limits_{-\infty}^{\infty} \overline{\Psi}(k) e^{ikx} dk = \dfrac{1}{2\pi } a_0 \Delta k e^{-ik_0 x} e^{-\frac{x^2 \Delta k^2}{4}} \sqrt{\pi} = \dfrac{1}{2\sqrt{\pi}} \left(a_0 \Delta k e^{-\frac{x^2 \Delta k^2}{4}}\right) e^{-ik_0 x}
+	\end{equation}
+	
+	\begin{equation}
+		a(x) = \dfrac{1}{2\sqrt{\pi}} a_0 \Delta k e^{-\frac{x^2 \Delta k^2}{4}} , \quad \Delta x^2 = \dfrac{\displaystyle\int\limits_{-\infty}^{\infty} x^2 \left| a(x) \right|^2 dx}{ \displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx} 
+	\end{equation}
+	
+	\begin{center}
+		$\dfrac{a_0^2 \Delta k^2}{4\pi} \displaystyle\int\limits_{-\infty}^{\infty} x^2 e^{-\frac{x^2 \Delta k^2}{2}} dx = \dfrac{a_0^2 \Delta k^2}{4\pi} \dfrac{2\sqrt{2}}{\Delta k^3} \displaystyle\int\limits_{-\infty}^{\infty} t^2 e^{-t^2} dt = \dfrac{a_0^2 }{\sqrt{2} \pi \Delta k} \underbrace{\displaystyle\int\limits_{-\infty}^{\infty} z^{\frac{1}{2}} e^{-z} dz}_{\Gamma\left(\frac{3}{2}\right) = \sqrt{\frac{\pi}{2}}} = \dfrac{a_0^2}{2\Delta k}$
+	
+		$\displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \displaystyle\int\limits_{\infty}^{\infty} e^{-\frac{\Delta k^2 x^2}{2}} dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \dfrac{\sqrt{2}}{\Delta k} \displaystyle\int\limits_{-\infty}^{\infty} e^{-t^2} dt = \dfrac{a_0^2 \Delta k \sqrt{2\pi}}{4\pi} $  
+		
+		$\Delta x^2 = \dfrac{a_0^2}{2\Delta k} \dfrac{4\pi}{a_0^2 \Delta k \sqrt{2\pi}}$
+	\end{center}
+	
 	\quad \textbf{Задача 568.} Относительно системы $S$ движутся система $S'$ со скоростью $V$ и два тела со скоростями $\mathbf{v}_1$ и $\mathbf{v}_2$. Каков угол $\alpha$ между скоростями этих тел при наблюдении в системе $S$ и в системе $S'$?
 	
 	\quad \textbf{Задача 445.} Ионизованный газ находится в постоянном магнитном поле. Вдоль направления поля распространяется поперечная плоская волна. Найти фазовые скорости распространения. Рассмотреть, в частности, случай малых частот ($\omega \to 0$) и исследовать характер электромагнитных волн с учётом движения положительных ионов.
