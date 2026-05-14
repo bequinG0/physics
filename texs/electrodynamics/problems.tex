@@ -510,7 +510,7 @@
 	\begin{center}
 		$\dfrac{a_0^2 \Delta k^2}{4\pi} \displaystyle\int\limits_{-\infty}^{\infty} x^2 e^{-\frac{x^2 \Delta k^2}{2}} dx = \dfrac{a_0^2 \Delta k^2}{4\pi} \dfrac{2\sqrt{2}}{\Delta k^3} \displaystyle\int\limits_{-\infty}^{\infty} t^2 e^{-t^2} dt = \dfrac{a_0^2 }{\sqrt{2} \pi \Delta k} \underbrace{\displaystyle\int\limits_{-\infty}^{\infty} z^{\frac{1}{2}} e^{-z} dz}_{\Gamma\left(\frac{3}{2}\right) = \frac{\sqrt\pi}{2}} = \dfrac{a_0^2}{\sqrt{8\pi}\Delta k}$
 	
-		$\displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \displaystyle\int\limits_{\infty}^{\infty} e^{-\frac{\Delta k^2 x^2}{2}} dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \dfrac{\sqrt{2}}{\Delta k} \displaystyle\int\limits_{-\infty}^{\infty} e^{-t^2} dt = \dfrac{a_0^2 \Delta k \sqrt{2\pi}}{4\pi} $  
+		$\displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \displaystyle\int\limits_{-\infty}^{\infty} e^{-\frac{\Delta k^2 x^2}{2}} dx = \dfrac{a_0^2 \Delta k^2 }{4\pi} \dfrac{\sqrt{2}}{\Delta k} \displaystyle\int\limits_{-\infty}^{\infty} e^{-t^2} dt = \dfrac{a_0^2 \Delta k \sqrt{2\pi}}{4\pi} $  
 		
 		$\Delta x^2 = \dfrac{a_0^2}{\sqrt{8\pi}\Delta k} \dfrac{4\pi}{a_0^2 \Delta k \sqrt{2\pi}} = \dfrac{1}{\Delta k^2} \implies$
 	\end{center}
@@ -538,6 +538,26 @@
 	\begin{equation}
 		v^\mu = \Lambda_{\nu}^{\mu} v^{\nu} \implies v_1^\mu = \Lambda_{\nu}^{\mu} v_1^\nu, \quad v_2^\mu = \Lambda_\nu^\mu v_2^\nu 
 	\end{equation}
+	
+	\begin{center}
+		$\left(\begin{array}{cccc}
+			\frac{1}{\sqrt{1-\frac{V^2}{c^2}}} & -\frac{\frac{V}{c}}{\sqrt{1-\frac{V^2}{c^2}}} & 0 & 0 \\
+			-\frac{\frac{V}{c}}{\sqrt{1-\frac{V^2}{c^2}}} & \frac{1}{\sqrt{1-\frac{V^2}{c^2}}} & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1 \\
+		\end{array}\right)\cdot\left(
+		\begin{array}{c}
+			c \\
+			v_x \\
+			v_y \\
+			v_z \\
+		\end{array}\right) = \left(\begin{array}{c}
+			\frac{c - v_x \frac{V}{c}}{\sqrt{1-\frac{V^2}{c^2}}} \\
+			\frac{v_x - V}{\sqrt{1-\frac{V^2}{c^2}}} \\
+			v_y \\
+			v_z \\
+		\end{array}\right)$
+	\end{center}
 	
 	\quad \textbf{Задача 445.} Ионизованный газ находится в постоянном магнитном поле. Вдоль направления поля распространяется поперечная плоская волна. Найти фазовые скорости распространения. Рассмотреть, в частности, случай малых частот ($\omega \to 0$) и исследовать характер электромагнитных волн с учётом движения положительных ионов.
 	
