@@ -1,0 +1,80 @@
+% This Source Code Form is subject to the terms of the Mozilla Public
+% License, v. 2.0. If a copy of the MPL was not distributed with this
+% file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage[hyperfootnotes=false]{hyperref}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{array}
+\geometry{
+	a4paper,
+	top=24mm,
+	bottom=30mm,
+	left=20mm,
+	right=20mm
+}
+
+\newcommand{\blfootnote}[1]{%
+	\begingroup
+	\renewcommand{\thefootnote}{}%
+	\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+% Отступ первой строки абзаца 1 см
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+\linespread{1}                 % одинарный интервал
+
+% Отключение нумерации страниц
+\pagenumbering{gobble}
+
+% Настройка подписей рисунков и таблиц
+% Используем \caption* для отключения точки, но оставляем обычный \caption
+\usepackage[labelsep=space, justification=centering]{caption}
+\captionsetup[figure]{font=small}   % small = 11pt при 12pt основного шрифта
+\captionsetup[table]{font=small}
+\renewcommand{\figurename}{Рис.}
+\renewcommand{\tablename}{Табл.}
+
+% Убираем точку в конце подписи (переопределяем \caption)
+\usepackage{etoolbox}
+\makeatletter
+\renewcommand{\fnum@figure}{\figurename~\thefigure}
+\renewcommand{\fnum@table}{\tablename~\thetable}
+\apptocmd{\@caption}{\def\@captionheadfont{\normalfont}\def\@captionfont{\normalfont}}{}{}
+\makeatother
+
+% Настройка списка литературы
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}   % нумерация "1.", "2."
+\makeatother
+
+\begin{document}
+	\subsubsection*{Classical trajectory mrthod. Quantum Entanglement from Classical Trajectories}
+	
+	Today I will talk about the classical trajectories method. We use this method to simulate large molecules or solids.
+	The idea is simple: nuclei move by Newton's laws (like small balls), and electrons are treated quantum mechanically.
+	
+	Example: sodium iodide molecule (NaI).
+	
+	In the ground state, the molecule is Na⁺ and I⁻. Nuclei move classically.
+	The laser gives energy to the electron, and it jumps to another state. Now the molecule is Na I. It starts to fly apart.
+	
+	Near the point where the two energy levels cross, the electron can jump back or stay. Two outcomes are possible:
+	
+	ions: Na⁺ + I⁻
+	
+	neutral atoms: Na + I
+	
+	A good classical trajectories method must show this splitting (branching).
+\end{document}

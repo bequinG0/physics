@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  14 MAY 2026 11:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  14 MAY 2026 16:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**problems.tex
-(./problems.tex
+**classical_trajectories.tex
+(./classical_trajectories.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/usr/share/texmf-dist/tex/latex/base/article.cls
@@ -528,7 +528,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count316
-) (.build/problems.aux
+) (.build/classical_trajectories.aux
 LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 8
 .
 (/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd
@@ -537,7 +537,7 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 Package babel Info: 'russian' activates 'russian' shorthands.
 (babel)             Reported on input line 8.
 )
-\openout1 = `problems.aux'.
+\openout1 = `classical_trajectories.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
@@ -561,9 +561,9 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
 LaTeX Info: Redefining \th on input line 62.
 Package hyperref Info: Link coloring OFF on input line 62.
-(.build/problems.out) (.build/problems.out)
+(.build/classical_trajectories.out) (.build/classical_trajectories.out)
 \@outlinefile=\write3
-\openout3 = `problems.out'.
+\openout3 = `classical_trajectories.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -622,103 +622,59 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
 
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+./classical_trajectories.tex:72: LaTeX Error: Unicode character ⁺ (U+207A)
+               not set up for use with LaTeX.
 
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 	In the ground state, the molecule is Na⁺
+                                                 and I⁻. Nuclei move class...
 
-LaTeX Warning: Command \cyrr invalid in math mode on input line 70.
-
-Missing character: There is no � in font cmr12!
-
-Overfull \hbox (1.15936pt too wide) in paragraph at lines 84--85
-[]$[] [] \OT1/cmr/m/n/12 = [] [] = \OMS/cmsy/m/n/12 ^^@[][] ^^@
- []
+You may provide a definition with
+\DeclareUnicodeCharacter 
 
 
-Overfull \hbox (46.87369pt too wide) in paragraph at lines 86--87
-\OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p[][] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p[]
-[][] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 qp[][] \OMS/cmsy/m/n/12 ^^@ []\OT1/c
-mr/m/n/12 2\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 +
- []
+./classical_trajectories.tex:72: LaTeX Error: Unicode character ⁻ (U+207B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 ...ound state, the molecule is Na⁺ and I⁻
+                                                  . Nuclei move classically.
+You may provide a definition with
+\DeclareUnicodeCharacter 
 
 
-Overfull \hbox (9.8221pt too wide) in paragraph at lines 86--87
-\OT1/cmr/m/n/12 + [][] + \OML/cmm/m/it/12 qp[][] \OMS/cmsy/m/n/12 ^^@ []\OT1/cm
-r/m/n/12 2\OML/cmm/m/it/12 y[] \OT1/cmr/m/n/12 + [][] + \OML/cmm/m/it/12 qp[][]
- \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 z[] \OT1/cmr/m/n/12 +
+./classical_trajectories.tex:77: LaTeX Error: Unicode character ⁺ (U+207A)
+               not set up for use with LaTeX.
 
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
-/enc/dvips/cm-super/cm-super-t2a.enc}]
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.186 		$
-         \dfrac{\partial^2 \varphi}{\partial \eta^2} = -\dfrac{3}{4D^{\frac{...
-[2]
-Overfull \hbox (13.27582pt too wide) detected at line 193
-[][][][] \OML/cmm/m/it/12 X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12
- )\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Q\OT1/cmr/m/n/12 ) + []
-[]\OML/cmm/m/it/12 T\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^Q\OT1/cmr/m/n/12 ) + []
- \OML/cmm/m/it/12 ^^Q[]X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^X\OT1/cmr/m/n/12 )[
-] + []\OML/cmm/m/it/12 X[] \OT1/cmr/m/n/12 = 0
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 	ions: Na⁺
+                  + I⁻
+You may provide a definition with
+\DeclareUnicodeCharacter 
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.246 		$
-         \dfrac{1}{\sqrt{\ch\xi_1 - \cos\eta}} = \sqrt{2}\displaystyle\sum\l...
-[3]
-Overfull \hbox (27.25797pt too wide) detected at line 274
-[][][][][]
- []
+./classical_trajectories.tex:77: LaTeX Error: Unicode character ⁻ (U+207B)
+               not set up for use with LaTeX.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 	ions: Na⁺ + I⁻
+                        
+You may provide a definition with
+\DeclareUnicodeCharacter 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.296 	\end{equation}
-                      [4]
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.356 	\end{equation}
-                      [5]
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.407 	\end{equation}
-                      [6]
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.467 	
-        [7]
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.513 		$
-         \displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx ...
-[8]
 
 Package caption Warning: Unused \captionsetup[figure] on input line 44.
 See the caption package documentation for explanation.
@@ -727,46 +683,32 @@ See the caption package documentation for explanation.
 Package caption Warning: Unused \captionsetup[table] on input line 45.
 See the caption package documentation for explanation.
 
+[1
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.546 \end{document}
-                     [9] (.build/problems.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-t2a.enc}] (.build/classical_trajectories.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-Package rerunfilecheck Info: File `problems.out' has not changed.
+Package rerunfilecheck Info: File `classical_trajectories.out' has not changed.
+
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13992 strings out of 468980
- 214620 string characters out of 5462461
- 669581 words of memory out of 5000000
- 42445 multiletter control sequences out of 15000+600000
- 636521 words of font info for 65 fonts, out of 8000000 for 9000
+ 13870 strings out of 468980
+ 213246 string characters out of 5462461
+ 631665 words of memory out of 5000000
+ 42402 multiletter control sequences out of 15000+600000
+ 629640 words of font info for 43 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 75i,11n,79p,1309b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
-uper/sfrm1200.pfb>
-Output written on .build/problems.pdf (9 pages, 235459 bytes).
+ 75i,5n,79p,1153b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on .build/classical_trajectories.pdf (1 page, 36226 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 25 PDF objects out of 1000 (max. 8388607)
+ 17 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
