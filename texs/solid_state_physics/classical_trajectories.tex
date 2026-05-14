@@ -60,21 +60,114 @@
 \makeatother
 
 \begin{document}
-	\subsubsection*{Classical trajectory mrthod. Quantum Entanglement from Classical Trajectories}
+	\subsubsection*{Classical trajectory mеthod. Quantum Entanglement from Classical Trajectories}
 	
-	Today I will talk about the classical trajectories method. We use this method to simulate large molecules or solids.
-	The idea is simple: nuclei move by Newton's laws (like small balls), and electrons are treated quantum mechanically.
+	Today I will talk about the classical trajectories method. 
+	We use this method to simulate large molecules or solids. 
+	The idea is simple: nuclei move by Newton's laws (like small balls), 
+	and electrons are treated quantum mechanically.
 	
-	Example: sodium iodide molecule (NaI).
+	\textbf{Example: sodium iodide molecule (NaI).}
 	
-	In the ground state, the molecule is Na⁺ and I⁻. Nuclei move classically.
-	The laser gives energy to the electron, and it jumps to another state. Now the molecule is Na I. It starts to fly apart.
+	In the ground state, the molecule is Na\(^+\) and I\(^-\). 
+	Nuclei move classically. 
+	The laser gives energy to the electron, and it jumps to another state. 
+	Now the molecule is Na I. It starts to fly apart.
 	
-	Near the point where the two energy levels cross, the electron can jump back or stay. Two outcomes are possible:
-	
-	ions: Na⁺ + I⁻
-	
-	neutral atoms: Na + I
+	Near the point where the two energy levels cross, 
+	the electron can jump back or stay. 
+	Two outcomes are possible:
+	\begin{itemize}
+		\item ions: Na\(^+\) + I\(^-\)
+		\item neutral atoms: Na + I
+	\end{itemize}
 	
 	A good classical trajectories method must show this splitting (branching).
+	
+	\textbf{General approach (mixed quantum-classical dynamics).}
+	
+	In standard mixed methods, electrons are described quantum mechanically — 
+	by the equation for the density matrix (Liouville–von Neumann equation). 
+	This equation is solved together with Newton's equations for the nuclei.
+	
+	\begin{equation}
+		i\hbar \frac{\partial \rho}{\partial t} = \left[\hat{H}, \rho\right]
+	\end{equation}
+	
+	We can add extra terms:
+	\begin{itemize}
+		\item relaxation term — describes loss of coherence,
+		\item pump term — describes the laser action (through the dipole moment).
+	\end{itemize}
+	
+	\textbf{What the authors did.}
+	
+	Runeson and Richardson showed that quantum entanglement can be described 
+	using ordinary classical trajectories. No jumps, no randomness, no coupled trajectories. 
+	All quantum effects are hidden in the initial weights of the trajectories. 
+	These weights can be negative — and that is what creates quantum interference.
+	
+	\textbf{Mapping a two-level system to a classical spin.}
+	
+	A two-level system (like an electron) is like a spin 1/2. 
+	The authors map it onto a classical vector \(s\). 
+	But the length of this vector is not \(1/2\). It is \(\sqrt{3}/2\). 
+	This is not the usual Bloch sphere. It is called the Stratonovich–Weyl representation.
+	
+	\textbf{Path of N spins and the centroid.}
+	
+	Instead of one spin, the authors take \(N\) classical spins 
+	\(s_1, s_2, \dots, s_N\). 
+	Then they compute their average — the centroid \(\bar{s} = \frac{1}{N}\sum_k s_k\). 
+	Surprisingly, quantum observables depend only on this centroid, 
+	not on the individual spins.
+	
+	\textbf{Universal weight function \(G_N(\bar{s})\).}
+	
+	After integrating over all spins, only the centroid remains. 
+	The result is a universal weight function \(G_N(\bar{s})\). 
+	It depends only on the length \(|\bar{s}|\). 
+	For \(N=1\), the centroid is always on a sphere of radius \(\sqrt{3}/2\). 
+	For \(N=4,8\), the distribution of \(\bar{s}\) concentrates near \(\pm 1/2\) — 
+	the quantum eigenvalues. 
+	There are also negative regions in \(G_N\). 
+	These negative weights create quantum interference.
+	
+	\textbf{Dynamics is fully classical.}
+	
+	The centroid \(\bar{s}\) precesses like a classical spin: 
+	\(\dot{\bar{s}} = \bar{s} \times \mathbf{H}(x)\). 
+	The nuclear coordinates \(x\) and momenta \(p\) follow Newton's laws. 
+	Everything is deterministic. 
+	No stochastic jumps. 
+	The weights \(G_N\) are conserved along each trajectory.
+	
+	\textbf{Tully model I — wave packet branching.}
+	
+	A wave packet enters an avoided crossing. 
+	It must split into two parts. 
+	Ehrenfest dynamics gives only one peak (average path). 
+	With \(N=1\) (linearized spin mapping), we get an envelope — but still one peak. 
+	With \(N=4\) or \(N=8\), two clear peaks appear. 
+	The method correctly reproduces the quantum branching.
+	
+	\textbf{Tully model III — recrossing.}
+	
+	The wave packet passes through the coupling region twice. 
+	Surface hopping (FSSH) gives wrong oscillations (overcoherence). 
+	The spin path-integral method with \(N=4\) gives the correct result — 
+	no oscillations, correct entanglement entropy.
+	
+	\textbf{Main conclusion.}
+	
+	Quantum entanglement can be described by an ensemble of classical trajectories. 
+	To do this, we need:
+	\begin{itemize}
+		\item many classical spins,
+		\item their average (centroid),
+		\item initial weights \(G_N\) that can be negative.
+	\end{itemize}
+	The dynamics is classical. 
+	The method works where other methods fail.
+	
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  14 MAY 2026 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  14 MAY 2026 16:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -46,7 +46,7 @@ on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
 \U@D=\dimen149
-\l@unhyphenated=\language13
+\l@unhyphenated=\language91
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count284
@@ -622,59 +622,20 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
 
-./classical_trajectories.tex:72: LaTeX Error: Unicode character ⁺ (U+207A)
-               not set up for use with LaTeX.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.72 	In the ground state, the molecule is Na⁺
-                                                 and I⁻. Nuclei move class...
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
 
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./classical_trajectories.tex:72: LaTeX Error: Unicode character ⁻ (U+207B)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.72 ...ound state, the molecule is Na⁺ and I⁻
-                                                  . Nuclei move classically.
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./classical_trajectories.tex:77: LaTeX Error: Unicode character ⁺ (U+207A)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.77 	ions: Na⁺
-                  + I⁻
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
-
-./classical_trajectories.tex:77: LaTeX Error: Unicode character ⁻ (U+207B)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.77 	ions: Na⁺ + I⁻
-                        
-You may provide a definition with
-\DeclareUnicodeCharacter 
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-t2a.enc}{/usr/share/texmf-dist/fonts/enc/dvips/cm-
+super/cm-super-ts1.enc}]
 
 Package caption Warning: Unused \captionsetup[figure] on input line 44.
 See the caption package documentation for explanation.
@@ -683,10 +644,13 @@ See the caption package documentation for explanation.
 Package caption Warning: Unused \captionsetup[table] on input line 45.
 See the caption package documentation for explanation.
 
-[1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
-/enc/dvips/cm-super/cm-super-t2a.enc}] (.build/classical_trajectories.aux)
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.173 \end{document}
+                     [2] (.build/classical_trajectories.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -696,19 +660,27 @@ Package rerunfilecheck Info: File `classical_trajectories.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13870 strings out of 468980
- 213246 string characters out of 5462461
- 631665 words of memory out of 5000000
- 42402 multiletter control sequences out of 15000+600000
- 629640 words of font info for 43 fonts, out of 8000000 for 9000
- 430 hyphenation exceptions out of 8191
- 75i,5n,79p,1153b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on .build/classical_trajectories.pdf (1 page, 36226 bytes).
+ 13932 strings out of 467525
+ 214167 string characters out of 5425861
+ 646898 words of memory out of 5000000
+ 42682 multiletter control sequences out of 15000+600000
+ 635252 words of font info for 64 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,6n,79p,1153b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.
+pfb>
+Output written on .build/classical_trajectories.pdf (2 pages, 120917 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
- 17 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
+ 78 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

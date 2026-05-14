@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1778748260.98185 "problems.tex" "problems.pdf" "problems" 1778748262.22783 0
-  ".build/problems.aux" 1778748262.05247 300 af27820f9149f6e8cdc72628ab1fd883 "pdflatex"
-  ".build/problems.out" 1778748261.67647 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1738195317.98181 3308 eee81981029f67083258db36df06e523 ""
-  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1739390566.29992 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
-  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm" 1739390557.57605 3240 04766e423166ba63b7fbbf132b8618cb ""
-  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1738195304.91525 3240 c2435f2b5cd66d4930bc29b8df87967e ""
+["pdflatex"] 1778765188.06403 "problems.tex" "problems.pdf" "problems" 1778765188.47999 0
+  ".build/problems.aux" 1778765188.41689 300 af27820f9149f6e8cdc72628ab1fd883 "pdflatex"
+  ".build/problems.out" 1778765188.29989 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1762527963.4596 3308 eee81981029f67083258db36df06e523 ""
+  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm0600.tfm" 1763134462.07369 3248 7c0b9d76a2cd84ed06764a4c6eea5de4 ""
+  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm0800.tfm" 1763134460.74006 3240 04766e423166ba63b7fbbf132b8618cb ""
+  "/home/bequ1n/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1762527959.43213 3240 c2435f2b5cd66d4930bc29b8df87967e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc" 1775415801 3141 82d5616418ed8d5de703b3951bedecb4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1775415801 1004 54797486969f23fa377b128694d548df ""
@@ -106,9 +106,9 @@
   "/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty" 1775415801 1618 30b01152766afcef2ed8f904cfdd3cc6 ""
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1775415801 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775610961 5388237 80fd57b070dd1d457729929f679fe5c6 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778514669 2404738 3e82e26314dec0b37e37664b44dd1abe ""
-  "problems.tex" 1778748260.78334 37485 82aea7371ef3b28da5065c8fbbc16e5d ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778526796 5541339 b32eb00eb34cd5c925a7827d916d9dbd ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778526726 3765589 2222414dfecb9fcb8d12f1239d569007 ""
+  "problems.tex" 1778765109.52019 37485 82aea7371ef3b28da5065c8fbbc16e5d ""
   (generated)
   ".build/problems.aux"
   ".build/problems.log"
