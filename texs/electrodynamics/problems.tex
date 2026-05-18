@@ -332,7 +332,7 @@
 	\end{equation}
 	
 	\begin{equation}
-		v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} = \lim_{\varepsilon \to 0} \left(\displaystyle\int\limits_{0}^{\omega - \varepsilon} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} + \displaystyle\int\limits_{\omega-\varepsilon}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} \right)
+		v.p. \displaystyle\int\limits_{0}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} = \lim_{\varepsilon \to 0} \left(\displaystyle\int\limits_{0}^{\omega - \varepsilon} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} + \displaystyle\int\limits_{\omega+\varepsilon}^{\infty} \dfrac{\tau(\varepsilon_0 - 1)d\zeta}{(1+\omega^2)(1+\zeta^2\tau^2)} \right)
 	\end{equation}
 	
 	\quad У интеграла (27) нет никакой особенности поэтому главное значение можно опустить:
@@ -559,8 +559,41 @@
 		\end{array}\right)$
 	\end{center}
 	
+	\begin{center}
+		$v'_x = c \dfrac{v_x - V}{\sqrt{1-\frac{V^2}{c^2}}} \dfrac{\sqrt{1-\frac{V^2}{c^2}}}{c-v_x\frac{V}{c}} = \dfrac{v_x - V}{1 - \frac{v_x V}{c^2}}, \quad $
+		$v'_y = c\dfrac{v_y\sqrt{1-\frac{V^2}{c^2}}}{c-v_x \frac{V}{c}} = \dfrac{v_y\sqrt{1 - \frac{V^2}{c^2}}}{1 - \frac{v_x V}{c^2}}$
+		
+		$v'_z = c\dfrac{v_z\sqrt{1-\frac{V^2}{c^2}}}{c-v_x \frac{V}{c}} = \dfrac{v_z\sqrt{1 - \frac{V^2}{c^2}}}{1 - \frac{v_x V}{c^2}}$
+		
+		$|v'|^2 = \dfrac{1}{\left(1 - \frac{v_x V}{c^2}\right)^2}\left[v_x^2 + v_y^2 \left(1 - \dfrac{V^2}{c^2}\right) + v_z^2 \left(1-\dfrac{V^2}{c^2}\right)\right] = \dfrac{|v|^2}{\left(1 - \frac{v_x V}{c^2}\right)^2} - \dfrac{V^2}{c^2} \dfrac{v_y^2  + v_z^2}{\left(1 - \frac{v_x V}{c^2}\right)^2}$
+	\end{center}
+	
+	\begin{equation}
+		|v'_1||v'_2| = \sqrt{\left(\dfrac{|v_1|^2}{\left(1 - \frac{v_{1x} V}{c^2}\right)^2} - \dfrac{V^2}{c^2} \dfrac{v_{1y}^2  + v_{1z}^2}{\left(1 - \frac{v_{1x} V}{c^2}\right)^2}\right)\left(\dfrac{|v_2|^2}{\left(1 - \frac{v_{2x} V}{c^2}\right)^2} - \dfrac{V^2}{c^2} \dfrac{v_{2y}^2  + v_{2z}^2}{\left(1 - \frac{v_{2x} V}{c^2}\right)^2}\right)}
+	\end{equation}
+	
+	\begin{equation}
+		\vec{v'_1} \cdot \vec{v'_2}  = \dfrac{(v_{1x} - V)(v_{2x} - V)}{\left(1 - \frac{v_{1x} V}{c^2}\right)\left(1 - \frac{v_{2x} V}{c^2}\right)} + \dfrac{v_{1y} v_{2y} \left(1 - \frac{V^2}{c^2}\right)}{\left(1 - \frac{v_{1x} V}{c^2}\right)\left(1 - \frac{v_{2x} V}{c^2}\right)} + \dfrac{v_{1z} v_{2z} \left(1 - \frac{V^2}{c^2}\right)}{\left(1 - \frac{v_{1x} V}{c^2}\right)\left(1 - \frac{v_{2x} V}{c^2}\right)}
+	\end{equation}
+	
+	\begin{equation}
+		\cos\alpha' = \dfrac{(v_{1x} - V)(v_{2x} - V) + \left(\vec{v_1}\cdot\vec{v_2} - v_{1x}v_{2x}\right) \left(1-\frac{V^2}{c^2}\right) }{\sqrt{\left(\left(1-\frac{V^2}{c^2}\right)|\vec{v_1}| + \frac{V^2}{c^2} v_{1x}^2 \right)\left(\left(1-\frac{V^2}{c^2}\right)|\vec{v_2}| + \frac{V^2}{c^2} v_{2x}^2 \right)}}
+	\end{equation}
+	
+	\quad \textbf{Ответ:} $\cos\alpha' = \dfrac{(v_{1x} - V)(v_{2x} - V) + \left(\vec{v_1}\cdot\vec{v_2} - v_{1x}v_{2x}\right) \left(1-\frac{V^2}{c^2}\right) }{\sqrt{\left(\left(1-\frac{V^2}{c^2}\right)|\vec{v_1}|^2 + \frac{V^2}{c^2} v_{1x}^2 \right)\left(\left(1-\frac{V^2}{c^2}\right)|\vec{v_2}|^2 + \frac{V^2}{c^2} v_{2x}^2 \right)}}$
+	
 	\quad \textbf{Задача 445.} Ионизованный газ находится в постоянном магнитном поле. Вдоль направления поля распространяется поперечная плоская волна. Найти фазовые скорости распространения. Рассмотреть, в частности, случай малых частот ($\omega \to 0$) и исследовать характер электромагнитных волн с учётом движения положительных ионов.
 	
-	\quad \textbf{Решение.} 
+	\quad \textbf{Решение.} Ионнизированный газ в однородном магнитном поле является однородной гиротропной средой, в которой диэлектрическая проницаемость является тензорной величиной вида:
+	
+	\begin{equation}
+		\varepsilon_{ik} = \left(\begin{array}{ccc}
+			\varepsilon_{\perp} & -i\varepsilon_{\alpha} & 0 \\
+			i\varepsilon_{\alpha} & \varepsilon_{\perp} & 0 \\
+			0 & 0 & \varepsilon_{\parallel} \\ 
+		\end{array}\right)
+	\end{equation}
+	
+	\quad Пользуясь результатом задачи 321 напишем явный вид для компонент тензора диэлектрической проницаемости: 
 	
 \end{document}

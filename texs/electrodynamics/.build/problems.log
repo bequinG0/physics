@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  14 MAY 2026 23:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.11)  18 MAY 2026 17:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -46,7 +46,7 @@ on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
 on input line 2111.
 \U@D=\dimen149
-\l@unhyphenated=\language91
+\l@unhyphenated=\language13
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count284
@@ -719,6 +719,12 @@ een already used, duplicate ignored
 l.513 		$
          \displaystyle\int\limits_{-\infty}^{\infty} \left|a(x)\right|^2 dx ...
 [8]
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.581 	\end{equation}
+                      [9]
 
 Package caption Warning: Unused \captionsetup[figure] on input line 44.
 See the caption package documentation for explanation.
@@ -732,8 +738,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.566 \end{document}
-                     [9] (.build/problems.aux)
+l.599 \end{document}
+                     [10] (.build/problems.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -742,12 +748,12 @@ Package rerunfilecheck Info: File `problems.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13992 strings out of 467525
- 214620 string characters out of 5425861
- 673814 words of memory out of 5000000
- 42688 multiletter control sequences out of 15000+600000
+ 13996 strings out of 468980
+ 214664 string characters out of 5462461
+ 669583 words of memory out of 5000000
+ 42445 multiletter control sequences out of 15000+600000
  636521 words of font info for 65 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 430 hyphenation exceptions out of 8191
  75i,11n,79p,1309b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
@@ -763,10 +769,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
 uper/sfrm1200.pfb>
-Output written on .build/problems.pdf (9 pages, 237349 bytes).
+Output written on .build/problems.pdf (10 pages, 241808 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 62 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
