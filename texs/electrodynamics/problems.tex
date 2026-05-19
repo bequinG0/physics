@@ -594,6 +594,84 @@
 		\end{array}\right)
 	\end{equation}
 	
-	\quad Пользуясь результатом задачи 321 напишем явный вид для компонент тензора диэлектрической проницаемости: 
+	\quad Распишем уравнения Масвела: 
 	
+	\begin{equation}
+		\begin{cases}
+			\vec{\nabla}\times\vec{E} = -\dfrac{1}{c} \dfrac{\partial\vec{B}}{\partial t} \\
+			\vec{\nabla} \times \vec{H} = \dfrac{1}{c}\dfrac{\partial\vec{D}}{\partial t} \\
+		\end{cases}, \quad \begin{cases} 
+			\vec{H} \equiv \vec{B} \\
+			D_k = \varepsilon_{ki} E_i \\
+		\end{cases}
+	\end{equation}
+	
+	\quad Подставляем в уравнения разложение на плоские волны: 
+	
+	\begin{equation}
+		\begin{cases}
+			\vec{E} = \vec{E_0} e^{i(\omega t - \vec{k}\cdot\vec{r})} \\
+			\vec{H} = \vec{H_0} e^{i(\omega t - \vec{k}\cdot\vec{r})} \\
+		\end{cases} \implies \begin{cases}
+			\vec{k} \times \vec{E} = \dfrac{\omega}{c} \vec{H} \\
+			\vec{k} \times \vec{H} = -\dfrac{\omega}{c} \vec{D} \\
+		\end{cases}
+	\end{equation}
+	
+	\begin{equation}
+		\vec{k} \times \left[\vec{k} \times \vec{E} \right] = -\dfrac{\omega^2}{k^2} \vec{D} \quad\Leftrightarrow \quad k_i k_m E_j \varepsilon_{ijk} \varepsilon_{mkn} \vec{e_n} = -\dfrac{\omega^2}{c^2} \varepsilon_{s\alpha} E_\alpha \vec{e_s}  
+	\end{equation}
+	
+	\begin{center}
+		$k_i k_m E_j \varepsilon_{ijk}\varepsilon_{nmk} \vec{e_n} = k_i k_m E_j \left(\delta_{in} \delta_{jm} - \delta_{im} \delta_{jn} \right) \vec{e_n} = \vec{k} \left(\vec{k} \cdot \vec{E}\right) - k^2 \vec{E} $
+	\end{center}
+	
+	\begin{equation}
+		\implies k^2 \vec{E} - \vec{k}\left(\vec{k}\cdot\vec{E}\right) = \dfrac{\omega^2}{c^2} \varepsilon_{s\alpha} E_\alpha \vec{e_s}
+	\end{equation}
+	
+	\quad Учтём, что волна распостраняется вдоль магнитного поля т.е. волновой вектор имеет вид:
+	
+	\begin{center}
+		$\vec{k} = \left(0, \quad 0, \quad k\right)^T$
+	\end{center}	
+	
+	\begin{equation}
+		k^2\left(\begin{array}{c}
+			E_x \\
+			E_y \\
+			E_z \\
+		\end{array}\right) - kE_z\left(\begin{array}{c}
+			0 \\
+			0 \\
+			k \\
+		\end{array}\right) = \dfrac{\omega^2}{c^2} \left(\begin{array}{ccc}
+		\varepsilon_{\perp} & -i\varepsilon_{\alpha} & 0 \\
+		i\varepsilon_{\alpha} & \varepsilon_{\perp} & 0 \\
+		0 & 0 & \varepsilon_{\parallel} \\ 
+		\end{array}\right) \left(\begin{array}{c}
+		E_x \\
+		E_y \\
+		E_z \\
+		\end{array}\right)
+	\end{equation}
+	
+	\begin{equation}
+		\begin{cases}
+			\left(k^2 -\dfrac{\omega^2}{c^2}\varepsilon_\perp\right)E_x + i\varepsilon_\alpha \dfrac{\omega^2}{c^2} E_y = 0 \\ 
+			-i\varepsilon_\alpha\dfrac{\omega^2}{c^2} E_x + \left(k^2 - \dfrac{\omega^2}{c^2}\varepsilon_\perp\right) E_y = 0\\
+		\end{cases}
+	\end{equation}
+	
+	\quad Из условия существования нетривального решения системы (62):
+	
+	\begin{equation}
+		\left(k^2 - \dfrac{\omega^2}{c^2}\varepsilon_\perp\right)^2 - \varepsilon_\alpha^2 \dfrac{\omega^4}{c^4} = 0 \Leftrightarrow \dfrac{k^2 c^2}{\omega^2} = \varepsilon_\perp \pm \varepsilon_\alpha
+	\end{equation}
+	
+	\begin{equation}
+		v_\varphi = \dfrac{c}{\sqrt{\varepsilon_\perp \pm \varepsilon_\alpha}}
+	\end{equation}
+	
+	\quad \textbf{Ответ}: $v_\varphi = \dfrac{c}{\sqrt{\varepsilon_\perp \pm \varepsilon_\alpha}}$ 
 \end{document}
