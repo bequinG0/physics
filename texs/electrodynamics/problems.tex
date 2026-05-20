@@ -674,4 +674,89 @@
 	\end{equation}
 	
 	\quad \textbf{Ответ}: $v_\varphi = \dfrac{c}{\sqrt{\varepsilon_\perp \pm \varepsilon_\alpha}}$ 
+	
+	\quad \textbf{Задача 784.} Поток частиц с зарядом $e$ и скоростью $v \ll c$ рассеивается на абсолютно твёрдой сфере радиуса $a$. Найти эффективное излучение $d\varkappa_\omega$ в интервале частот $d\omega$. Чему равно полное эффективное излучение $\varkappa$?
+	
+	\quad \textbf{Решение.} Зададимся прицельным параметром:
+	
+	\begin{equation}
+		\sin\alpha = \dfrac{s}{a}, \quad \theta = \pi - 2\alpha \quad \Leftrightarrow \quad s = a\cos\dfrac{\theta}{2}
+	\end{equation}
+	
+	\quad Согласно выражениям из задачника: 
+	
+	\begin{equation}
+		d\varkappa_\omega = 2\pi \displaystyle\int\limits_{0}^{\infty} d\Delta W sds, \quad d\Delta W = \dfrac{2}{3\pi c^3} e\Delta\vec{v^2} d\omega
+	\end{equation}
+	
+	\quad Теперь, исходя из геометрии задачи, определим изменение скоростей:
+	
+	\begin{equation}
+		\vec{p_2} - \vec{p_1} = \Delta \vec{p} \implies 2v\cos\left( \dfrac{\pi}{2} -  \dfrac{\theta}{2}\right) = m\Delta v \quad \Leftrightarrow \quad \Delta v = 2v\sin\dfrac{\theta}{2}
+	\end{equation}
+	
+	\quad Таким образом, выразим дифференциальное сечение: 
+	
+	\begin{equation}
+		d\varkappa_\omega =\displaystyle\int\limits_{0}^{\pi} \dfrac{8e^2v^2 a^2}{3 c^3}\sin^2 \dfrac{\theta}{2} \sin\theta d\theta d\omega =  \dfrac{4e^2v^2 a^2}{3 c^3} d\omega \displaystyle\int\limits_{0}^{\pi}  \left(1-\cos\theta\right) d\left(1 - \cos\theta\right) = \dfrac{4e^2v^2 a^2}{3c^3}d\omega
+	\end{equation} 
+	
+	\begin{equation}
+		\varkappa = \displaystyle\int\limits_{0}^{\varkappa} d\varkappa_\omega = \displaystyle\int\limits_{0}^{\infty} \dfrac{4e^2v^2 a^2}{3c^3}d\omega \to \infty
+	\end{equation}
+	
+	\quad \textbf{Ответ}: $d\varkappa_\omega = \dfrac{4e^2v^2 a^2}{3c^3}d\omega$, $\varkappa \to \infty$
+	
+	\quad \textbf{Задача 681.} Кристаллическая решётка способна принимать импульс только дискретными порциями $\mathbf{q} = 2\pi\hbar\mathbf{g}$, где $\mathbf{g}$ — вектор обратной решётки. В случае кристаллической решётки, элементарная ячейка которой имеет форму прямоугольного параллелепипеда с ребрами $a_1$, $a_2$, $a_3$, вектор $\mathbf{g} = \left( \dfrac{n_1}{a_1}, \dfrac{n_2}{a_2}, \dfrac{n_3}{a_3} \right)$, где $n_1$, $n_2$, $n_3$ — любые целые числа. Считая, что кристалл, имеющий очень большую массу, не может принимать от частицы энергию, выяснить, какой характер будет иметь угловое распределение частиц, рассеиваемых на монокристалле.
+	
+	\quad \textbf{Решение.} Распишем рассеяние на плоской поверхности:
+	
+	\begin{equation}
+		\vec{p_2} - \vec{p_1} = \vec{\Delta p} \quad \Leftrightarrow \quad 2p\sin\dfrac{\theta}{2} = \Delta p
+	\end{equation}
+	
+	\quad Поскольку изменение импульса может принимать только фиксированные значения из условия задачи, то: 
+
+	\begin{equation}
+		\sin\dfrac{\theta}{2} = \dfrac{2\pi \hbar g}{2p}, \quad g = \dfrac{1}{a} \implies \sin\dfrac{\theta}{2} = \dfrac{\pi \hbar}{pa}
+	\end{equation}
+	
+	\quad \textbf{Ответ}: $\sin\dfrac{\theta}{2} = \dfrac{\pi \hbar}{pa}$
+	
+	\quad \textbf{Задача 857.} Частицы среды имеют одинаковые по абсолютной величине скорости $v_0$, распределённые сферически симметрично, заряды $e$ и массы $m$. Вычислить среднюю силу $\mathbf{F}$, действующую на пробную частицу с зарядом $e'$ и массой $m'$, которая движется со скоростью $\mathbf{v}$.
+	
+	\quad \textbf{Решение.} Распишем уравнение движения частицы в поле движущихся частиц: 
+	
+	\begin{equation}
+		m' \dfrac{d\vec{v}}{dt} = q' \vec{E} + \dfrac{q'}{c} \left[\vec{v} \times \vec{B}\right], \quad v \ll c
+	\end{equation}
+	
+	\begin{equation}
+		m' \dfrac{d\vec{v}}{dt} = q'\vec{E}, \quad \vec{E} = \dfrac{q\vec{r}(t)}{r^3}, \quad \vec{r}(t) = \vec{l_0} + \vec{v} t 
+	\end{equation}
+	
+	\begin{equation}
+		r^3 = \left(l_0^2 + v^2 t^2\right)^{\frac{3}{2}} \implies \Delta \vec{p} = \displaystyle\int\limits_{-\infty}^{\infty} \dfrac{qq' (\vec{l_0} + \vec{v}t) dt}{\left(l_0^2 + v^2 t^2\right)^{\frac{3}{2}}} = qq'\displaystyle\int\limits_{-\infty}^{\infty} \dfrac{\vec{l_0}dt}{\left(l_0^2 + v^2 t^2 \right)^{\frac{3}{2}} } = \dfrac{2qq'\vec{l_0}}{v l_0^2}
+	\end{equation}
+	
+	\quad Изменение импульса характеризует силу, которая действует со стороны поля движущихся зарядов на пробную частицу. Усредняем силу по числу столкновений $N$:
+	
+	\begin{equation}
+		dN = 2\pi nf(\vec{v_0}) d^3 v_0 v sds, \quad \left<\vec{F}\right> = \displaystyle\int \Delta \vec{p} dN 
+	\end{equation}
+	
+	\quad где $f(\vec{v_0})$ - функция плотности вероятности, $n$ - концентрация, $s$ - прицельный параметр.
+	
+	\begin{equation}
+		\left<\vec{F}\right> = 4\pi qq' n \displaystyle\int\limits_{-\infty}^{\infty} f(\vec{v_0}) d^3 \vec{v_0} \displaystyle\int\limits_{0}^{\infty} \dfrac{\vec{s}}{s}ds
+	\end{equation}
+	
+	\quad Отсюда находим: 
+	
+	\begin{equation}
+		\left<\vec{F}\right> = 4\pi q^2 q'^2\lambda \left(\dfrac{1}{m} - \dfrac{1}{m'}\right) \dfrac{n\vec{v}}{v^3}, \quad \forall v > v_0
+	\end{equation}
+	
+	\quad \textbf{Ответ}: $\left<\vec{F}\right> = 4\pi q^2 q'^2\lambda \left(\dfrac{1}{m} - \dfrac{1}{m'}\right) \dfrac{n\vec{v}}{v^3}, \quad \forall v > v_0$
+
 \end{document}
